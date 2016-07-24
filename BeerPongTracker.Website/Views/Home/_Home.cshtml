@@ -1,0 +1,6 @@
+﻿@model BeerPongTracker.Website.Models.HomeViewModel
+
+<div class="game row">
+    @Html.Partial("Stats/_TeamStats", Model.Player1)
+    @Html.Partial("Stats/_TeamStats", Model.Player2)
+</div>

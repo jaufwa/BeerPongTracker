@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.DataAccess", "BeerPongTracker.DataAccess\BeerPongTracker.DataAccess.csproj", "{FD8876FB-A003-413F-B2ED-84A7339450FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.Core", "BeerPongTracker.Core\BeerPongTracker.Core.csproj", "{7F1C3EA6-456C-458C-8C9C-23F5A39F8B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.BusinessLogic", "BeerPongTracker.BusinessLogic\BeerPongTracker.BusinessLogic.csproj", "{56292095-9DE3-4795-878E-2011974E6463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.Api", "BeerPongTracker.Api\BeerPongTracker.Api.csproj", "{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.Website", "BeerPongTracker.Website\BeerPongTracker.Website.csproj", "{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD8876FB-A003-413F-B2ED-84A7339450FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8876FB-A003-413F-B2ED-84A7339450FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8876FB-A003-413F-B2ED-84A7339450FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8876FB-A003-413F-B2ED-84A7339450FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F1C3EA6-456C-458C-8C9C-23F5A39F8B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F1C3EA6-456C-458C-8C9C-23F5A39F8B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F1C3EA6-456C-458C-8C9C-23F5A39F8B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F1C3EA6-456C-458C-8C9C-23F5A39F8B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56292095-9DE3-4795-878E-2011974E6463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56292095-9DE3-4795-878E-2011974E6463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56292095-9DE3-4795-878E-2011974E6463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56292095-9DE3-4795-878E-2011974E6463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

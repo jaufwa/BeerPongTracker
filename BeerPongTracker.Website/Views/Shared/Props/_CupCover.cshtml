@@ -1,0 +1,10 @@
+﻿@model BeerPongTracker.Website.Models.CupCoverViewModel
+
+@using BeerPongTracker.Website.Models
+
+<div class="cup-cover cup-cover--numer-of-cups-@Model.NumberOfCups cup-cover--team-@Model.TeamId">
+    @for (int i = 1; i <= Model.NumberOfCups; i++)
+    {
+        @Html.Partial("Props/_Cup", new CupViewModel(Model.TeamId, i))
+    }
+</div>

@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BeerPongFederationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CupTracker">
+          <Key>
+            <PropertyRef Name="CupTrackerId" />
+          </Key>
+          <Property Name="CupTrackerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="CupId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateStarted" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameSetting">
+          <Key>
+            <PropertyRef Name="GameSettingId" />
+          </Key>
+          <Property Name="GameSettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="SettingId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FacebookId" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PlayerGame">
+          <Key>
+            <PropertyRef Name="PlayerGameId" />
+          </Key>
+          <Property Name="PlayerGameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CupTracker_Game">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="CupTracker" Type="Self.CupTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="CupTracker">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameSetting_Game">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="GameSetting" Type="Self.GameSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="GameSetting">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameSetting_Setting">
+          <End Role="Setting" Type="Self.Setting" Multiplicity="1" />
+          <End Role="GameSetting" Type="Self.GameSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setting">
+              <PropertyRef Name="SettingId" />
+            </Principal>
+            <Dependent Role="GameSetting">
+              <PropertyRef Name="SettingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_Game">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_Player">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BeerPongFederationModelStoreContainer">
+          <EntitySet Name="CupTracker" EntityType="Self.CupTracker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameSetting" EntityType="Self.GameSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerGame" EntityType="Self.PlayerGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CupTracker_Game" Association="Self.FK_CupTracker_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="CupTracker" EntitySet="CupTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameSetting_Game" Association="Self.FK_GameSetting_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameSetting" EntitySet="GameSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameSetting_Setting" Association="Self.FK_GameSetting_Setting">
+            <End Role="Setting" EntitySet="Setting" />
+            <End Role="GameSetting" EntitySet="GameSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_Game" Association="Self.FK_PlayerGame_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_Player" Association="Self.FK_PlayerGame_Player">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BeerPongFederationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BeerPongFederationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CupTracker" EntityType="BeerPongFederationModel.CupTracker" />
+          <EntitySet Name="Game" EntityType="BeerPongFederationModel.Game" />
+          <EntitySet Name="GameSetting" EntityType="BeerPongFederationModel.GameSetting" />
+          <EntitySet Name="Player" EntityType="BeerPongFederationModel.Player" />
+          <EntitySet Name="PlayerGame" EntityType="BeerPongFederationModel.PlayerGame" />
+          <EntitySet Name="Setting" EntityType="BeerPongFederationModel.Setting" />
+          <AssociationSet Name="FK_CupTracker_Game" Association="BeerPongFederationModel.FK_CupTracker_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="CupTracker" EntitySet="CupTracker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameSetting_Game" Association="BeerPongFederationModel.FK_GameSetting_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameSetting" EntitySet="GameSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_Game" Association="BeerPongFederationModel.FK_PlayerGame_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameSetting_Setting" Association="BeerPongFederationModel.FK_GameSetting_Setting">
+            <End Role="Setting" EntitySet="Setting" />
+            <End Role="GameSetting" EntitySet="GameSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_Player" Association="BeerPongFederationModel.FK_PlayerGame_Player">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CupTracker">
+          <Key>
+            <PropertyRef Name="CupTrackerId" />
+          </Key>
+          <Property Name="CupTrackerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="CupId" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="BeerPongFederationModel.FK_CupTracker_Game" FromRole="CupTracker" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CupTracker" Relationship="BeerPongFederationModel.FK_CupTracker_Game" FromRole="Game" ToRole="CupTracker" />
+          <NavigationProperty Name="GameSetting" Relationship="BeerPongFederationModel.FK_GameSetting_Game" FromRole="Game" ToRole="GameSetting" />
+          <NavigationProperty Name="PlayerGame" Relationship="BeerPongFederationModel.FK_PlayerGame_Game" FromRole="Game" ToRole="PlayerGame" />
+        </EntityType>
+        <EntityType Name="GameSetting">
+          <Key>
+            <PropertyRef Name="GameSettingId" />
+          </Key>
+          <Property Name="GameSettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="SettingId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Game" Relationship="BeerPongFederationModel.FK_GameSetting_Game" FromRole="GameSetting" ToRole="Game" />
+          <NavigationProperty Name="Setting" Relationship="BeerPongFederationModel.FK_GameSetting_Setting" FromRole="GameSetting" ToRole="Setting" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="PlayerGame" Relationship="BeerPongFederationModel.FK_PlayerGame_Player" FromRole="Player" ToRole="PlayerGame" />
+        </EntityType>
+        <EntityType Name="PlayerGame">
+          <Key>
+            <PropertyRef Name="PlayerGameId" />
+          </Key>
+          <Property Name="PlayerGameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="BeerPongFederationModel.FK_PlayerGame_Game" FromRole="PlayerGame" ToRole="Game" />
+          <NavigationProperty Name="Player" Relationship="BeerPongFederationModel.FK_PlayerGame_Player" FromRole="PlayerGame" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GameSetting" Relationship="BeerPongFederationModel.FK_GameSetting_Setting" FromRole="Setting" ToRole="GameSetting" />
+        </EntityType>
+        <Association Name="FK_CupTracker_Game">
+          <End Type="BeerPongFederationModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="BeerPongFederationModel.CupTracker" Role="CupTracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="CupTracker">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameSetting_Game">
+          <End Type="BeerPongFederationModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="BeerPongFederationModel.GameSetting" Role="GameSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="GameSetting">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_Game">
+          <End Type="BeerPongFederationModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="BeerPongFederationModel.PlayerGame" Role="PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameSetting_Setting">
+          <End Type="BeerPongFederationModel.Setting" Role="Setting" Multiplicity="1" />
+          <End Type="BeerPongFederationModel.GameSetting" Role="GameSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setting">
+              <PropertyRef Name="SettingId" />
+            </Principal>
+            <Dependent Role="GameSetting">
+              <PropertyRef Name="SettingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_Player">
+          <End Type="BeerPongFederationModel.Player" Role="Player" Multiplicity="1" />
+          <End Type="BeerPongFederationModel.PlayerGame" Role="PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BeerPongFederationModelStoreContainer" CdmEntityContainer="BeerPongFederationEntities">
+          <EntitySetMapping Name="CupTracker">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.CupTracker">
+              <MappingFragment StoreEntitySet="CupTracker">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CupId" ColumnName="CupId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="CupTrackerId" ColumnName="CupTrackerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameSetting">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.GameSetting">
+              <MappingFragment StoreEntitySet="GameSetting">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GameSettingId" ColumnName="GameSettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerGame">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.PlayerGame">
+              <MappingFragment StoreEntitySet="PlayerGame">
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="PlayerGameId" ColumnName="PlayerGameId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Setting">
+            <EntityTypeMapping TypeName="BeerPongFederationModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

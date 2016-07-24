@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90d133fda9804a66aa7537891afbf511" Name="Diagram1">
+        <EntityTypeShape EntityType="BeerPongFederationModel.CupTracker" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="BeerPongFederationModel.Game" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="BeerPongFederationModel.GameSetting" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="BeerPongFederationModel.Player" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="BeerPongFederationModel.PlayerGame" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="BeerPongFederationModel.Setting" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="BeerPongFederationModel.FK_CupTracker_Game" />
+        <AssociationConnector Association="BeerPongFederationModel.FK_GameSetting_Game" />
+        <AssociationConnector Association="BeerPongFederationModel.FK_PlayerGame_Game" />
+        <AssociationConnector Association="BeerPongFederationModel.FK_GameSetting_Setting" />
+        <AssociationConnector Association="BeerPongFederationModel.FK_PlayerGame_Player" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
