@@ -1,11 +1,11 @@
-﻿@model BeerPongTracker.Website.Models.TwoPlayerViewModel
+﻿@model BeerPongTracker.Website.Models.GameViewModel
 
 <div class="game row p2stats">
-    @Html.Partial("Stats/_TeamStats", Model.Team1Stats)
-    @Html.Partial("Stats/_TeamStats", Model.Team2Stats)
+    @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1])
+    @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2])
 </div>
-<div class="spacer row" style="height:50px">
+<div class="spacer row" style="height:27px">
 </div>
 <div class="row">
-    @Html.Partial("Props/_TwoPlayerTable", Model.TwoPlayerTableViewModel)
+    @Html.Partial("Props/_TwoPlayerTable", Model.TableCupCoversViewModel)
 </div>

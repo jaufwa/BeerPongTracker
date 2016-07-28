@@ -1,0 +1,14 @@
+﻿@model BeerPongTracker.Website.Models.GameViewModel
+
+<div class="three-player-table-container">
+    @Html.Partial("Props/_ThreePlayerTable", Model.TableCupCoversViewModel)
+    <div class="three-player-table-container__stats three-player-table-container__stats--p1">
+        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1])
+    </div>
+    <div class="three-player-table-container__stats three-player-table-container__stats--p2">
+        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2])
+    </div>
+    <div class="three-player-table-container__stats three-player-table-container__stats--p3">
+        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[3])
+    </div>
+</div>

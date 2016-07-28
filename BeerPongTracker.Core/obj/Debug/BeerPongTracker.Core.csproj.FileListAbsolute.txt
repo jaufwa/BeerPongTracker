@@ -1,5 +1,4 @@
 C:\Development\BeerPongTracker\BeerPongTracker.Core\bin\Debug\BeerPongTracker.Core.dll
 C:\Development\BeerPongTracker\BeerPongTracker.Core\bin\Debug\BeerPongTracker.Core.pdb
-C:\Development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.csprojResolveAssemblyReference.cache
 C:\Development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.dll
 C:\Development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.pdb

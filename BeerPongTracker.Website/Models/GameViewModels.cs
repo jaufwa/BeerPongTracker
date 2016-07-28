@@ -5,12 +5,10 @@ using System.Web;
 
 namespace BeerPongTracker.Website.Models
 {
-    public class TwoPlayerViewModel
+    public class GameViewModel
     {
-        public TeamStatsViewModel Team1Stats { get; set; }
+        public Dictionary<int, TeamStatsViewModel> TeamStatsViewModels { get; set; }
 
-        public TeamStatsViewModel Team2Stats { get; set; }
-
-        public TableCupCoversViewModel TwoPlayerTableViewModel { get; set; }
+        public TableCupCoversViewModel TableCupCoversViewModel { get; set; }
     }
 }

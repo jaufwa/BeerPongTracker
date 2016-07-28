@@ -211,11 +211,11 @@
     position:absolute;
     top:50%;
     left:50%;
-    margin-top: -33px;
-    margin-left: -115px;
+    margin-top: -97px;
+    margin-left: -94px;
 }
 .two-player-table__logo__image {
-    height:59px;
+    height:191px;
 }
 .cup-cover-container {
     position:absolute;
@@ -252,11 +252,11 @@
 .two-player-table__left__cups .cup-cover--numer-of-cups-6 .team-1-cup-6 { top: 267px;left: 28px; }
 
 .two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-1 { top:159px;right:237px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-2 { top:100px;right:131px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-3 { top:217px;right:131px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-4 { top:51px;right:28px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-2 { top:217px;right:131px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-3 { top:100px;right:131px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-4 { top: 267px;right: 28px; }
 .two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-5 { top:159px;right:28px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-6 { top: 267px;right: 28px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-6 .team-2-cup-6 { top:51px;right:28px; }
 
 .two-player-table__left__cups .cup-cover--numer-of-cups-10 .team-1-cup-1 { top:175px;left:264px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-10 .team-1-cup-2 { top:134px;left:186px; }
@@ -270,19 +270,19 @@
 .two-player-table__left__cups .cup-cover--numer-of-cups-10 .team-1-cup-10 { top: 300px;left: 26px; }
 
 .two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-1 { top:175px;right:264px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-2 { top:134px;right:186px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-3 { top:217px;right:186px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-4 { top:90px;right:106px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-2 { top:217px;right:186px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-3 { top:134px;right:186px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-4 { top: 259px;right:106px; }
 .two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-5 { top:175px;right:106px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-6 { top: 259px;right:106px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-7 { top: 51px;right: 26px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-8 { top: 134px;right: 26px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-9 { top: 217px;right: 26px; }
-.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-10 { top: 300px;right: 26px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-6 { top:90px;right:106px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-7 { top: 300px;right: 26px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-8 { top: 217px;right: 26px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-9 { top: 134px;right: 26px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-10 .team-2-cup-10 { top: 51px;right: 26px; }
 
-.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-1 { top:0px;left:0px; }
-.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-2 { top:0px;left:0px; }
-.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-3 { top:0px;left:0px; }
+.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-1 { top:179px;left:266px; }
+.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-2 { top:144px;left:206px; }
+.two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-3 { top:213px;left:206px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-4 { top:111px;left:146px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-5 { top:179px;left:146px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-6 { top: 248px;left:146px; }
@@ -295,3 +295,454 @@
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-13 { top: 179px;left: 25px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-14 { top: 248px;left: 25px; }
 .two-player-table__left__cups .cup-cover--numer-of-cups-15 .team-1-cup-15 { top: 316px;left: 25px; }
+
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-1 { top:179px;right:266px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-2 { top:213px;right:206px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-3 { top:144px;right:206px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-4 { top: 248px;right:146px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-5 { top:179px;right:146px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-6 { top:111px;right:146px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-7 { top: 281px;right: 86px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-8 { top: 213px;right: 86px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-9 { top: 144px;right: 86px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-10 { top: 76px;right: 86px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-11 { top: 316px;right: 25px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-12 { top: 248px;right: 25px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-13 { top: 179px;right: 25px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-14 { top: 111px;right: 25px; }
+.two-player-table__right__cups .cup-cover--numer-of-cups-15 .team-2-cup-15 { top: 43px;right: 25px; }
+
+.three-player-table__table-graphic {
+    height:723px;
+}
+
+.three-player-table-container {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-363px;
+    margin-left:-391px;
+}
+
+.cup-cover-container--three-player {
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.cup-cover-container--three-player .cup-cover--numer-of-cups-6 .cup {
+    height:80px;
+    width:80px;
+}
+
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-1 { top:288px;left:289px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-2 { top:214px;left:255px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-3 { top:279px;left:200px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-4 { top:133px;left:217px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-5 { top:204px;left:167px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-6 { top:273px;left:117px; }
+
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-1 { top:280px;left:415px; }
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-2 { top:275px;left:499px; }
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-3 { top:198px;left:454px; }
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-4 { top:270px;left:585px; }
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-5 { top:198px;left:538px; }
+.three-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-6 { top:121px;left:490px; }
+
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-1 { top:392px;left:349px; }
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-2 { top:467px;left:307px; }
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-3 { top:467px;left:392px; }
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-4 { top:543px;left:266px; }
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-5 { top:543px;left:349px; }
+.three-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-6 { top:543px;left:434px; }
+
+.cup-cover-container--three-player .cup-cover--numer-of-cups-10 .cup {
+    height:70px;
+    width:70px;
+}
+
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-1 { top:297px;left:306px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-2 { top:238px;left:277px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-3 { top:292px;left:239px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-4 { top:177px;left:249px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-5 { top:232px;left:212px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-6 { top:286px;left:173px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-7 { top:118px;left:222px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-8 { top:172px;left:186px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-9 { top:228px;left:147px; }
+.three-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-10 { top:284px;left:107px; }
+
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-1 {top: 290px;left: 413px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-2 {top: 284px;left: 478px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-3 {top: 231px;left: 440px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-4 {top: 278px;left: 542px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-5 {top: 225px;left: 503px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-6 {top: 171px;left: 465px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-7 {top: 271px;left: 607px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-8 {top: 218px;left: 569px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-9 {top: 165px;left: 530px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-10 {top: 112px;left: 491px;}
+
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-1 {top: 391px;left: 359px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-2 {top: 448px;left: 326px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-3 {top: 448px;left: 392px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-4 {top: 504px;left: 294px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-5 {top: 504px;left: 360px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-6 {top: 504px;left: 425px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-7 {top: 560px;left: 260px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-8 {top: 560px;left: 326px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-9 {top: 560px;left: 392px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-10 {top: 560px;left: 458px;}
+
+.cup-cover-container--three-player .cup-cover--numer-of-cups-15 .cup {
+    height:60px;
+    width:60px;
+}
+
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-1 {top: 315px;left: 318px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-2 {top: 265px;left: 295px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-3 {top: 310px;left: 264px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-4 {top: 214px;left: 273px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-5 {top: 260px;left: 241px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-6 {top: 306px;left: 210px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-7 {top: 163px;left: 253px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-8 {top: 209px;left: 220px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-9 {top: 255px;left: 188px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-10 {top: 301px;left: 156px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-11 {top: 111px;left: 230px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-12 {top: 158px;left: 199px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-13 {top: 204px;left: 166px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-14 {top: 250px;left: 133px;}
+.three-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-15 {top: 296px;left: 100px;}
+
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-1 {top: 307px;left: 410px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-2 {top: 300px;left: 463px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-3 {top: 255px;left: 430px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-4 {top: 294px;left: 515px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-5 {top: 249px;left: 483px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-6 {top: 203px;left: 450px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-7 {top: 292px;left: 568px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-8 {top: 245px;left: 536px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-9 {top: 199px;left: 504px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-10 {top: 152px;left: 473px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-11 {top: 287px;left: 623px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-12 {top: 241px;left: 590px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-13 {top: 195px;left: 558px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-14 {top: 148px;left: 526px;}
+.three-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-15 {top: 101px;left: 496px;}
+
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-1 {top: 381px;left: 362px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-2 {top: 428px;left: 334px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-3 {top: 428px;left: 389px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-4 {top: 476px;left: 307px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-5 {top: 476px;left: 362px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-6 {top: 476px;left: 417px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-7 {top: 524px;left: 279px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-8 {top: 524px;left: 334px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-9 {top: 524px;left: 389px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-10 {top: 524px;left: 444px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-11 {top: 572px;left: 252px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-12 {top: 572px;left: 307px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-13 {top: 572px;left: 362px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-14 {top: 572px;left: 417px;}
+.three-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-15 {top: 572px;left: 472px;}
+
+.four-player-table__table-graphic {
+    height: 662px;
+}
+
+.four-player-table-container {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top: -331px;
+    margin-left: -350px;
+}
+
+.cup-cover-container--four-player {
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.cup-cover-container--four-player .cup-cover--numer-of-cups-6 .cup {
+    height:80px;
+    width:80px;
+}
+
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-1 {top: 295px;left: 203px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-2 {top: 255px;left: 129px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-3 {top: 336px;left: 129px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-4 {top: 212px;left: 58px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-5 {top: 295px;left: 58px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-6.cup-cover--team-1 .team-1-cup-6 {top: 377px;left: 58px;}
+
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-1 {top: 200px;left: 285px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-2 {top: 127px;left: 246px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-3 {top: 127px;left: 329px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-4 {top: 54px;left: 368px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-5 {top: 54px;left: 285px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-6.cup-cover--team-2 .team-2-cup-6 {top: 54px;left: 200px;}
+
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-1 {top: 295px;left: 370px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-2 {top: 336px;left: 444px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-3 {top: 255px;left: 444px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-4 {top: 377px;left: 520px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-5 {top: 295px;left: 520px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-6.cup-cover--team-3 .team-3-cup-6 {top: 212px;left: 520px;}
+
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-1 {top: 372px;left: 285px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-2 {top: 448px;left: 329px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-3 {top: 448px;left: 246px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-4 {top: 520px;left: 200px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-5 {top: 520px;left: 285px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-6.cup-cover--team-4 .team-4-cup-6 {top: 520px;left: 368px;}
+
+.cup-cover-container--four-player .cup-cover--numer-of-cups-10 .cup {
+    height:68px;
+    width:68px;
+}
+
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-1 {top: 300px;left: 222px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-2 {top: 268px;left: 167px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-3 {top: 331px;left: 167px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-4 {top: 237px;left: 113px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-5 {top: 300px;left: 113px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-6 {top: 363px;left: 113px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-7 {top: 205px;left: 58px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-8 {top: 268px;left: 58px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-9 {top: 331px;left: 58px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-10.cup-cover--team-1 .team-1-cup-10 {top: 394px;left: 58px;}
+
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-1 {top: 220px;left: 293px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-2 {top: 166px;left: 325px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-3 {top: 166px;left: 262px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-4 {top: 111px;left: 356px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-5 {top: 111px;left: 293px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-6 {top: 111px;left: 230px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-7 {top: 56px;left: 389px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-8 {top: 56px;left: 325px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-9 {top: 56px;left: 262px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-10.cup-cover--team-2 .team-2-cup-10 {top: 56px;left: 198px;}
+
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-1 {top: 291px;left: 368px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-2 {top: 322px;left: 423px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-3 {top: 259px;left: 423px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-4 {top: 353px;left: 478px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-5 {top: 291px;left: 478px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-6 {top: 228px;left: 478px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-7 {top: 385px;left: 533px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-8 {top: 322px;left: 533px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-9 {top: 259px;left: 533px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-10.cup-cover--team-3 .team-3-cup-10 {top: 196px;left: 533px;}
+
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-1 {top: 370px;left: 294px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-2 {top: 425px;left: 263px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-3 {top: 425px;left: 326px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-4 {top: 480px;left: 231px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-5 {top: 480px;left: 294px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-6 {top: 480px;left: 357px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-7 {top: 534px;left: 199px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-8 {top: 534px;left: 263px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-9 {top: 534px;left: 325px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-10.cup-cover--team-4 .team-4-cup-10 {top: 534px;left: 388px;}
+
+.cup-cover-container--four-player .cup-cover--numer-of-cups-15 .cup {
+    height:59px;
+    width:59px;
+}
+
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-1 {top: 301px;left: 242px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-2 {top: 274px;left: 196px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-3 {top: 328px;left: 196px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-4 {top: 249px;left: 149px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-5 {top: 301px;left: 149px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-6 {top: 355px;left: 149px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-7 {top: 222px;left: 102px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-8 {top: 274px;left: 102px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-9 {top: 328px;left: 102px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-10 {top: 382px;left: 102px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-11 {top: 195px;left: 55px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-12 {top: 247px;left: 55px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-13 {top: 301px;left: 55px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-14 {top: 355px;left: 55px;}
+.four-player-table__team1 .cup-cover--numer-of-cups-15.cup-cover--team-1 .team-1-cup-15 {top: 410px;left: 55px;}
+
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-1 {top: 243px;left: 296px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-2 {top: 197px;left: 270px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-3 {top: 197px;left: 322px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-4 {top: 149px;left: 349px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-5 {top: 149px;left: 296px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-6 {top: 149px;left: 243px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-7 {top: 101px;left: 375px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-8 {top: 101px;left: 322px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-9 {top: 101px;left: 270px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-10 {top: 101px;left: 218px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-11 {top: 53px;left: 402px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-12 {top: 53px;left: 349px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-13 {top: 53px;left: 296px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-14 {top: 53px;left: 243px;}
+.four-player-table__team2 .cup-cover--numer-of-cups-15.cup-cover--team-2 .team-2-cup-15 {top: 53px;left: 191px;}
+
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-1 {top: 297px;left: 353px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-2 {top: 324px;left: 400px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-3 {top: 272px;left: 400px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-4 {top: 244px;left: 447px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-5 {top: 297px;left: 447px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-6 {top: 350px;left: 447px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-7 {top: 377px;left: 495px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-8 {top: 324px;left: 495px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-9 {top: 272px;left: 495px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-10 {top: 219px;left: 495px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-11 {top: 403px;left: 543px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-12 {top: 350px;left: 543px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-13 {top: 297px;left: 543px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-14 {top: 244px;left: 543px;}
+.four-player-table__team3 .cup-cover--numer-of-cups-15.cup-cover--team-3 .team-3-cup-15 {top: 192px;left: 543px;}
+
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-1 {top: 359px;left: 300px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-2 {top: 406px;left: 274px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-3 {top: 406px;left: 327px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-4 {top: 453px;left: 247px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-5 {top: 453px;left: 300px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-6 {top: 453px;left: 353px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-7 {top: 500px;left: 221px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-8 {top: 500px;left: 274px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-9 {top: 500px;left: 327px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-10 {top: 500px;left: 380px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-11 {top: 547px;left: 194px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-12 {top: 547px;left: 247px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-13 {top: 547px;left: 300px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-14 {top: 547px;left: 353px;}
+.four-player-table__team4 .cup-cover--numer-of-cups-15.cup-cover--team-4 .team-4-cup-15 {top: 547px;left: 406px;}
+
+.three-player-table-container__stats {
+    position:absolute;
+}
+
+.three-player-table-container__stats .team-info__facebox {
+    height:60px;
+    width:60px;
+}
+
+.three-player-table-container__stats .team-info__facebox__margin {
+    height:52px;
+    width:52px;
+}
+
+.three-player-table-container__stats .team-info__health__container,
+.three-player-table-container__stats .team-info__health__container__remaining {
+    height: 22px;
+}
+
+.three-player-table-container__stats .team-info__health__container {
+    width:194px;
+}
+
+.three-player-table-container__stats .team-info__name {
+    margin-top:0;
+}
+
+.three-player-table-container__stats .team-info--left .team-info__name {
+    margin-left:0;
+}
+
+.three-player-table-container__stats .team-info--right .team-info__name {
+    margin-right:0;
+}
+
+.three-player-table-container__stats .team-info__name__text {
+    font-size:20px;
+}
+
+.three-player-table-container__stats .team-info__health {
+    width: 204px;
+    height: 34px;
+}
+
+.three-player-table-container__stats .team-info {
+    width: 292px;
+    height: 73px;
+}
+
+.three-player-table-container__stats--p1 {
+    top: 70px;
+    left: -80px;
+}
+.three-player-table-container__stats--p2 {
+    top: 70px;
+    left: 570px;
+}
+.three-player-table-container__stats--p3 {
+    top: 660px;
+    left: -8px;
+}
+
+.four-player-table-container__stats {
+    position:absolute;
+}
+
+.four-player-table-container__stats .team-info__facebox {
+    height:60px;
+    width:60px;
+}
+
+.four-player-table-container__stats .team-info__facebox__margin {
+    height:52px;
+    width:52px;
+}
+
+.four-player-table-container__stats .team-info__health__container,
+.four-player-table-container__stats .team-info__health__container__remaining {
+    height: 22px;
+}
+
+.four-player-table-container__stats .team-info__health__container {
+    width:194px;
+}
+
+.four-player-table-container__stats .team-info__name {
+    margin-top:0;
+}
+
+.four-player-table-container__stats .team-info--left .team-info__name {
+    margin-left:0;
+}
+
+.four-player-table-container__stats .team-info--right .team-info__name {
+    margin-right:0;
+}
+
+.four-player-table-container__stats .team-info__name__text {
+    font-size:20px;
+}
+
+.four-player-table-container__stats .team-info__health {
+    width: 204px;
+    height: 34px;
+}
+
+.four-player-table-container__stats .team-info {
+    width: 292px;
+    height: 73px;
+}
+
+.four-player-table-container__stats--p1 {
+    top: 290px;
+    left: -250px;
+}
+
+.four-player-table-container__stats--p2 {
+    top: -37px;
+    left: 172px;
+}
+
+.four-player-table-container__stats--p3 {
+    top: 290px;
+    left: 610px;
+}
+
+.four-player-table-container__stats--p4 {
+    top: 630px;
+    left: 450px;
+}

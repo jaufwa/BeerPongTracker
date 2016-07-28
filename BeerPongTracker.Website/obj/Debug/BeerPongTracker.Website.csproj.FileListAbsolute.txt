@@ -85,6 +85,5 @@ C:\Development\BeerPongTracker\BeerPongTracker.Website\bin\System.Web.Razor.xml
 C:\Development\BeerPongTracker\BeerPongTracker.Website\bin\System.Web.WebPages.xml
 C:\Development\BeerPongTracker\BeerPongTracker.Website\bin\System.Web.WebPages.Deployment.xml
 C:\Development\BeerPongTracker\BeerPongTracker.Website\bin\System.Web.WebPages.Razor.xml
-C:\Development\BeerPongTracker\BeerPongTracker.Website\obj\Debug\BeerPongTracker.Website.csprojResolveAssemblyReference.cache
 C:\Development\BeerPongTracker\BeerPongTracker.Website\obj\Debug\BeerPongTracker.Website.dll
 C:\Development\BeerPongTracker\BeerPongTracker.Website\obj\Debug\BeerPongTracker.Website.pdb

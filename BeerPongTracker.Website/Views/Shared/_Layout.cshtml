@@ -9,11 +9,9 @@
     @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
-    <div class="background">
-        <div class="margin">
-            @RenderBody()
-            @RenderSection("SPAViews", required: false)
-        </div>
+    <div class="margin">
+        @RenderBody()
+        @RenderSection("SPAViews", required: false)
     </div>
     @RenderSection("Scripts", required: false)
 </body>

@@ -265,9 +265,14 @@
     <Content Include="Content\BeerPongTracker.Reset.css" />
     <Content Include="Content\BeerPongTracker.Style.css" />
     <Content Include="Content\Images\2table_left.png" />
+    <Content Include="Content\Images\2table_left_red.png" />
     <Content Include="Content\Images\2table_middle.png" />
+    <Content Include="Content\Images\2table_middle_red.png" />
     <Content Include="Content\Images\2table_right.png" />
+    <Content Include="Content\Images\2table_right_red.png" />
+    <Content Include="Content\Images\3table.jpg" />
     <Content Include="Content\Images\BpfLogoLight.png" />
+    <Content Include="Content\Images\BpfLogoLight_red.png" />
     <Content Include="Content\Images\cup.png" />
     <Content Include="Content\Images\cup_red.png" />
     <Content Include="favicon.ico" />
@@ -345,6 +350,12 @@
     <Content Include="Views\Game\TwoPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_TwoPlayerTable.cshtml" />
     <Content Include="Views\Shared\Props\_CupCover.cshtml" />
+    <Content Include="Views\Game\_ThreePlayer.cshtml" />
+    <Content Include="Views\Game\ThreePlayer.cshtml" />
+    <Content Include="Views\Shared\Props\_ThreePlayerTable.cshtml" />
+    <Content Include="Views\Game\_FourPlayer.cshtml" />
+    <Content Include="Views\Game\FourPlayer.cshtml" />
+    <Content Include="Views\Shared\Props\_FourPlayerTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
