@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace BeerPongTracker.Website
 {
@@ -36,7 +33,8 @@ namespace BeerPongTracker.Website
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/BeerPongTracker.Reset.css",
-                 "~/Content/BeerPongTracker.Style.css"));
+                 "~/Content/BeerPongTracker.Style.css",
+                 "~/Content/BeerPongTracker.PreLoader.css"));
         }
     }
 }

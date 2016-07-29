@@ -1,9 +1,4 @@
-﻿body:after{
-    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
-    content: url('/Content/Images/cup_red.png') url('/Content/Images/2table_left_red.png') url('/Content/Images/2table_middle_red.png') url('/Content/Images/2table_right_red.png');
-}
-
-.background {
+﻿.background {
     position: absolute;
     height: 40%;
     width: 100%;

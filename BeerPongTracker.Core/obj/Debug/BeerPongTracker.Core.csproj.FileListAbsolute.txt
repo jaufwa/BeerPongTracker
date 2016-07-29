@@ -2,3 +2,4 @@ C:\Development\BeerPongTracker\BeerPongTracker.Core\bin\Debug\BeerPongTracker.Co
 C:\Development\BeerPongTracker\BeerPongTracker.Core\bin\Debug\BeerPongTracker.Core.pdb
 C:\Development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.dll
 C:\Development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.pdb
+C:\development\BeerPongTracker\BeerPongTracker.Core\obj\Debug\BeerPongTracker.Core.csprojResolveAssemblyReference.cache

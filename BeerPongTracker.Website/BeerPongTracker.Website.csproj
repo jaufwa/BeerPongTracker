@@ -262,6 +262,7 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\BeerPongTracker.PreLoads.css" />
     <Content Include="Content\BeerPongTracker.Reset.css" />
     <Content Include="Content\BeerPongTracker.Style.css" />
     <Content Include="Content\Images\2table_left.png" />
