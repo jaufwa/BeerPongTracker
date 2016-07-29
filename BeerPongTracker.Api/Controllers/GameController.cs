@@ -1,14 +1,12 @@
-﻿using BeerPongTracker.BusinessLogic.Game;
-using BeerPongTracker.DataAccess.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System;
 using System.Web.Http;
+using BeerPongTracker.BusinessLogic.Game;
+using BeerPongTracker.DataAccess.Model;
 
 namespace BeerPongTracker.Api.Controllers
 {
+    using Game = BeerPongTracker.BusinessLogic.Game.Game;
+
     [RoutePrefix("api/Game")]
     public class GameController : ApiController
     {
@@ -29,6 +27,12 @@ namespace BeerPongTracker.Api.Controllers
         public StartGameResponse StartGame(StartGameRequest startGameRequest)
         {
             return _gameLogic.StartGame(startGameRequest);
+        }
+
+        [Route("Game/{gameId}")]
+        public Game Game(int gameId)
+        {
+            return _gameLogic.Game(gameId);
         }
     }
 }

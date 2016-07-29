@@ -1,15 +1,16 @@
-﻿using BeerPongTracker.Website.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using BeerPongTracker.Website.Models;
 
 namespace BeerPongTracker.Website.Controllers
 {
+    using System.Configuration;
+
+    using BeerPongTracker.ApiClient.Client;
+    using BeerPongTracker.Website.ViewBuilders;
+
     public class GameController : Controller
     {
-        // GET: Game
         public ActionResult TwoPlayer()
         {
             var numberOfCups = 15;
@@ -263,6 +264,15 @@ namespace BeerPongTracker.Website.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public ActionResult Build(int gameId)
+        {
+            var gameViewBuilder = new GameViewBuilder(new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]));
+
+            var viewHelper = gameViewBuilder.Build(gameId);
+
+            return View(viewHelper.ViewPath, viewHelper.ViewModel);
         }
     }
 }
