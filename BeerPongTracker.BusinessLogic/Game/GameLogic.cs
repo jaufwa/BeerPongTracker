@@ -1,10 +1,7 @@
-﻿using BeerPongTracker.Core.Enums;
-using BeerPongTracker.DataAccess.Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BeerPongTracker.Core.Enums;
+using BeerPongTracker.DataAccess.Model;
 
 namespace BeerPongTracker.BusinessLogic.Game
 {
@@ -102,6 +99,13 @@ namespace BeerPongTracker.BusinessLogic.Game
             _beerPongFederationEntities.SaveChanges();
 
             return new StartGameResponse();
+        }
+
+        public Game Game(int gameId)
+        {
+            // Get game state from DB
+
+            throw new NotImplementedException();
         }
     }
 }

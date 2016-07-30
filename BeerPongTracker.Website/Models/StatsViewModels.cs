@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BeerPongTracker.Website.Models
+﻿namespace BeerPongTracker.Website.Models
 {
     public class AvatarViewModel
     {
@@ -20,6 +15,7 @@ namespace BeerPongTracker.Website.Models
         public AvatarViewModel AvatarViewModel { get; set; }
 
         public TeamNameViewModel TeamNameViewModel { get; set; }
+
         public string Alignment { get; set; }
     }
 }

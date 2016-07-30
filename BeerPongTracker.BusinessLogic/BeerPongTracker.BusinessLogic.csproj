@@ -48,12 +48,14 @@
     <Compile Include="Cup\CupSwitchRequest.cs" />
     <Compile Include="Cup\CupSwitchResponse.cs" />
     <Compile Include="Cup\ICupLogic.cs" />
+    <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\IGameLogic.cs" />
     <Compile Include="Game\StartGamePlayer.cs" />
     <Compile Include="Game\StartGameRequest.cs" />
     <Compile Include="Game\StartGameResponse.cs" />
     <Compile Include="Game\StartGameTeam.cs" />
+    <Compile Include="Game\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

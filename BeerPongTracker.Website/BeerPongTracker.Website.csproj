@@ -258,10 +258,13 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewBuilders\GameViewBuilder.cs" />
+    <Compile Include="ViewBuilders\ViewBuilderResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\BeerPongTracker.PreLoads.css" />
     <Content Include="Content\BeerPongTracker.Reset.css" />
     <Content Include="Content\BeerPongTracker.Style.css" />
     <Content Include="Content\Images\2table_left.png" />
@@ -368,6 +371,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeerPongTracker.ApiClient\BeerPongTracker.ApiClient.csproj">
+      <Project>{0dad4292-a903-4b08-bb0a-109399f7d4cc}</Project>
+      <Name>BeerPongTracker.ApiClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

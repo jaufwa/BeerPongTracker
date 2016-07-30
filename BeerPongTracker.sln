@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.DataAccess", "BeerPongTracker.DataAccess\BeerPongTracker.DataAccess.csproj", "{FD8876FB-A003-413F-B2ED-84A7339450FB}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.Api", "BeerPongTracker.Api\BeerPongTracker.Api.csproj", "{8D18A046-0ABC-4E5A-AE3A-BB1F9391F0AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.Website", "BeerPongTracker.Website\BeerPongTracker.Website.csproj", "{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerPongTracker.ApiClient", "BeerPongTracker.ApiClient\BeerPongTracker.ApiClient.csproj", "{0DAD4292-A903-4B08-BB0A-109399F7D4CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52F7A2B0-F0E7-41FF-8C46-EF99D33DE7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAD4292-A903-4B08-BB0A-109399F7D4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAD4292-A903-4B08-BB0A-109399F7D4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAD4292-A903-4B08-BB0A-109399F7D4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAD4292-A903-4B08-BB0A-109399F7D4CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
