@@ -1,7 +1,0 @@
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\bin\Debug\BeerPongTracker.ApiClient.dll
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\bin\Debug\BeerPongTracker.ApiClient.pdb
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\bin\Debug\Newtonsoft.Json.dll
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\bin\Debug\Newtonsoft.Json.xml
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\obj\Debug\BeerPongTracker.ApiClient.csprojResolveAssemblyReference.cache
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\obj\Debug\BeerPongTracker.ApiClient.dll
-C:\development\BeerPongTracker\BeerPongTracker.ApiClient\obj\Debug\BeerPongTracker.ApiClient.pdb

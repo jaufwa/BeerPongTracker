@@ -6,3 +6,10 @@
 /BeerPongTracker.Core/bin
 /BeerPongTracker.DataAccess/bin
 /BeerPongTracker.Website/bin
+/BeerPongTracker/obj
+/BeerPongTracker.Api/obj
+/BeerPongTracker.ApiClient/obj
+/BeerPongTracker.BusinessLogic/obj
+/BeerPongTracker.Core/obj
+/BeerPongTracker.DataAccess/obj
+/BeerPongTracker.Website/obj
