@@ -1,0 +1,8 @@
+/BeerPongTracker/bin
+/.vs
+/BeerPongTracker.Api/bin
+/BeerPongTracker.ApiClient/bin
+/BeerPongTracker.BusinessLogic/bin
+/BeerPongTracker.Core/bin
+/BeerPongTracker.DataAccess/bin
+/BeerPongTracker.Website/bin
