@@ -11,6 +11,18 @@ namespace BeerPongTracker.Website.Mocks
     {
         public Game GetGame(int gameId)
         {
+            var gameMap = new Dictionary<int, Game>()
+            {
+                {1, GetGame1()},
+                {2, GetGame2()},
+                {3, GetGame3()}
+            };
+
+            return gameMap[gameId];
+        }
+
+        public Game GetGame1()
+        {
             var game = new Game() {
                 GameId = 1,
                 NumberOfCups = 10,
@@ -24,51 +36,193 @@ namespace BeerPongTracker.Website.Mocks
             return game;
         }
 
+        public Game GetGame2()
+        {
+            var game = new Game()
+            {
+                GameId = 2,
+                NumberOfCups = 10,
+                NumberOfTeams = 3,
+                Teams = new List<Team>()
+            };
+
+            game.Teams.Add(BuildTeam1());
+            game.Teams.Add(BuildTeam2());
+            game.Teams.Add(BuildTeam3());
+
+            return game;
+        }
+
+        public Game GetGame3()
+        {
+            var game = new Game()
+            {
+                GameId = 1,
+                NumberOfCups = 15,
+                NumberOfTeams = 2,
+                Teams = new List<Team>()
+            };
+
+            game.Teams.Add(BuildTeam4());
+            game.Teams.Add(BuildTeam5());
+
+            return game;
+        }
+
         private Team BuildTeam1()
+        {
+            var result = GetTeam1();
+
+            result.CupStats = Get10Cups1();
+
+            return result;
+        }
+
+        private Team BuildTeam2()
+        {
+            var result = GetTeam2();
+
+            result.CupStats = Get10Cups2();
+
+            return result;
+        }
+
+        private Team BuildTeam3()
+        {
+            var result = GetTeam3();
+
+            result.CupStats = Get10Cups1();
+
+            return result;
+        }
+
+        private Team BuildTeam4()
+        {
+            var result = GetTeam1();
+
+            result.CupStats = Get15Cups1();
+
+            return result;
+        }
+
+        private Team BuildTeam5()
+        {
+            var result = GetTeam2();
+
+            result.CupStats = Get15Cups2();
+
+            return result;
+        }
+
+        private Team GetTeam1()
         {
             return new Team()
             {
                 FacebookId = "548140192",
                 Health = 90,
                 TeamId = 1,
-                TeamName = "Jonny Miles",
-                CupStats = new List<CupStats>()
-                {
-                    {new CupStats() {TeamId = 1, Active = false, CupId = 1 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 2 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 4 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 5 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 7 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 9 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 10 }}
-                }
+                TeamName = "Jonny Miles"
             };
         }
 
-        private Team BuildTeam2()
+        private Team GetTeam2()
         {
             return new Team()
             {
                 FacebookId = "666875244",
                 Health = 80,
                 TeamId = 2,
-                TeamName = "Chris Tucker",
-                CupStats = new List<CupStats>()
-                {
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 1 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 2 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
-                    {new CupStats() {TeamId = 1, Active = false, CupId = 4 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 5 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
-                    {new CupStats() {TeamId = 1, Active = false, CupId = 7 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 9 }},
-                    {new CupStats() {TeamId = 1, Active = true, CupId = 10 }}
-                }
+                TeamName = "Chris Tucker"
+            };
+        }
+
+        private Team GetTeam3()
+        {
+            return new Team()
+            {
+                FacebookId = "682905112",
+                Health = 50,
+                TeamId = 3,
+                TeamName = "Danny Winstone"
+            };
+        }
+
+        private List<CupStats> Get10Cups1()
+        {
+            return new List<CupStats>()
+            {
+                {new CupStats() {TeamId = 1, Active = false, CupId = 1 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 2 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 4 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 5 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 7 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 9 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 10 }}
+            };
+        }
+
+        private List<CupStats> Get10Cups2()
+        {
+            return new List<CupStats>()
+            {
+                {new CupStats() {TeamId = 1, Active = true, CupId = 1 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 2 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 4 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 5 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 7 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 9 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 10 }}
+            };
+        }
+
+        private List<CupStats> Get15Cups1()
+        {
+            return new List<CupStats>()
+            {
+                {new CupStats() {TeamId = 1, Active = false, CupId = 1 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 2 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 4 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 5 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 7 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 9 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 10 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 11 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 12 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 13 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 14 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 15 }}
+            };
+        }
+
+
+        private List<CupStats> Get15Cups2()
+        {
+            return new List<CupStats>()
+            {
+                {new CupStats() {TeamId = 1, Active = false, CupId = 1 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 2 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 3 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 4 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 5 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 6 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 7 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 8 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 9 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 10 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 11 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 12 }},
+                {new CupStats() {TeamId = 1, Active = false, CupId = 13 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 14 }},
+                {new CupStats() {TeamId = 1, Active = true, CupId = 15 }}
             };
         }
     }
