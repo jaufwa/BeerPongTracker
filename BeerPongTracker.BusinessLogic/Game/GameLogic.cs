@@ -2,6 +2,9 @@
 using System.Linq;
 using BeerPongTracker.Core.Enums;
 using BeerPongTracker.DataAccess.Model;
+using System.Collections.Generic;
+using BeerPongTracker.BusinessLogic.Cup;
+using BeerPongTracker.Core;
 
 namespace BeerPongTracker.BusinessLogic.Game
 {
@@ -103,9 +106,60 @@ namespace BeerPongTracker.BusinessLogic.Game
 
         public Game Game(int gameId)
         {
-            // Get game state from DB
+            var result = new Game();
 
-            throw new NotImplementedException();
+            var dbGame = _beerPongFederationEntities.Game.FirstOrDefault(x => x.GameId == gameId);
+            if (dbGame == null) return null;
+
+            var dbPlayers = _beerPongFederationEntities.PlayerGame.Where(x => x.GameId == gameId);
+            if (dbPlayers == null) return null;
+
+            var dbCupsNumberSetting = _beerPongFederationEntities.GameSetting.FirstOrDefault(
+                x => x.GameId == gameId && x.SettingId == (int)SettingEnum.NumberOfCups);
+
+            result.GameId = dbGame.GameId;
+            result.NumberOfTeams = dbPlayers.Count();
+            result.NumberOfCups = int.Parse(dbCupsNumberSetting.Value);
+
+            var dbPlayerGames = _beerPongFederationEntities.PlayerGame.Include("Player").Where(x => x.GameId == gameId);
+            if (dbPlayerGames == null) return null;
+
+            result.Teams = new List<Team>();
+
+            foreach (var dbPlayerGame in dbPlayerGames)
+            {
+                var team = new Team();
+                team.TeamId = dbPlayerGame.TeamId;
+                team.TeamName = dbPlayerGame.Player.Name;
+                team.FacebookId = dbPlayerGame.Player.FacebookId;
+
+                var dbCups = _beerPongFederationEntities.CupTracker.Where(x => x.GameId == gameId && x.TeamId == dbPlayerGame.TeamId);
+
+                var cupStats = new List<CupStats>();
+
+                foreach (var dbCup in dbCups)
+                {
+                    var cupStat = new CupStats() {
+                        Active = dbCup.Active,
+                        CupId = dbCup.CupId,
+                        TeamId = dbPlayerGame.TeamId
+                    };
+
+                    cupStats.Add(cupStat);
+                }
+
+                team.CupStats = cupStats;
+
+                var activeCupsCount = cupStats.Where(x => x.Active).Count();
+
+                var totalCupsCount = cupStats.Count();
+
+                team.Health = BeerPongMath.GetPercentage(activeCupsCount, totalCupsCount);
+
+                result.Teams.Add(team);
+            }
+
+            return result;
         }
     }
 }

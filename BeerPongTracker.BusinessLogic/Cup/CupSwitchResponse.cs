@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeerPongTracker.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace BeerPongTracker.BusinessLogic.Cup
 
                     var totalCupsCount = CupStats.Where(x => x.TeamId == teamId).Count();
 
-                    int healthPercentage = (int)Math.Round((double)100 * (activeCupsCount) / totalCupsCount);
+                    int healthPercentage = BeerPongMath.GetPercentage(activeCupsCount, totalCupsCount);
 
                     teamHealth.Add(teamId, healthPercentage);
                 }

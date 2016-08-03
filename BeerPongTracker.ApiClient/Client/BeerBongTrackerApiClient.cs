@@ -18,6 +18,8 @@
 
         public Game GetGame(int gameId)
         {
+            // TODO: GET request to API with game Id
+
             throw new NotImplementedException();
         }
     }
