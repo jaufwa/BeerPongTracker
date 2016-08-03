@@ -360,6 +360,7 @@
     <Content Include="Views\Game\_FourPlayer.cshtml" />
     <Content Include="Views\Game\FourPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_FourPlayerTable.cshtml" />
+    <Content Include="Views\Shared\_ImagePreloader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

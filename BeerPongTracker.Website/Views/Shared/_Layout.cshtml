@@ -13,10 +13,7 @@
         @RenderBody()
         @RenderSection("SPAViews", required: false)
     </div>
-	<div class="image-preloader" style="visibility:hidden">
-		<img class="three-player-table__table-graphic" src="~/Content/Images/3table.jpg" />
-		<img class="four-player-table__table-graphic" src="~/Content/Images/4table.jpg" />
-	</div>
+	@Html.Partial("_ImagePreloader")
     @RenderSection("Scripts", required: false)
 </body>
 </html>
