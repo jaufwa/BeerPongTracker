@@ -27,7 +27,6 @@
             {
                 var teamStatsViewModel = new TeamStatsViewModel
                 {
-                    Alignment = "auto",
                     AvatarViewModel = new AvatarViewModel
                     {
                         FacebookId = team.FacebookId

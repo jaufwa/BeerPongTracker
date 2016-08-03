@@ -17,5 +17,11 @@
         public TeamNameViewModel TeamNameViewModel { get; set; }
 
         public string Alignment { get; set; }
+
+        public TeamStatsViewModel WithAlignment(string alignment)
+        {
+            Alignment = alignment;
+            return this;
+        }
     }
 }

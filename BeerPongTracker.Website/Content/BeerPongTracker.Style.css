@@ -59,16 +59,58 @@
     float: left;
 }
 
-.team-info--right .team-info__block {
-    float: right;
-}
-
 .team-info--left .team-info__block--2 {
     margin-left: 10px;
 }
 
+.team-info--right .team-info__block {
+    float: right;
+}
+
 .team-info--right .team-info__block--2 {
     margin-right: 10px;
+}
+
+.team-info--left .team-info__health__container, 
+.team-info--left .team-info__health__container__remaining {
+    left: 0;
+}
+
+.team-info--right .team-info__health__container, 
+.team-info--right .team-info__health__container__remaining {
+    right: 0;
+}
+
+.team-info--left .team-info__name {
+    margin-left: 5px;
+}
+
+.team-info--right .team-info__name {
+    margin-right: 5px;
+    text-align: right;
+}
+
+.p2stats .team-stats.team-info--left {
+    float:left;
+}
+.p2stats .team-stats.team-info--right {
+    float:right;
+}
+
+.three-player-table-container__stats .team-info--left .team-info__name {
+    margin-left:0;
+}
+
+.three-player-table-container__stats .team-info--right .team-info__name {
+    margin-right:0;
+}
+
+.four-player-table-container__stats .team-info--left .team-info__name {
+    margin-left:0;
+}
+
+.four-player-table-container__stats .team-info--right .team-info__name {
+    margin-right:0;
 }
 
 .team-info__health {
@@ -114,29 +156,10 @@
     top: 0;
 }
 
-.team-info--left .team-info__health__container, 
-.team-info--left .team-info__health__container__remaining {
-    left: 0;
-}
-
-.team-info--right .team-info__health__container, 
-.team-info--right .team-info__health__container__remaining {
-    right: 0;
-}
-
 .team-info__name {
     margin-top: 11px;
     margin-right: 0;
     margin-bottom: 0;
-}
-
-.team-info--left .team-info__name {
-    margin-left: 5px;
-}
-
-.team-info--right .team-info__name {
-    margin-right: 5px;
-    text-align: right;
 }
 
 .team-info__name__text {
@@ -162,13 +185,6 @@
 
 .cup.empty {
     background-position: bottom;
-}
-
-.p2stats .team-stats.team-info--left {
-    float:left;
-}
-.p2stats .team-stats.team-info--right {
-    float:right;
 }
 
 .two-player-table__left {
@@ -643,14 +659,6 @@
     margin-top:0;
 }
 
-.three-player-table-container__stats .team-info--left .team-info__name {
-    margin-left:0;
-}
-
-.three-player-table-container__stats .team-info--right .team-info__name {
-    margin-right:0;
-}
-
 .three-player-table-container__stats .team-info__name__text {
     font-size:20px;
 }
@@ -703,14 +711,6 @@
 
 .four-player-table-container__stats .team-info__name {
     margin-top:0;
-}
-
-.four-player-table-container__stats .team-info--left .team-info__name {
-    margin-left:0;
-}
-
-.four-player-table-container__stats .team-info--right .team-info__name {
-    margin-right:0;
 }
 
 .four-player-table-container__stats .team-info__name__text {

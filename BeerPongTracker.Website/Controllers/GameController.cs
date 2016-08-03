@@ -17,7 +17,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player1 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "548140192"
@@ -30,7 +29,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player2 = new TeamStatsViewModel()
             {
-                Alignment = "right",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "666875244"
@@ -81,7 +79,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player1 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "548140192"
@@ -94,7 +91,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player2 = new TeamStatsViewModel()
             {
-                Alignment = "right",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "666875244"
@@ -107,7 +103,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player3 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "682905112"
@@ -166,7 +161,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player1 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "548140192"
@@ -179,7 +173,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player2 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "666875244"
@@ -192,7 +185,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player3 = new TeamStatsViewModel()
             {
-                Alignment = "right",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "682905112"
@@ -205,7 +197,6 @@ namespace BeerPongTracker.Website.Controllers
 
             var player4 = new TeamStatsViewModel()
             {
-                Alignment = "left",
                 AvatarViewModel = new AvatarViewModel()
                 {
                     FacebookId = "839635028"
