@@ -5,6 +5,11 @@
         public string FacebookId { get; set; }
     }
 
+    public class HealthViewModel
+    {
+        public int HealthPercentage { get; set; }
+    }
+
     public class TeamNameViewModel
     {
         public string Name { get; set; }
@@ -15,6 +20,8 @@
         public AvatarViewModel AvatarViewModel { get; set; }
 
         public TeamNameViewModel TeamNameViewModel { get; set; }
+
+        public HealthViewModel HealthViewModel { get; set; }
 
         public string Alignment { get; set; }
 

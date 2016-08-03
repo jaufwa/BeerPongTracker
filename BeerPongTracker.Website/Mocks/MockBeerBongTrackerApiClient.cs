@@ -29,7 +29,7 @@ namespace BeerPongTracker.Website.Mocks
             return new Team()
             {
                 FacebookId = "548140192",
-                Health = 100,
+                Health = 90,
                 TeamId = 1,
                 TeamName = "Jonny Miles",
                 CupStats = new List<CupStats>()

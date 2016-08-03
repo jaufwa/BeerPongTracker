@@ -34,6 +34,10 @@
                     TeamNameViewModel = new TeamNameViewModel
                     {
                         Name = team.TeamName
+                    },
+                    HealthViewModel = new HealthViewModel()
+                    {
+                        HealthPercentage = team.Health
                     }
                 };
 

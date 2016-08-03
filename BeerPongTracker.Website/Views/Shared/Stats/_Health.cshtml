@@ -1,6 +1,8 @@
-﻿<div class="health team-info__health">
+﻿@model BeerPongTracker.Website.Models.HealthViewModel
+
+<div class="health team-info__health">
     <div class="team-info__health__container">
-        <div class="team-info__health__container__remaining team-info__health__container__remaining--green" style="width:100%;">
+        <div class="team-info__health__container__remaining team-info__health__container__remaining--green" style="width:@Model.HealthPercentage%;">
         </div>
     </div>
 </div>
