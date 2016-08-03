@@ -11,10 +11,13 @@ namespace BeerPongTracker.Website.Models
 
         public int CupId { get; set; }
 
-        public CupViewModel(int teamId, int cupId)
+        public bool Active { get; set; }
+
+        public CupViewModel(int teamId, int cupId, bool active)
         {
             TeamId = teamId;
             CupId = cupId;
+            Active = active;
         }
     }
 
@@ -23,6 +26,8 @@ namespace BeerPongTracker.Website.Models
         public int TeamId { get; set; }
 
         public int NumberOfCups { get; set; }
+
+        public ICollection<CupViewModel> Cups { get; set; }
     }
 
     public class TableCupCoversViewModel

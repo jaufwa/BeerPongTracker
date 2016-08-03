@@ -1,9 +1,9 @@
-﻿namespace BeerPongTracker.ApiClient.Client
+﻿using BeerPongTracker.ApiClient.ContractObjects;
+
+namespace BeerPongTracker.ApiClient.Client
 {
     public interface IBeerBongTrackerApiClient
     {
-        TResponse Post<TRequest, TResponse>(string url, TRequest request);
-
-        TResponse Get<TResponse>(string url);
+        Game GetGame(int gameId);
     }
 }

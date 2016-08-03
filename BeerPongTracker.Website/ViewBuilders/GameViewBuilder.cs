@@ -17,7 +17,7 @@
 
         public ViewBuilderResult Build(int gameId)
         {
-            var gameState = _beerBongTrackerApiClient.Get<Game>($"Game/{gameId}");
+            var gameState = _beerBongTrackerApiClient.GetGame(gameId);
 
             var teamStatsViewModels = new Dictionary<int, TeamStatsViewModel>();
 
@@ -45,6 +45,13 @@
                     TeamId = team.TeamId
                 };
 
+                cupCoverViewModel.Cups = new List<CupViewModel>();
+
+                foreach (var cup in team.CupStats)
+                {
+                    cupCoverViewModel.Cups.Add(new CupViewModel(team.TeamId, cup.CupId, cup.Active));
+                }
+
                 teamCupCovers.Add(team.TeamId, cupCoverViewModel);
             }
 
@@ -61,9 +68,9 @@
 
             var viewPathMap = new Dictionary<int, string>()
             {
-                {2, "Game/_TwoPlayer" },
-                {3, "Game/_ThreePlayer" },
-                {4, "Game/_FourPlayer" }
+                {2, "_TwoPlayer" },
+                {3, "_ThreePlayer" },
+                {4, "_FourPlayer" }
             };
 
             var viewPath = viewPathMap[gameState.NumberOfTeams];

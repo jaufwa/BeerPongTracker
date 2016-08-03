@@ -3,8 +3,8 @@
 @using BeerPongTracker.Website.Models
 
 <div class="cup-cover cup-cover--numer-of-cups-@Model.NumberOfCups cup-cover--team-@Model.TeamId">
-    @for (int i = 1; i <= Model.NumberOfCups; i++)
+    @foreach (var cup in Model.Cups)
     {
-        @Html.Partial("Props/_Cup", new CupViewModel(Model.TeamId, i))
+        @Html.Partial("Props/_Cup", cup)
     }
 </div>

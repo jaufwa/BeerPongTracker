@@ -8,7 +8,7 @@ namespace BeerPongTracker.Website.Controllers
 
     using BeerPongTracker.ApiClient.Client;
     using BeerPongTracker.Website.ViewBuilders;
-
+    using Mocks;
     public class GameController : Controller
     {
         public ActionResult TwoPlayer()
@@ -259,7 +259,9 @@ namespace BeerPongTracker.Website.Controllers
 
         public ActionResult Build(int gameId)
         {
-            var gameViewBuilder = new GameViewBuilder(new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]));
+            //var gameViewBuilder = new GameViewBuilder(new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]));
+
+            var gameViewBuilder = new GameViewBuilder(new MockBeerBongTrackerApiClient());
 
             var viewHelper = gameViewBuilder.Build(gameId);
 
