@@ -142,7 +142,7 @@ namespace BeerPongTracker.BusinessLogic.Game
                 else
                 {
                     var players = dbPlayerGames.Where(x => x.TeamId == teamId).Select(x => x.Player);
-                    team.TeamName = string.Join(" + ", players.Select(x => x.Name));
+                    team.TeamName = GetCombinedTeamName(players.Select(x => x.Name));
                 }
 
                 var dbCups = _beerPongFederationEntities.CupTracker.Where(x => x.GameId == gameId && x.TeamId == teamId);
@@ -172,6 +172,13 @@ namespace BeerPongTracker.BusinessLogic.Game
             }
 
             return result;
+        }
+
+        private string GetCombinedTeamName(IEnumerable<string> playerNames)
+        {
+            var shortPlayerNames = Array.ConvertAll(playerNames.ToArray(), new Converter<string, string>(StringHelper.ShortenName));
+
+            return string.Join(" + ", shortPlayerNames);
         }
     }
 }
