@@ -10,6 +10,12 @@
     /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc1b0', endColorstr='#ffffff',GradientType=0 );*/ /* IE6-9 */
 }
 
+.hide {
+    visibility:hidden;
+    overflow:hidden;
+    position:absolute;
+}
+
 .margin {
     padding: 15px;
     overflow:hidden;

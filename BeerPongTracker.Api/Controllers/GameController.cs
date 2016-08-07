@@ -29,10 +29,17 @@ namespace BeerPongTracker.Api.Controllers
             return _gameLogic.StartGame(startGameRequest);
         }
 
+        [HttpGet]
         [Route("Game")]
         public Game Game(int gameId)
         {
             return _gameLogic.Game(gameId);
+        }
+
+        [Route("Test")]
+        public Game Test()
+        {
+            return _gameLogic.Game(1);
         }
     }
 }

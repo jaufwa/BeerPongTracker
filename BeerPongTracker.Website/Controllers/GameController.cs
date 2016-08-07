@@ -259,9 +259,7 @@ namespace BeerPongTracker.Website.Controllers
 
         public ActionResult Build(int gameId)
         {
-            //var gameViewBuilder = new GameViewBuilder(new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]));
-
-            var gameViewBuilder = new GameViewBuilder(new MockBeerBongTrackerApiClient());
+            var gameViewBuilder = new GameViewBuilder(new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]));
 
             var viewHelper = gameViewBuilder.Build(gameId);
 

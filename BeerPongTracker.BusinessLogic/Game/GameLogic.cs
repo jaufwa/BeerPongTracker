@@ -118,7 +118,6 @@ namespace BeerPongTracker.BusinessLogic.Game
                 x => x.GameId == gameId && x.SettingId == (int)SettingEnum.NumberOfCups);
 
             result.GameId = dbGame.GameId;
-            result.NumberOfTeams = dbPlayers.Count();
             result.NumberOfCups = int.Parse(dbCupsNumberSetting.Value);
 
             var dbPlayerGames = _beerPongFederationEntities.PlayerGame.Include("Player").Where(x => x.GameId == gameId);
@@ -126,14 +125,27 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             result.Teams = new List<Team>();
 
-            foreach (var dbPlayerGame in dbPlayerGames)
+            result.NumberOfTeams = dbPlayerGames.Select(x => x.TeamId).Distinct().Count();
+
+            foreach (var teamId in dbPlayerGames.Select(x => x.TeamId).Distinct())
             {
                 var team = new Team();
-                team.TeamId = dbPlayerGame.TeamId;
-                team.TeamName = dbPlayerGame.Player.Name;
-                team.FacebookId = dbPlayerGame.Player.FacebookId;
 
-                var dbCups = _beerPongFederationEntities.CupTracker.Where(x => x.GameId == gameId && x.TeamId == dbPlayerGame.TeamId);
+                team.TeamId = teamId;
+
+                if (dbPlayerGames.Where(x => x.TeamId == teamId).Count() == 1)
+                {
+                    var player = dbPlayerGames.First(x => x.TeamId == teamId).Player;
+                    team.TeamName = player.Name;
+                    team.FacebookId = player.FacebookId;
+                }
+                else
+                {
+                    var players = dbPlayerGames.Where(x => x.TeamId == teamId).Select(x => x.Player);
+                    team.TeamName = string.Join(" + ", players.Select(x => x.Name));
+                }
+
+                var dbCups = _beerPongFederationEntities.CupTracker.Where(x => x.GameId == gameId && x.TeamId == teamId);
 
                 var cupStats = new List<CupStats>();
 
@@ -142,7 +154,7 @@ namespace BeerPongTracker.BusinessLogic.Game
                     var cupStat = new CupStats() {
                         Active = dbCup.Active,
                         CupId = dbCup.CupId,
-                        TeamId = dbPlayerGame.TeamId
+                        TeamId = teamId
                     };
 
                     cupStats.Add(cupStat);
