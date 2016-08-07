@@ -5,6 +5,7 @@ using BeerPongTracker.DataAccess.Model;
 
 namespace BeerPongTracker.Api.Controllers
 {
+    using BusinessLogic.Cup;
     using Game = BeerPongTracker.BusinessLogic.Game.Game;
 
     [RoutePrefix("api/Game")]
@@ -14,7 +15,8 @@ namespace BeerPongTracker.Api.Controllers
 
         public GameController()
         {
-            _gameLogic = new GameLogic(new BeerPongFederationEntities());
+            var entities = new BeerPongFederationEntities();
+            _gameLogic = new GameLogic(entities);
         }
 
         [Route("Ping")]
@@ -36,10 +38,10 @@ namespace BeerPongTracker.Api.Controllers
             return _gameLogic.Game(gameId);
         }
 
-        [Route("Test")]
-        public Game Test()
+        [Route("CupSwitch")]
+        public Game CupSwitch(CupSwitchRequest cupSwitchRequest)
         {
-            return _gameLogic.Game(1);
+            return _gameLogic.CupSwitch(cupSwitchRequest);
         }
     }
 }

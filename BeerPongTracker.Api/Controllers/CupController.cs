@@ -19,13 +19,5 @@ namespace BeerPongTracker.Api.Controllers
         {
             _cupLogic = new CupLogic(new BeerPongFederationEntities());
         }
-
-        [Route("Switch")]
-        public CupSwitchResponse Switch(CupSwitchRequest cupSwitchRequest)
-        {
-            var response = _cupLogic.CupSwitch(cupSwitchRequest);
-
-            return response;
-        }
     }
 }

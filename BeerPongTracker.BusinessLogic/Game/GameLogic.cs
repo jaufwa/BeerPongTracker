@@ -174,6 +174,25 @@ namespace BeerPongTracker.BusinessLogic.Game
             return result;
         }
 
+        public Game CupSwitch(CupSwitchRequest cupSwitchRequest)
+        {
+            var cupTracker = _beerPongFederationEntities.CupTracker.FirstOrDefault(x =>
+                x.GameId == cupSwitchRequest.GameId &&
+                x.TeamId == cupSwitchRequest.TeamId &&
+                x.CupId == cupSwitchRequest.CupId);
+
+            if (cupTracker == null)
+            {
+                return null;
+            }
+
+            cupTracker.Active = !cupTracker.Active;
+
+            _beerPongFederationEntities.SaveChanges();
+
+            return Game(cupSwitchRequest.GameId);
+        }
+
         private string GetCombinedTeamName(IEnumerable<string> playerNames)
         {
             var shortPlayerNames = Array.ConvertAll(playerNames.ToArray(), new Converter<string, string>(StringHelper.ShortenName));

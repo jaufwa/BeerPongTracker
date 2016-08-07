@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BeerPongTracker.BusinessLogic.Game;
 
 namespace BeerPongTracker.BusinessLogic.Cup
 {
     public interface ICupLogic
     {
-        CupSwitchResponse CupSwitch(CupSwitchRequest cupSwitchRequest);
+        Game.Game CupSwitch(CupSwitchRequest cupSwitchRequest);
     }
 }
