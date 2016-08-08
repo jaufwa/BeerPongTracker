@@ -22,6 +22,11 @@
             return GetRequest<Game>($"Game/Game?gameid={gameId}");
         }
 
+        public Game CupSwitch(CupSwitchRequest request)
+        {
+            return PostRequest<CupSwitchRequest, Game>("Game/CupSwitch", request);
+        }
+
         private TResponse GetRequest<TResponse>(string relativeUrl)
         {
             var webRequest = WebRequest.Create($"{_apiBaseUrl}/{relativeUrl}");
@@ -35,6 +40,34 @@
             var responseObject = JsonConvert.DeserializeObject<TResponse>(respsoneJson);
 
             return responseObject;
+        }
+
+        private TResponse PostRequest<TRequest, TResponse>(string relativeUrl, TRequest request)
+        {
+            var webRequest = WebRequest.Create($"{_apiBaseUrl}/{relativeUrl}") as HttpWebRequest;
+
+            webRequest.ContentType = webRequest.Accept = "application / json";
+
+            webRequest.Method = "POST";
+
+            byte[] _byteVersion = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(request));
+
+            webRequest.ContentLength = _byteVersion.Length;
+
+            var stream = webRequest.GetRequestStream();
+
+            stream.Write(_byteVersion, 0, _byteVersion.Length);
+
+            stream.Close();
+
+            HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                var responseJson = reader.ReadToEnd();
+
+                return JsonConvert.DeserializeObject<TResponse>(responseJson);
+            }
         }
     }
 }

@@ -23,6 +23,8 @@ namespace BeerPongTracker.Website.Models
 
     public class CupCoverViewModel
     {
+        public int GameId { get; set; }
+
         public int TeamId { get; set; }
 
         public int NumberOfCups { get; set; }

@@ -2,9 +2,14 @@
 
 @using BeerPongTracker.Website.Models
 
-<div class="cup-cover cup-cover--numer-of-cups-@Model.NumberOfCups cup-cover--team-@Model.TeamId">
+<div class="cup-cover cup-cover--numer-of-cups-@Model.NumberOfCups cup-cover--team-@Model.TeamId" gameid="@Model.GameId">
     @foreach (var cup in Model.Cups)
     {
         @Html.Partial("Props/_Cup", cup)
     }
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        BeerPongTracker.cupCover.init();
+    });
+</script>

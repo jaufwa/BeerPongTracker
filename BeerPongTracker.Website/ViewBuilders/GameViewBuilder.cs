@@ -37,6 +37,7 @@
                     },
                     HealthViewModel = new HealthViewModel()
                     {
+                        TeamId = team.TeamId,
                         HealthPercentage = team.Health
                     }
                 };
@@ -46,7 +47,8 @@
                 var cupCoverViewModel = new CupCoverViewModel
                 {
                     NumberOfCups = gameState.NumberOfCups,
-                    TeamId = team.TeamId
+                    TeamId = team.TeamId,
+                    GameId= gameId
                 };
 
                 cupCoverViewModel.Cups = new List<CupViewModel>();

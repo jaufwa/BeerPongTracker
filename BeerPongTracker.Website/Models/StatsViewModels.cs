@@ -7,6 +7,7 @@
 
     public class HealthViewModel
     {
+        public int TeamId { get; set; }
         public int HealthPercentage { get; set; }
     }
 

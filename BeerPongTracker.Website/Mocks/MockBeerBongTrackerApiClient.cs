@@ -225,5 +225,10 @@ namespace BeerPongTracker.Website.Mocks
                 {new CupStats() {TeamId = 1, Active = true, CupId = 15 }}
             };
         }
+
+        public Game CupSwitch(CupSwitchRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

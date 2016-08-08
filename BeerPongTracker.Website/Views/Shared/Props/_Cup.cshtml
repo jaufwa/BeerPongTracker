@@ -1,4 +1,4 @@
 ﻿@model BeerPongTracker.Website.Models.CupViewModel
 
-<div class="element @(Model.Active ? "full" : "empty") cup team-@Model.TeamId-cup-@Model.CupId">
+<div class="element @(Model.Active ? "full" : "empty") cup team-@Model.TeamId-cup-@Model.CupId" id="team-@Model.TeamId-cup-@Model.CupId" teamid="@Model.TeamId" cupid="@Model.CupId">
 </div>
