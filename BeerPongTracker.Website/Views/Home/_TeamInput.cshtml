@@ -1,0 +1,11 @@
+﻿@using BeerPongTracker.Website.Models
+
+<div class="team-input">
+    @Html.Partial("_TeamInputText", new TeamInputTextViewModel() { TeamId = 1 })
+    @Html.Partial("_Vs")
+    @Html.Partial("_TeamInputText", new TeamInputTextViewModel() { TeamId = 2 })
+    @Html.Partial("_Vs")
+    @Html.Partial("_TeamInputText", new TeamInputTextViewModel() { TeamId = 3 })
+    @Html.Partial("_Vs")
+    @Html.Partial("_TeamInputText", new TeamInputTextViewModel() { TeamId = 4 })
+</div>

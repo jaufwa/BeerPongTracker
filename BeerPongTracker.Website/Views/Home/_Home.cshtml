@@ -1,6 +1,7 @@
-﻿@model BeerPongTracker.Website.Models.HomeViewModel
+﻿@model BeerPongTracker.Website.Models.ScreenViewModel
 
-<div class="game row">
-    @Html.Partial("Stats/_TeamStats", Model.Player1)
-    @Html.Partial("Stats/_TeamStats", Model.Player2)
+<div class="screen screen--1">
+    <div class="screen__window">
+        @Html.Partial("_1", Model.Screen1ViewModel)
+    </div>
 </div>

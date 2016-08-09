@@ -10,7 +10,12 @@ namespace BeerPongTracker.Website.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new ScreenViewModel()
+            {
+                Screen1ViewModel= new Screen1ViewModel()
+            };
+
+            return View(model);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿.background {
+﻿body {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.background {
     position: absolute;
     height: 40%;
     width: 100%;
@@ -751,4 +755,88 @@
 .four-player-table-container__stats--p4 {
     top: 630px;
     left: 450px;
+}
+
+.screen__window {
+    padding:0px 140px;
+}
+
+.team-input__text {
+    display:block;
+}
+
+.team-input__col {
+    float:left;
+}
+
+.team-input__col__inner {
+    padding:4px;
+    height: 100%;
+    position: relative;
+}
+
+.team-input__col--text {
+    width: 22%;
+}
+
+.team-input__col--vs {
+    width: 3%;
+    height: 100%;
+}
+
+.team-input__text {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 3px;
+    font-size: 30px;
+}
+
+.team-input {
+    height: 201px;
+}
+
+.team-input__col--vs__caption {
+    font-size: 20px;
+    font-weight: bold;
+    top: 48%;
+    position: absolute;
+    margin-top: -10px;
+}
+
+.screen h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.screen__spacer {
+    height:30px;
+}
+
+.number-of-cups-selector {
+    text-align:center;
+    height:264px;
+}
+
+.number-of-cups-selector__img {
+    margin-top:56px;
+}
+
+.number-of-cups-selector {
+    position:relative;
+}
+
+.number-of-cups-selector__selection {
+    position: absolute;
+    height:264px;
+    width:264px;
+    top:0;
+}
+
+.number-of-cups-selector__selection--10 {
+    margin-left:264px;
+}
+
+.number-of-cups-selector__selection--15 {
+    margin-left:528px;
 }

@@ -1,6 +1,6 @@
 if (typeof BeerPongTracker !== "object") { BeerPongTracker = {}; }
 
-BeerPongTracker.cupCover = (function () {
+BeerPongTracker.controlling = (function () {
     var _init = function () {
         $(".cup-cover .cup").unbind().click(function () {
             var cupId = $(this).attr('cupid');
@@ -62,3 +62,6 @@ BeerPongTracker.cupCover = (function () {
     };
 })();
 
+$(document).ready(function () {
+    BeerPongTracker.controlling.init();
+});

@@ -276,10 +276,13 @@
     <Content Include="Content\Images\2table_right.png" />
     <Content Include="Content\Images\2table_right_red.png" />
     <Content Include="Content\Images\3table.jpg" />
+    <Content Include="Content\Images\4table.jpg" />
     <Content Include="Content\Images\BpfLogoLight.png" />
     <Content Include="Content\Images\BpfLogoLight_red.png" />
     <Content Include="Content\Images\cup.png" />
     <Content Include="Content\Images\cup_red.png" />
+    <Content Include="Content\Images\number_of_cups.png" />
+    <Content Include="Content\Images\number_of_cups_selector.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -363,6 +366,10 @@
     <Content Include="Views\Game\FourPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_FourPlayerTable.cshtml" />
     <Content Include="Views\Shared\_ImagePreloader.cshtml" />
+    <Content Include="Views\Home\_1.cshtml" />
+    <Content Include="Views\Home\_Vs.cshtml" />
+    <Content Include="Views\Home\_TeamInputText.cshtml" />
+    <Content Include="Views\Home\_TeamInput.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
