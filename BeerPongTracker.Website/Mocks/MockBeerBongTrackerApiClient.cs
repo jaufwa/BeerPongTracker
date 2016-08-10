@@ -230,5 +230,10 @@ namespace BeerPongTracker.Website.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public StartGameResponse StartGame(StartGameRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

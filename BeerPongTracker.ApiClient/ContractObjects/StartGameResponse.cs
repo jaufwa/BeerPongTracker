@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeerPongTracker.BusinessLogic.Game
+namespace BeerPongTracker.ApiClient.ContractObjects
 {
     public class StartGameResponse
     {
+        public int GameId { get; set; }
     }
 }

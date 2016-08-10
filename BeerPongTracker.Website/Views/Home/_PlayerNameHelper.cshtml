@@ -1,7 +1,8 @@
 ﻿@using BeerPongTracker.Website.Models
 @model PlayerNameHelperViewModel
 
-<div class="player-name-helper">
+<div class="player-name-helper-overlay"></div>
+<div class="player-name-helper" playerid="@Model.PlayerId" teamid="@Model.TeamId">
     <div class="player-name-helper--margin">
         <div class="player-name-helper__table">
             @{

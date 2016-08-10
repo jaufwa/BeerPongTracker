@@ -7,5 +7,7 @@ namespace BeerPongTracker.ApiClient.Client
         Game GetGame(int gameId);
 
         Game CupSwitch(CupSwitchRequest request);
+
+        StartGameResponse StartGame(StartGameRequest request);
     }
 }

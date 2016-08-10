@@ -101,7 +101,7 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             _beerPongFederationEntities.SaveChanges();
 
-            return new StartGameResponse();
+            return new StartGameResponse() { GameId = game.GameId };
         }
 
         public Game Game(int gameId)

@@ -30,6 +30,10 @@ namespace BeerPongTracker.Website.Models
     public class PlayerNameHelperViewModel
     {
         public IEnumerable<PlayerNameHelperPlayerDetailsViewModel> Details { get; set; }
+
+        public int TeamId { get; set; }
+
+        public int PlayerId { get; set; }
     }
 
     public class PlayerNameHelperPlayerDetailsViewModel

@@ -34,5 +34,10 @@ namespace BeerPongTracker.Website.Controllers
         {
             return Json(_beerBongTrackerApiClient.CupSwitch(request));
         }
+
+        public JsonResult StartGame(StartGameRequest request)
+        {
+            return Json(_beerBongTrackerApiClient.StartGame(request));
+        }
     }
 }

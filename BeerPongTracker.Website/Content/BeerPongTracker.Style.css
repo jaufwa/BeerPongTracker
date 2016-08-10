@@ -920,7 +920,11 @@ body {
     top: 45px;
     z-index: 99;
     background: white;
-    width: 100%;
+    width: 100%;   
+}
+
+.player-name-helper__table__row {
+    cursor:pointer;
 }
 
 .player-name-helper--margin {
@@ -943,4 +947,13 @@ body {
 
 .player-name-helper__table__row--last {
     border-bottom: none;
+}
+
+.player-name-helper-overlay {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    z-index:98;
 }

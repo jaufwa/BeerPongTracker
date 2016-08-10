@@ -1,6 +1,6 @@
 ﻿@model BeerPongTracker.Website.Models.PlayerNameHelperPlayerDetailsViewModel
 
-<div playerid="@Model.PlayerId" class="player-name-helper__table__row @(Model.IsLast ? "player-name-helper__table__row--last" : "")">
+<div playerid="@Model.PlayerId" playername="@Model.PlayerName" class="@(Model.IsLast ? "player-name-helper__table__row--last " : "")player-name-helper__table__row">
     <div class="player-name-helper__table__row__col player-name-helper__table__row__col1">
         <div class="player-name-helper__table__row__col__margin">
             <img class="player-name-helper__avatar" src="http://graph.facebook.com/@(Model.FacebookId)/picture" />

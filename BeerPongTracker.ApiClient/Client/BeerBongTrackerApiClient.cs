@@ -27,6 +27,11 @@
             return PostRequest<CupSwitchRequest, Game>("Game/CupSwitch", request);
         }
 
+        public StartGameResponse StartGame(StartGameRequest request)
+        {
+            return PostRequest<StartGameRequest, StartGameResponse>("Game/StartGame", request);
+        }
+
         private TResponse GetRequest<TResponse>(string relativeUrl)
         {
             var webRequest = WebRequest.Create($"{_apiBaseUrl}/{relativeUrl}");

@@ -8,5 +8,6 @@ namespace BeerPongTracker.BusinessLogic.Game
 {
     public class StartGameResponse
     {
+        public int GameId { get; set; }
     }
 }
