@@ -51,6 +51,8 @@
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\IGameLogic.cs" />
+    <Compile Include="Game\PlayerSearchResponse.cs" />
+    <Compile Include="Game\PlayerSearchResult.cs" />
     <Compile Include="Game\StartGamePlayer.cs" />
     <Compile Include="Game\StartGameRequest.cs" />
     <Compile Include="Game\StartGameResponse.cs" />

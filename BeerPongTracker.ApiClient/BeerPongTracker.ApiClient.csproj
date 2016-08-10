@@ -49,6 +49,8 @@
     <Compile Include="ContractObjects\CupSwitchRequest.cs" />
     <Compile Include="ContractObjects\CupSwitchResponse.cs" />
     <Compile Include="ContractObjects\Game.cs" />
+    <Compile Include="ContractObjects\PlayerSearchResponse.cs" />
+    <Compile Include="ContractObjects\PlayerSearchResult.cs" />
     <Compile Include="ContractObjects\StartGamePlayer.cs" />
     <Compile Include="ContractObjects\StartGameRequest.cs" />
     <Compile Include="ContractObjects\StartGameResponse.cs" />

@@ -9,5 +9,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         Game Game(int gameId);
 
         Game CupSwitch(CupSwitchRequest cupSwitchRequest);
+
+        PlayerSearchResponse PlayerSearch(string query);
     }
 }

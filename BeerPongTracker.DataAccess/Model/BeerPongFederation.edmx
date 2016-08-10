@@ -37,7 +37,7 @@
           </Key>
           <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="FacebookId" Type="nchar" MaxLength="50" />
+          <Property Name="FacebookId" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PlayerGame">
           <Key>
@@ -116,6 +116,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PlayerNameSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Query" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="BeerPongFederationModelStoreContainer">
           <EntitySet Name="CupTracker" EntityType="Self.CupTracker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
@@ -175,6 +178,9 @@
             <End Role="Player" EntitySet="Player" />
             <End Role="PlayerGame" EntitySet="PlayerGame" />
           </AssociationSet>
+          <FunctionImport Name="PlayerNameSearch" ReturnType="Collection(BeerPongFederationModel.PlayerNameSearch_Result)">
+            <Parameter Name="Query" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="CupTracker">
           <Key>
@@ -214,7 +220,7 @@
           </Key>
           <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="FacebookId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="FacebookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PlayerGame" Relationship="BeerPongFederationModel.FK_PlayerGame_Player" FromRole="Player" ToRole="PlayerGame" />
         </EntityType>
         <EntityType Name="PlayerGame">
@@ -297,6 +303,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="PlayerNameSearch_Result">
+          <Property Type="Int32" Name="PlayerId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="FacebookId" Nullable="true" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -360,6 +371,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PlayerNameSearch" FunctionName="BeerPongFederationModel.Store.PlayerNameSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BeerPongFederationModel.PlayerNameSearch_Result">
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

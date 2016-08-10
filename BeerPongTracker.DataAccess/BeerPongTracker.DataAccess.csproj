@@ -81,6 +81,9 @@
     <Compile Include="Model\PlayerGame.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\PlayerNameSearch_Result.cs">
+      <DependentUpon>BeerPongFederation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Setting.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>

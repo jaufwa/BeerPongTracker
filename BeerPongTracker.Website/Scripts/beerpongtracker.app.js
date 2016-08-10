@@ -71,7 +71,7 @@ BeerPongTracker.helpers = (function () {
     };
 
     var _helperOnTextbox = function(textBox) {
-        if ($(textBox).val().length <= 3) {
+        if ($(textBox).val().length <= 2) {
             return;
         } else {
             var query = $(textBox).val();
@@ -111,7 +111,7 @@ BeerPongTracker.helpers = (function () {
             _hidePlayerNameHelper();
         });
 
-        $(".team-input__text").focusin(function () {
+        $(".team-input__text").click(function () {
             _helperOnTextbox(this);
         });
 

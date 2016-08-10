@@ -43,5 +43,12 @@ namespace BeerPongTracker.Api.Controllers
         {
             return _gameLogic.CupSwitch(cupSwitchRequest);
         }
+
+        [HttpGet]
+        [Route("PlayerSearch")]
+        public PlayerSearchResponse PlayerSearch(string query)
+        {
+            return _gameLogic.PlayerSearch(query);
+        }
     }
 }

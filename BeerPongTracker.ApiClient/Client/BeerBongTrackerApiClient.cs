@@ -22,6 +22,11 @@
             return GetRequest<Game>($"Game/Game?gameid={gameId}");
         }
 
+        public PlayerSearchResponse PlayerSearch(string query)
+        {
+            return GetRequest<PlayerSearchResponse>($"Game/PlayerSearch?query={query}");
+        }
+
         public Game CupSwitch(CupSwitchRequest request)
         {
             return PostRequest<CupSwitchRequest, Game>("Game/CupSwitch", request);

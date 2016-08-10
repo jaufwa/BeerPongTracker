@@ -12,6 +12,8 @@ namespace BeerPongTracker.DataAccess.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BeerPongFederationEntities : DbContext
     {
@@ -31,5 +33,14 @@ namespace BeerPongTracker.DataAccess.Model
         public virtual DbSet<Player> Player { get; set; }
         public virtual DbSet<PlayerGame> PlayerGame { get; set; }
         public virtual DbSet<Setting> Setting { get; set; }
+    
+        public virtual ObjectResult<PlayerNameSearch_Result> PlayerNameSearch(string query)
+        {
+            var queryParameter = query != null ?
+                new ObjectParameter("Query", query) :
+                new ObjectParameter("Query", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PlayerNameSearch_Result>("PlayerNameSearch", queryParameter);
+        }
     }
 }

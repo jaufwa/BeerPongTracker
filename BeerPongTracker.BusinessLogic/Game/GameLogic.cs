@@ -5,6 +5,7 @@ using BeerPongTracker.DataAccess.Model;
 using System.Collections.Generic;
 using BeerPongTracker.BusinessLogic.Cup;
 using BeerPongTracker.Core;
+using System.Data.SqlClient;
 
 namespace BeerPongTracker.BusinessLogic.Game
 {
@@ -198,6 +199,24 @@ namespace BeerPongTracker.BusinessLogic.Game
             var shortPlayerNames = Array.ConvertAll(playerNames.ToArray(), new Converter<string, string>(StringHelper.ShortenName));
 
             return string.Join(" + ", shortPlayerNames);
+        }
+
+        public PlayerSearchResponse PlayerSearch(string query)
+        {
+            var sqlQuery = query.Replace(" ", "%");
+
+            if (sqlQuery.EndsWith("%") == false)
+            {
+                sqlQuery += "%";
+            }
+
+            var parameter = new SqlParameter("@Query", sqlQuery);
+
+            var dbResults = _beerPongFederationEntities.Database
+                .SqlQuery<PlayerSearchResult>("PlayerNameSearch @Query", parameter)
+                .ToList();
+
+            return new PlayerSearchResponse() { PlayerSearchResults = dbResults };
         }
     }
 }

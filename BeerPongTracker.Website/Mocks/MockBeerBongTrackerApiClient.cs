@@ -235,5 +235,10 @@ namespace BeerPongTracker.Website.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public PlayerSearchResponse PlayerSearch(string query)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
