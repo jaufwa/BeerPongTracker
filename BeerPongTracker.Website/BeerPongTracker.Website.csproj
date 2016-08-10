@@ -363,7 +363,7 @@
     <Content Include="Views\Game\_FourPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_FourPlayerTable.cshtml" />
     <Content Include="Views\Shared\_ImagePreloader.cshtml" />
-    <Content Include="Views\Home\_1.cshtml" />
+    <Content Include="Views\Home\_2.cshtml" />
     <Content Include="Views\Home\_Vs.cshtml" />
     <Content Include="Views\Home\_TeamInputText.cshtml" />
     <Content Include="Views\Home\_TeamInput.cshtml" />

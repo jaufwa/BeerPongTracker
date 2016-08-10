@@ -1,5 +1,64 @@
 if (typeof BeerPongTracker !== "object") { BeerPongTracker = {}; }
 
+BeerPongTracker.main = (function () {
+    var _init = function () {
+        BeerPongTracker.helpers.init();
+        BeerPongTracker.cupSelector.init();
+        BeerPongTracker.startGameButton.init();
+
+        _checkForExistingGame();
+    };
+
+    var _checkForExistingGame = function () {
+        if (location.hash.match("^#c")) {
+            var gameId = location.hash.replace("#c", "");
+            BeerPongTracker.global.displayLoadingScreen();
+            BeerPongTracker.global.loadGame(gameId);
+        }
+    };
+
+    return {
+        init: _init
+    };
+})();
+
+BeerPongTracker.global = (function () {
+    var _displayLoadingScreen = function () {
+        $(".screen").hide();
+        $("body").append("<div class=\"loading\"><img src=\"/Content/Images/loading.gif\" /></div>");
+    };
+
+    var _hideLoadingScreen = function () {
+        $(".loading").remove();
+    };
+
+    var _loadGame = function (gameId) {
+        $.ajax({
+            method: "GET",
+            success: _getGameDataSuccess,
+            error: _getGameDataError,
+            url: "/Game/Build?gameId=" + gameId
+        });
+    }
+
+    var _getGameDataSuccess = function (result) {
+        $(".screen--3").append(result);
+        BeerPongTracker.controlling.init();
+        _hideLoadingScreen();
+        $(".screen--3").show(result);
+    };
+
+    var _getGameDataError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown)
+    };
+
+    return {
+        displayLoadingScreen: _displayLoadingScreen,
+        hideLoadingScreen: _hideLoadingScreen,
+        loadGame: _loadGame
+    };
+})();
+
 BeerPongTracker.helpers = (function () {
     var _teamId = 0;
     var _playerId = 0;
@@ -123,68 +182,6 @@ BeerPongTracker.cupSelector = (function () {
     };
 })();
 
-BeerPongTracker.startGameButton = (function () {
-    var _init = function () {
-        $(".button--start-game").unbind().click(function () {
-            var numerOfCups = $(".number-of-cups-selector__hidden").val();
-            
-            var teams = new Array();
-
-            for (i = 1; i <= 4; i++) {
-                var topTextBoxName = "team-input__text--team-" + i + "-player-1";
-                
-                if ($("." + topTextBoxName).val().length > 0) {
-                    teamIndex = i - 1;
-                    teams[teamIndex] = {Players : new Array()};
-
-                    var teamGroupName = "team-input__text--team-" + i;
-
-                    $("." + teamGroupName).each(function () {
-                        var playerId = $(this).attr("playerid");
-                        var playerIndex = playerId - 1;
-
-                        var hiddenElName = "team-input__text--hidden-db-player-id--team-" + i + "-player-" + playerId
-                        var hiddenEl = $("." + hiddenElName);
-
-                        if ($(hiddenEl).val() > 0) {
-                            var dbPlayerId = $(hiddenEl).val();
-                            teams[teamIndex].Players[playerIndex] = { PlayerId: dbPlayerId }
-                        } else if ($(this).val().length > 0) {
-                            teams[teamIndex].Players[playerIndex] = { Name: $(this).val() }
-                        }
-                    });
-                }
-            }
-
-            var jsonData = {
-                NumberOfCups: numerOfCups,
-                Teams : teams
-            }
-
-            $.ajax({
-                contentType: "application/json",
-                data: JSON.stringify(jsonData),
-                method: "POST",
-                success: _startGameSuccess,
-                error: _startGameError,
-                url: "/Game/StartGame"
-            });
-        });
-    };
-
-    var _startGameSuccess = function (result) {
-        alert(result.GameId);
-    };
-
-    var _startGameError = function (xhr, textStatus, errorThrown) {
-        console.log(errorThrown)
-    };
-
-    return {
-        init: _init
-    };
-})();
-
 BeerPongTracker.controlling = (function () {
     var _init = function () {
         $(".cup-cover .cup").unbind().click(function () {
@@ -240,6 +237,74 @@ BeerPongTracker.controlling = (function () {
 
     var _cupCoverError = function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
+    };
+
+    return {
+        init: _init
+    };
+})();
+
+BeerPongTracker.startGameButton = (function () {
+    var _init = function () {
+        $(".button--start-game").unbind().click(function () {
+            BeerPongTracker.global.displayLoadingScreen();
+
+            var numerOfCups = $(".number-of-cups-selector__hidden").val();
+
+            var teams = new Array();
+
+            for (i = 1; i <= 4; i++) {
+                var topTextBoxName = "team-input__text--team-" + i + "-player-1";
+
+                if ($("." + topTextBoxName).val().length > 0) {
+                    teamIndex = i - 1;
+                    teams[teamIndex] = { Players: new Array() };
+
+                    var teamGroupName = "team-input__text--team-" + i;
+
+                    $("." + teamGroupName).each(function () {
+                        var playerId = $(this).attr("playerid");
+                        var playerIndex = playerId - 1;
+
+                        var hiddenElName = "team-input__text--hidden-db-player-id--team-" + i + "-player-" + playerId
+                        var hiddenEl = $("." + hiddenElName);
+
+                        if ($(hiddenEl).val() > 0) {
+                            var dbPlayerId = $(hiddenEl).val();
+                            teams[teamIndex].Players[playerIndex] = { PlayerId: dbPlayerId }
+                        } else if ($(this).val().length > 0) {
+                            teams[teamIndex].Players[playerIndex] = { Name: $(this).val() }
+                        }
+                    });
+                }
+            }
+
+            var jsonData = {
+                NumberOfCups: numerOfCups,
+                Teams: teams
+            }
+
+            $.ajax({
+                contentType: "application/json",
+                data: JSON.stringify(jsonData),
+                method: "POST",
+                success: _startGameSuccess,
+                error: _startGameError,
+                url: "/Game/StartGame"
+            });
+        });
+    };
+
+    var _startGameSuccess = function (result) {
+        var gameId = result.GameId;
+
+        location.hash = '#c' + gameId;
+
+        BeerPongTracker.global.loadGame(gameId);
+    };
+
+    var _startGameError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown)
     };
 
     return {

@@ -26,7 +26,7 @@ namespace BeerPongTracker.Website.Controllers
 
             var viewHelper = gameViewBuilder.Build(gameId);
 
-            return View(viewHelper);
+            return PartialView(viewHelper);
         }
 
         [HttpPost]
