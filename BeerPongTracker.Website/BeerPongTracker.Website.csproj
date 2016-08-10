@@ -356,24 +356,26 @@
     <Content Include="Views\Shared\Stats\_TeamStats.cshtml" />
     <Content Include="Views\Shared\Props\_Cup.cshtml" />
     <Content Include="Views\Game\_TwoPlayer.cshtml" />
-    <Content Include="Views\Game\TwoPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_TwoPlayerTable.cshtml" />
     <Content Include="Views\Shared\Props\_CupCover.cshtml" />
     <Content Include="Views\Game\_ThreePlayer.cshtml" />
-    <Content Include="Views\Game\ThreePlayer.cshtml" />
     <Content Include="Views\Shared\Props\_ThreePlayerTable.cshtml" />
     <Content Include="Views\Game\_FourPlayer.cshtml" />
-    <Content Include="Views\Game\FourPlayer.cshtml" />
     <Content Include="Views\Shared\Props\_FourPlayerTable.cshtml" />
     <Content Include="Views\Shared\_ImagePreloader.cshtml" />
     <Content Include="Views\Home\_1.cshtml" />
     <Content Include="Views\Home\_Vs.cshtml" />
     <Content Include="Views\Home\_TeamInputText.cshtml" />
     <Content Include="Views\Home\_TeamInput.cshtml" />
+    <Content Include="Views\Home\_TeamInputTextBox.cshtml" />
+    <Content Include="Views\Home\_PlayerNameHelper.cshtml" />
+    <Content Include="Views\Home\_PlayerNameHelperPlayerDetails.cshtml" />
+    <Content Include="Views\Game\Build.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Views\Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

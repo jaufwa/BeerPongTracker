@@ -1,10 +1,11 @@
-﻿@model BeerPongTracker.Website.Models.TeamInputTextViewModel
+﻿@using BeerPongTracker.Website.Models
+@model BeerPongTracker.Website.Models.TeamInputTextViewModel
 
 <div class="team-input__col team-input__col--1 team-input__col--text">
     <div class="team-input__col__inner">
-        <input type="text" class="team-input__text team-input__text--team-@Model.TeamId-player-1" />
-        <input type="text" class="team-input__text team-input__text--team-@Model.TeamId-player-2" />
-        <input type="text" class="team-input__text team-input__text--team-@Model.TeamId-player-3" />
-        <input type="text" class="team-input__text team-input__text--team-@Model.TeamId-player-4" />
+        @Html.Partial("_TeamInputTextBox", new TeamInputTextBoxViewModel() {TeamId = Model.TeamId , PlayerId = 1})
+        @Html.Partial("_TeamInputTextBox", new TeamInputTextBoxViewModel() { TeamId = Model.TeamId, PlayerId = 2 })
+        @Html.Partial("_TeamInputTextBox", new TeamInputTextBoxViewModel() { TeamId = Model.TeamId, PlayerId = 3 })
+        @Html.Partial("_TeamInputTextBox", new TeamInputTextBoxViewModel() { TeamId = Model.TeamId, PlayerId = 4 })
     </div>
 </div>

@@ -17,5 +17,19 @@ namespace BeerPongTracker.Website.Controllers
 
             return View(model);
         }
+
+        public ActionResult PlayerNameHelper(string query)
+        {
+            var viewModel = new PlayerNameHelperViewModel();
+
+            var details = new List<PlayerNameHelperPlayerDetailsViewModel>();
+
+            details.Add(new PlayerNameHelperPlayerDetailsViewModel {FacebookId = "548140192", PlayerName = "Jonny Miles", PlayerId = 1});
+            details.Add(new PlayerNameHelperPlayerDetailsViewModel {FacebookId = "682905112", PlayerName = "Danny Winstone", PlayerId = 2});
+
+            viewModel.Details = details;
+
+            return PartialView("_PlayerNameHelper", viewModel);
+        }
     }
 }

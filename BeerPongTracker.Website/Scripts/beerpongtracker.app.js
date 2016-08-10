@@ -1,5 +1,63 @@
 if (typeof BeerPongTracker !== "object") { BeerPongTracker = {}; }
 
+BeerPongTracker.helpers = (function () {
+    var _teamId = 0;
+    var _playerId = 0;
+
+    var _hidePlayerNameHelper = function () {
+        if ($(".player-name-helper").length > 0) {
+            $(".player-name-helper").remove();
+        }
+    };
+
+    var _helperOnTextbox = function(textBox) {
+        if ($(textBox).val().length <= 3) {
+            return;
+        } else {
+            var query = $(textBox).val();
+            _teamId = $(textBox).attr("teamid");
+            _playerId = $(textBox).attr("playerid");
+
+            $.ajax({
+                method: "GET",
+                success: _playerNameHelperSuccess,
+                error: _playerNameHelperError,
+                url: "/Home/PlayerNameHelper?query=" + query
+            });
+        }
+    };
+
+    var _init = function () {
+        $(".team-input__text").on("keyup", function() {
+            _helperOnTextbox(this);
+        });
+
+        $(".team-input__text").focusout(function() {
+            _hidePlayerNameHelper();
+        });
+
+        $(".team-input__text").focusin(function () {
+            _helperOnTextbox(this);
+        });
+    };
+
+    var _playerNameHelperSuccess = function (result) {
+        var elementName = "team-input__text--team-" + _teamId + "-player-" + _playerId + "-wrapper";
+
+        _hidePlayerNameHelper();
+
+        $("." + elementName).append(result);
+    };
+
+    var _playerNameHelperError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+    };
+
+    return {
+        init: _init
+    };
+})();
+
 BeerPongTracker.controlling = (function () {
     var _init = function () {
         $(".cup-cover .cup").unbind().click(function () {
@@ -63,5 +121,5 @@ BeerPongTracker.controlling = (function () {
 })();
 
 $(document).ready(function () {
-    BeerPongTracker.controlling.init();
+    BeerPongTracker.helpers.init();
 });

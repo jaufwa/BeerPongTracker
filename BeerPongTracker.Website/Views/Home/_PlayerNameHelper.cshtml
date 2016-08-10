@@ -1,0 +1,23 @@
+﻿@using BeerPongTracker.Website.Models
+@model PlayerNameHelperViewModel
+
+<div class="player-name-helper">
+    <div class="player-name-helper--margin">
+        <div class="player-name-helper__table">
+            @{
+                var i = 0;
+                foreach (var playerDetail in Model.Details)
+                {
+                    i++;
+
+                    if (i == Model.Details.Count())
+                    {
+                        playerDetail.MarkIsLast();
+                    }
+
+                    @Html.Partial("_PlayerNameHelperPlayerDetails", playerDetail)
+                }
+            }
+        </div>
+    </div>
+</div>

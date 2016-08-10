@@ -908,3 +908,39 @@ body {
     left:50%;
     margin-left:-173px;
 }
+
+.team-input__text-wrapper {
+    position: relative;
+}
+
+.player-name-helper {
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
+    border: 1px solid grey;
+    position: absolute;
+    top: 45px;
+    z-index: 99;
+    background: white;
+    width: 100%;
+}
+
+.player-name-helper--margin {
+    padding: 3px;
+}
+
+.player-name-helper__table__row__col__margin {
+    padding: 1px;
+}
+
+.player-name-helper__table__row__col {
+    float: left;
+}
+
+.player-name-helper__table__row {
+    clear: both;
+    height: 54px;
+    border-bottom: 1px solid grey;
+}
+
+.player-name-helper__table__row--last {
+    border-bottom: none;
+}

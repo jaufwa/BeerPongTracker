@@ -1,0 +1,14 @@
+﻿@model BeerPongTracker.Website.ViewBuilders.ViewBuilderResult
+
+@section SPAViews {
+    @Html.Partial(Model.ViewPath, Model.ViewModel)
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            BeerPongTracker.controlling.init();
+        });
+    </script>
+}
