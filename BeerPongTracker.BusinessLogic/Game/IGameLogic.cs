@@ -11,5 +11,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         Game CupSwitch(CupSwitchRequest cupSwitchRequest);
 
         PlayerSearchResponse PlayerSearch(string query);
+
+        GetAvailableGamesResponse GetAvailableGames();
     }
 }

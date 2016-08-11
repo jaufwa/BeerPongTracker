@@ -29,7 +29,7 @@
 
         public AvailableGames GetAvailableGames()
         {
-            throw new NotImplementedException();
+            var apiResult = GetRequest<PlayerSearchResponse>($"Game/PlayerSearch?query={query}");
         }
 
         public Game CupSwitch(CupSwitchRequest request)

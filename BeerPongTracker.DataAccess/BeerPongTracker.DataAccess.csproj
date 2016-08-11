@@ -75,6 +75,9 @@
     <Compile Include="Model\GameSetting.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\GetAvailableGames_Result.cs">
+      <DependentUpon>BeerPongFederation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Player.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>
@@ -95,12 +98,15 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BeerPongFederation.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Bak\beerdb.bak" />
     <None Include="Model\BeerPongFederation.edmx.diagram">
       <DependentUpon>BeerPongFederation.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bak\sp1.sql" />
+    <Content Include="Bak\script.sql" />
     <Content Include="Model\BeerPongFederation.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BeerPongFederation.edmx</DependentUpon>

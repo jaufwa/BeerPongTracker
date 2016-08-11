@@ -50,5 +50,12 @@ namespace BeerPongTracker.Api.Controllers
         {
             return _gameLogic.PlayerSearch(query);
         }
+
+        [HttpGet]
+        [Route("GetGames")]
+        public GetAvailableGamesResponse GetAvailableGames()
+        {
+            return _gameLogic.GetAvailableGames();
+        }
     }
 }

@@ -48,8 +48,11 @@
     <Compile Include="Cup\CupSwitchRequest.cs" />
     <Compile Include="Cup\CupSwitchResponse.cs" />
     <Compile Include="Cup\ICupLogic.cs" />
+    <Compile Include="Game\AvailableGameData.cs" />
+    <Compile Include="Game\AvailableGameResult.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
+    <Compile Include="Game\GetAvailableGamesResponse.cs" />
     <Compile Include="Game\IGameLogic.cs" />
     <Compile Include="Game\PlayerSearchResponse.cs" />
     <Compile Include="Game\PlayerSearchResult.cs" />

@@ -42,5 +42,14 @@ namespace BeerPongTracker.DataAccess.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PlayerNameSearch_Result>("PlayerNameSearch", queryParameter);
         }
+    
+        public virtual ObjectResult<GetAvailableGames_Result> GetAvailableGames(Nullable<System.DateTime> startDate)
+        {
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAvailableGames_Result>("GetAvailableGames", startDateParameter);
+        }
     }
 }

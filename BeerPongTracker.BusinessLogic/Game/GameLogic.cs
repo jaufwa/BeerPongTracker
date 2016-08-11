@@ -218,5 +218,16 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             return new PlayerSearchResponse() { PlayerSearchResults = dbResults };
         }
+
+        public GetAvailableGamesResponse GetAvailableGames()
+        {
+            var parameter = new SqlParameter("@StartDate", DateTime.Now.AddHours(-48));
+
+            var dbResults = _beerPongFederationEntities.Database
+                .SqlQuery<AvailableGameResult>("GetAvailableGames @Query", parameter)
+                .ToList();
+
+            return new GetAvailableGamesResponse();
+        }
     }
 }
