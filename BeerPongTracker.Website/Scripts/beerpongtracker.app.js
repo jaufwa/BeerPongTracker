@@ -253,6 +253,14 @@ BeerPongTracker.cupSelector = (function () {
 BeerPongTracker.controlling = (function () {
     var _init = function () {
         $(".cup-cover .cup").unbind().click(function () {
+            if ($(this).hasClass("full")) {
+                $(this).removeClass("full");
+                $(this).addClass("empty");
+            } else {
+                $(this).removeClass("empty");
+                $(this).addClass("full");
+            }
+
             var cupId = $(this).attr('cupid');
             var teamId = $(this).attr('teamid');
             var gameId = $(this).parent(".cup-cover").attr('gameid');
@@ -288,18 +296,6 @@ BeerPongTracker.controlling = (function () {
                 teamHealthElement.removeClass("team-info__health__container__remaining--red");
                 teamHealthElement.addClass("team-info__health__container__remaining--green");
             }
-
-            $(this.CupStats).each(function () {
-                var cupElementId = "team-" + teamId + "-cup-" + this.CupId;
-                var cupElement = $("#" + cupElementId);
-                if (this.Active) {
-                    cupElement.removeClass("empty");
-                    cupElement.addClass("full");
-                } else {
-                    cupElement.removeClass("full");
-                    cupElement.addClass("empty");
-                }
-            });
         });
     }
 
