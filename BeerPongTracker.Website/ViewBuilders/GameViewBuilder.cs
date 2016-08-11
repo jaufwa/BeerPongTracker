@@ -69,7 +69,8 @@
             var viewModel = new GameViewModel
             {
                 TableCupCoversViewModel = tableCupCoversViewModel,
-                TeamStatsViewModels = teamStatsViewModels
+                TeamStatsViewModels = teamStatsViewModels,
+                LastUpdateSignature = gameState.LastUpdateSignature
             };
 
             var viewPathMap = new Dictionary<int, string>()

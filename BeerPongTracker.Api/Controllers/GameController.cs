@@ -57,5 +57,11 @@ namespace BeerPongTracker.Api.Controllers
         {
             return _gameLogic.GetAvailableGames();
         }
+
+        [Route("ListenForChange")]
+        public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
+        {
+            return _gameLogic.ListenForChange(request);
+        }
     }
 }

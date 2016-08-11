@@ -17,7 +17,6 @@ namespace BeerPongTracker.Website.Controllers
         public HomeController()
         {
             _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
-            //_beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
         }
 
         public ActionResult Index()
@@ -53,6 +52,11 @@ namespace BeerPongTracker.Website.Controllers
         public ActionResult PlayerNameHelper(string query, int t, int p)
         {
             var searchResults = _beerBongTrackerApiClient.PlayerSearch(query);
+
+            if (searchResults.PlayerSearchResults.Any() == false)
+            {
+                return new EmptyResult();
+            }
 
             var viewModel = new PlayerNameHelperViewModel();
 

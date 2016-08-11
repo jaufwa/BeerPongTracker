@@ -258,5 +258,10 @@ namespace BeerPongTracker.Website.Mocks
 
             return new AvailableGames {AvailableGameDatas = availableGameDatas};
         }
+
+        public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

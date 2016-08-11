@@ -11,5 +11,7 @@
         public int NumberOfTeams { get; set; }
 
         public ICollection<Team> Teams { get; set; }
+
+        public string LastUpdateSignature { get; set; }
     }
 }

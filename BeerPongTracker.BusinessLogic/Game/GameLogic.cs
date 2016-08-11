@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using BeerPongTracker.BusinessLogic.Cup;
 using BeerPongTracker.Core;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace BeerPongTracker.BusinessLogic.Game
 {
@@ -23,13 +24,15 @@ namespace BeerPongTracker.BusinessLogic.Game
             // Add the game
             var game = new DataAccess.Model.Game()
             {
-                DateStarted = DateTime.Now
+                DateStarted = DateTime.Now,
+                LastUpdated = DateTime.Now,
+                LastUpdateSignature = Guid.NewGuid().ToString()
             };
 
             _beerPongFederationEntities.Game.Add(game);
 
             _beerPongFederationEntities.SaveChanges();
-
+            
             // Settings
             var gameSetting = new GameSetting()
             {
@@ -119,6 +122,7 @@ namespace BeerPongTracker.BusinessLogic.Game
                 x => x.GameId == gameId && x.SettingId == (int)SettingEnum.NumberOfCups);
 
             result.GameId = dbGame.GameId;
+            result.LastUpdateSignature = dbGame.LastUpdateSignature;
             result.NumberOfCups = int.Parse(dbCupsNumberSetting.Value);
 
             var dbPlayerGames = _beerPongFederationEntities.PlayerGame.Include("Player").Where(x => x.GameId == gameId);
@@ -189,6 +193,10 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             cupTracker.Active = !cupTracker.Active;
 
+            var game = _beerPongFederationEntities.Game.Single(x => x.GameId == cupSwitchRequest.GameId);
+            game.LastUpdated = DateTime.Now;
+            game.LastUpdateSignature = Guid.NewGuid().ToString();
+
             _beerPongFederationEntities.SaveChanges();
 
             return Game(cupSwitchRequest.GameId);
@@ -208,6 +216,11 @@ namespace BeerPongTracker.BusinessLogic.Game
             if (sqlQuery.EndsWith("%") == false)
             {
                 sqlQuery += "%";
+            }
+
+            if (sqlQuery.StartsWith("%") == false)
+            {
+                sqlQuery = "%" + sqlQuery;
             }
 
             var parameter = new SqlParameter("@Query", sqlQuery);
@@ -254,6 +267,31 @@ namespace BeerPongTracker.BusinessLogic.Game
             }
 
             return new GetAvailableGamesResponse {AvailableGames = availableGameDatas};
+        }
+
+        public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
+        {
+            var periodEnd = DateTime.Now.AddSeconds(10);
+
+            while (DateTime.Now < periodEnd)
+            {
+                var parameter = new SqlParameter("@GameId", request.GameId);
+
+                var dbResults = _beerPongFederationEntities.Database
+                    .SqlQuery<GetLastUpdateSignatureResponse>("GetLastUpdateSignature @GameId", parameter)
+                    .ToList();
+
+                var dbLastUpdateSignature = dbResults.First().LastUpdateSignature;
+
+                if (request.LastUpdateSignature != dbLastUpdateSignature)
+                {
+                    return new ListenForChangeResult() { LastUpdateSignature = dbLastUpdateSignature, Updated = true };
+                }
+
+                Thread.Sleep(500);
+            }
+
+            return new ListenForChangeResult() { LastUpdateSignature = request.LastUpdateSignature, Updated = false };
         }
     }
 }

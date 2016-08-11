@@ -105,6 +105,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bak\sp3.sql" />
+    <Content Include="Bak\sp2.sql" />
     <Content Include="Bak\sp1.sql" />
     <Content Include="Bak\script.sql" />
     <Content Include="Model\BeerPongFederation.Context.tt">

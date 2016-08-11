@@ -53,7 +53,10 @@
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\GetAvailableGamesResponse.cs" />
+    <Compile Include="Game\GetLastUpdateSignatureResponse.cs" />
     <Compile Include="Game\IGameLogic.cs" />
+    <Compile Include="Game\ListenForChangeRequest.cs" />
+    <Compile Include="Game\ListenForChangeResult.cs" />
     <Compile Include="Game\PlayerSearchResponse.cs" />
     <Compile Include="Game\PlayerSearchResult.cs" />
     <Compile Include="Game\StartGamePlayer.cs" />

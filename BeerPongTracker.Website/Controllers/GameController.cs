@@ -18,7 +18,6 @@ namespace BeerPongTracker.Website.Controllers
         public GameController()
         {
             _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
-            //_beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
         }
 
         public ActionResult Build(int gameId)
@@ -39,6 +38,17 @@ namespace BeerPongTracker.Website.Controllers
         public JsonResult StartGame(StartGameRequest request)
         {
             return Json(_beerBongTrackerApiClient.StartGame(request));
+        }
+
+        [HttpGet]
+        public JsonResult GetGame(int gameId)
+        {
+            return Json(_beerBongTrackerApiClient.GetGame(gameId), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ListenForChange(ListenForChangeRequest request)
+        {
+            return Json(_beerBongTrackerApiClient.ListenForChange(request));
         }
     }
 }

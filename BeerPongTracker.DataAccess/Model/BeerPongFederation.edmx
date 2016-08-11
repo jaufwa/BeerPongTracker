@@ -21,6 +21,8 @@
           </Key>
           <Property Name="GameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateStarted" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateSignature" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="GameSetting">
           <Key>
@@ -119,6 +121,9 @@
         <Function Name="GetAvailableGames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StartDate" Type="date" Mode="In" />
         </Function>
+        <Function Name="GetLastUpdateSignature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="GameId" Type="int" Mode="In" />
+        </Function>
         <Function Name="PlayerNameSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Query" Type="nvarchar" Mode="In" />
         </Function>
@@ -185,7 +190,10 @@
           <Parameter Name="Query" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetAvailableGames" ReturnType="Collection(BeerPongFederationModel.GetAvailableGames_Result)">
-            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+          <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetLastUpdateSignature" ReturnType="Collection(String)">
+            <Parameter Name="GameId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="CupTracker">
@@ -208,6 +216,8 @@
           <NavigationProperty Name="CupTracker" Relationship="BeerPongFederationModel.FK_CupTracker_Game" FromRole="Game" ToRole="CupTracker" />
           <NavigationProperty Name="GameSetting" Relationship="BeerPongFederationModel.FK_GameSetting_Game" FromRole="Game" ToRole="GameSetting" />
           <NavigationProperty Name="PlayerGame" Relationship="BeerPongFederationModel.FK_PlayerGame_Game" FromRole="Game" ToRole="PlayerGame" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="GameSetting">
           <Key>
@@ -340,6 +350,8 @@
           <EntitySetMapping Name="Game">
             <EntityTypeMapping TypeName="BeerPongFederationModel.Game">
               <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="LastUpdateSignature" ColumnName="LastUpdateSignature" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
                 <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
               </MappingFragment>
@@ -402,6 +414,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetLastUpdateSignature" FunctionName="BeerPongFederationModel.Store.GetLastUpdateSignature" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

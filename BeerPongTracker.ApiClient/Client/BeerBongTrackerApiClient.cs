@@ -44,6 +44,11 @@
             return PostRequest<StartGameRequest, StartGameResponse>("Game/StartGame", request);
         }
 
+        public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
+        {
+            return PostRequest<ListenForChangeRequest, ListenForChangeResult>("Game/ListenForChange", request);
+        }
+
         private TResponse GetRequest<TResponse>(string relativeUrl)
         {
             var webRequest = WebRequest.Create($"{_apiBaseUrl}/{relativeUrl}");

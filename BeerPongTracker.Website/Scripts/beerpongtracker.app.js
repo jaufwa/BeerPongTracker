@@ -34,6 +34,22 @@ BeerPongTracker.main = (function () {
 BeerPongTracker.global = (function () {
     var _controlling = false;
 
+    var _gameId = 0;
+
+    var _getGameId = function () {
+        return _gameId;
+    };
+
+    var _lastUpdateSignature = "";
+
+    var _getLastUpdateSignature = function () {
+        return _lastUpdateSignature;
+    };
+
+    var _setLastUpdateSignature = function (lastUpdateSignature) {
+        _lastUpdateSignature = lastUpdateSignature;
+    };
+
     var _setControlling = function(controllingBool) {
         _controlling = controllingBool;
     };
@@ -52,6 +68,8 @@ BeerPongTracker.global = (function () {
     };
 
     var _loadGame = function (gameId) {
+        _gameId = gameId;
+
         $.ajax({
             method: "GET",
             success: _getGameDataSuccess,
@@ -62,10 +80,11 @@ BeerPongTracker.global = (function () {
 
     var _getGameDataSuccess = function (result) {
         $(".screen--3").append(result);
+        _setLastUpdateSignature($(".game-meta-info").attr("lus"));
         if (BeerPongTracker.global.getControlling()) {
             BeerPongTracker.controlling.init();
         } else {
-            // Init watching namespace
+            BeerPongTracker.watching.init();
         }
         _hideLoadingScreen();
         $(".screen--3").show(result);
@@ -80,7 +99,10 @@ BeerPongTracker.global = (function () {
         hideLoadingScreen: _hideLoadingScreen,
         loadGame: _loadGame,
         setControlling: _setControlling,
-        getControlling: _getControlling
+        getControlling: _getControlling,
+        getGameId: _getGameId,
+        getLastUpdateSignature: _getLastUpdateSignature,
+        setLastUpdateSignature: _setLastUpdateSignature
     };
 })();
 
@@ -290,6 +312,94 @@ BeerPongTracker.controlling = (function () {
     };
 })();
 
+BeerPongTracker.watching = (function () {
+    var _init = function () {
+        var gameId = BeerPongTracker.global.getGameId;
+
+        _listenForChange();
+    };
+
+    var _listenForChange = function () {
+        console.log("Listening for changes...");
+
+        var jsonData = {
+            GameId: BeerPongTracker.global.getGameId(),
+            LastUpdateSignature: BeerPongTracker.global.getLastUpdateSignature()
+        };
+
+        $.ajax({
+            contentType: "application/json",
+            data: JSON.stringify(jsonData),
+            method: "POST",
+            success: _listenForChangeSuccess,
+            error: _listenForChangeError,
+            url: "/Game/ListenForChange"
+        });
+    };
+
+    var _listenForChangeSuccess = function (result) {
+        if (result.Updated) {
+            console.log("CHANGE DETECTED, updating board...");
+            BeerPongTracker.global.setLastUpdateSignature(result.LastUpdateSignature);
+            _updateBoard();
+        } else {
+            console.log("No changes detected");
+        }
+
+        _listenForChange();
+    };
+
+    var _updateBoard = function () {
+        $.ajax({
+            contentType: "application/json",
+            method: "GET",
+            success: _updateBoardSuccess,
+            error: _updateBoardError,
+            url: "/Game/GetGame?gameId=" + BeerPongTracker.global.getGameId()
+        });
+    }
+
+    var _updateBoardSuccess = function (result) {
+        $(result.Teams).each(function () {
+            var teamId = this.TeamId;
+            var teamHealthElement = $("#team-" + this.TeamId + "-health");
+            teamHealthElement.css({ width: this.Health + "%" });
+
+            if (this.Health < 25) {
+                teamHealthElement.removeClass("team-info__health__container__remaining--green");
+                teamHealthElement.addClass("team-info__health__container__remaining--red");
+            } else {
+                teamHealthElement.removeClass("team-info__health__container__remaining--red");
+                teamHealthElement.addClass("team-info__health__container__remaining--green");
+            }
+
+            $(this.CupStats).each(function () {
+                var cupElementId = "team-" + teamId + "-cup-" + this.CupId;
+                var cupElement = $("#" + cupElementId);
+                if (this.Active) {
+                    cupElement.removeClass("empty");
+                    cupElement.addClass("full");
+                } else {
+                    cupElement.removeClass("full");
+                    cupElement.addClass("empty");
+                }
+            });
+        });
+    };
+
+    var _updateBoardError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+    };
+
+    var _listenForChangeError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+    };
+
+    return {
+        init: _init
+    };
+})();
+
 BeerPongTracker.startGameButton = (function () {
     var _init = function () {
         $(".button--start-game").unbind().click(function () {
@@ -345,6 +455,8 @@ BeerPongTracker.startGameButton = (function () {
         var gameId = result.GameId;
 
         location.hash = '#c' + gameId;
+
+        BeerPongTracker.global.setControlling(true);
 
         BeerPongTracker.global.loadGame(gameId);
     };

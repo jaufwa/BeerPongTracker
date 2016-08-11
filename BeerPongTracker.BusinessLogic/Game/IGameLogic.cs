@@ -13,5 +13,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         PlayerSearchResponse PlayerSearch(string query);
 
         GetAvailableGamesResponse GetAvailableGames();
+
+        ListenForChangeResult ListenForChange(ListenForChangeRequest request);
     }
 }

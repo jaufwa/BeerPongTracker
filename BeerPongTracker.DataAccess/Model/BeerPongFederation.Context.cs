@@ -51,5 +51,14 @@ namespace BeerPongTracker.DataAccess.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAvailableGames_Result>("GetAvailableGames", startDateParameter);
         }
+    
+        public virtual ObjectResult<string> GetLastUpdateSignature(Nullable<int> gameId)
+        {
+            var gameIdParameter = gameId.HasValue ?
+                new ObjectParameter("GameId", gameId) :
+                new ObjectParameter("GameId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetLastUpdateSignature", gameIdParameter);
+        }
     }
 }

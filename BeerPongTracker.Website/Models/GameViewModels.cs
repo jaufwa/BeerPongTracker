@@ -10,5 +10,7 @@ namespace BeerPongTracker.Website.Models
         public Dictionary<int, TeamStatsViewModel> TeamStatsViewModels { get; set; }
 
         public TableCupCoversViewModel TableCupCoversViewModel { get; set; }
+
+        public string LastUpdateSignature { get; set; }
     }
 }

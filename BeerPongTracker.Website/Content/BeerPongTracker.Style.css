@@ -945,6 +945,11 @@ body {
     width: 100%;   
 }
 
+.player-name-helper__avatar {
+    height:50px;
+    width:50px;
+}
+
 .player-name-helper__table__row {
     cursor:pointer;
 }

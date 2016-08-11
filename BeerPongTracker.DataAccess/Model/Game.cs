@@ -24,6 +24,8 @@ namespace BeerPongTracker.DataAccess.Model
     
         public int GameId { get; set; }
         public System.DateTime DateStarted { get; set; }
+        public System.DateTime LastUpdated { get; set; }
+        public string LastUpdateSignature { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CupTracker> CupTracker { get; set; }
