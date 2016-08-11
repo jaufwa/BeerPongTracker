@@ -13,11 +13,12 @@ namespace BeerPongTracker.Website.Controllers
     using Newtonsoft.Json;
     public class GameController : Controller
     {
-        private IBeerBongTrackerApiClient _beerBongTrackerApiClient;
+        private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;
 
         public GameController()
         {
-            _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            //_beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            _beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
         }
 
         public ActionResult Build(int gameId)

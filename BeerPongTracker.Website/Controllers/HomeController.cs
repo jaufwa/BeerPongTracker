@@ -8,20 +8,23 @@ using System.Web.Mvc;
 
 namespace BeerPongTracker.Website.Controllers
 {
+    using BeerPongTracker.Website.Mocks;
+
     public class HomeController : Controller
     {
-        private IBeerBongTrackerApiClient _beerBongTrackerApiClient;
+        private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;
 
         public HomeController()
         {
-            _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            //_beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            _beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
         }
 
         public ActionResult Index()
         {
             var model = new ScreenViewModel()
             {
-                Screen1ViewModel= new Screen1ViewModel()
+                Screen2ViewModel= new Screen2ViewModel()
             };
 
             return View(model);

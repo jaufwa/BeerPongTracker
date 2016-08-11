@@ -228,17 +228,24 @@ namespace BeerPongTracker.Website.Mocks
 
         public Game CupSwitch(CupSwitchRequest request)
         {
-            throw new NotImplementedException();
+            return GetGame1();
         }
 
         public StartGameResponse StartGame(StartGameRequest request)
         {
-            throw new NotImplementedException();
+            return new StartGameResponse {GameId = 1};
         }
 
         public PlayerSearchResponse PlayerSearch(string query)
         {
-            throw new NotImplementedException();
+            var searchResults = new List<PlayerSearchResult>();
+
+            searchResults.Add(new PlayerSearchResult {FacebookId = "548140192", Name = "Jonny Miles", PlayerId = 1});
+            searchResults.Add(new PlayerSearchResult {FacebookId = "682905112", Name = "Danny Winstone", PlayerId = 2});
+            searchResults.Add(new PlayerSearchResult {FacebookId = "666875244", Name = "Chris Tucker", PlayerId = 3});
+            searchResults.Add(new PlayerSearchResult {FacebookId = "839635028", Name = "Karl Winestone", PlayerId = 4});
+
+            return new PlayerSearchResponse {PlayerSearchResults = searchResults};
         }
     }
 }

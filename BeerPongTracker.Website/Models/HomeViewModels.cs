@@ -7,10 +7,10 @@ namespace BeerPongTracker.Website.Models
 {
     public class ScreenViewModel
     {
-        public Screen1ViewModel Screen1ViewModel { get; set; }
+        public Screen2ViewModel Screen2ViewModel { get; set; }
     }
 
-    public class Screen1ViewModel
+    public class Screen2ViewModel
     {
 
     }
