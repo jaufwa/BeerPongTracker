@@ -320,8 +320,6 @@ BeerPongTracker.watching = (function () {
     };
 
     var _listenForChange = function () {
-        console.log("Listening for changes...");
-
         var jsonData = {
             GameId: BeerPongTracker.global.getGameId(),
             LastUpdateSignature: BeerPongTracker.global.getLastUpdateSignature()
@@ -339,11 +337,8 @@ BeerPongTracker.watching = (function () {
 
     var _listenForChangeSuccess = function (result) {
         if (result.Updated) {
-            console.log("CHANGE DETECTED, updating board...");
             BeerPongTracker.global.setLastUpdateSignature(result.LastUpdateSignature);
             _updateBoard();
-        } else {
-            console.log("No changes detected");
         }
 
         _listenForChange();
