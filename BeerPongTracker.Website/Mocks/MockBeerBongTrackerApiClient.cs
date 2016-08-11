@@ -247,5 +247,16 @@ namespace BeerPongTracker.Website.Mocks
 
             return new PlayerSearchResponse {PlayerSearchResults = searchResults};
         }
+
+        public AvailableGames GetAvailableGames()
+        {
+            var availableGameDatas = new List<AvailableGameData>();
+
+            availableGameDatas.Add(new AvailableGameData { GameId = 1, Hint = "JM vs CT", StartDate = DateTime.Now.AddMinutes(-30) });
+            availableGameDatas.Add(new AvailableGameData { GameId = 2, Hint = "JM & CT vs DW & KW", StartDate = DateTime.Now.AddMinutes(-42) });
+            availableGameDatas.Add(new AvailableGameData { GameId = 3, Hint = "JM vs CQ", StartDate = DateTime.Now.AddMinutes(-42) });
+
+            return new AvailableGames {AvailableGameDatas = availableGameDatas};
+        }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model BeerPongTracker.Website.Models.Screen1ViewModel
+
+<div class="row">
+    <h2>Watch a game:</h2>
+</div>
+<div class="row">
+    @foreach (var availableGame in Model.AvailableGamesData)
+    {
+        <div class="button--large-center-wrapper button--large-center-wrapper--watch-menu">
+            <div class="button button--large button--watch-game" gameid="@availableGame.GameId">
+                <span class="button__text">
+                    @availableGame.StartDate.ToString("g")<br />@availableGame.Hint
+                </span>
+            </div>
+        </div>
+    }
+</div>
+<div class="screen__spacer"></div>
+<div class="row">
+    <h2>Start a game:</h2>
+</div>
+<div class="row">
+    <div class="button--large-center-wrapper button--large-center-wrapper--watch-menu">
+        <div class="button button--large button--create-game">
+            <span class="button__text">
+                +
+            </span>
+        </div>
+    </div>
+</div>

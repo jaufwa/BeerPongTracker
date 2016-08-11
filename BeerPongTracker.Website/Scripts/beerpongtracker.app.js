@@ -2,6 +2,7 @@ if (typeof BeerPongTracker !== "object") { BeerPongTracker = {}; }
 
 BeerPongTracker.main = (function () {
     var _init = function () {
+        BeerPongTracker.mainMenu.init();
         BeerPongTracker.helpers.init();
         BeerPongTracker.cupSelector.init();
         BeerPongTracker.startGameButton.init();
@@ -11,7 +12,15 @@ BeerPongTracker.main = (function () {
 
     var _checkForExistingGame = function () {
         if (location.hash.match("^#c")) {
+            BeerPongTracker.global.setControlling(true);
             var gameId = location.hash.replace("#c", "");
+            BeerPongTracker.global.displayLoadingScreen();
+            BeerPongTracker.global.loadGame(gameId);
+        }
+
+        if (location.hash.match("^#w")) {
+            BeerPongTracker.global.setControlling(false);
+            var gameId = location.hash.replace("#w", "");
             BeerPongTracker.global.displayLoadingScreen();
             BeerPongTracker.global.loadGame(gameId);
         }
@@ -23,6 +32,16 @@ BeerPongTracker.main = (function () {
 })();
 
 BeerPongTracker.global = (function () {
+    var _controlling = false;
+
+    var _setControlling = function(controllingBool) {
+        _controlling = controllingBool;
+    };
+
+    var _getControlling = function () {
+        return _controlling;
+    };
+
     var _displayLoadingScreen = function () {
         $(".screen").hide();
         $("body").append("<div class=\"loading\"><img src=\"/Content/Images/loading.gif\" /></div>");
@@ -43,19 +62,46 @@ BeerPongTracker.global = (function () {
 
     var _getGameDataSuccess = function (result) {
         $(".screen--3").append(result);
-        BeerPongTracker.controlling.init();
+        if (BeerPongTracker.global.getControlling()) {
+            BeerPongTracker.controlling.init();
+        } else {
+            // Init watching namespace
+        }
         _hideLoadingScreen();
         $(".screen--3").show(result);
     };
 
     var _getGameDataError = function (xhr, textStatus, errorThrown) {
-        console.log(errorThrown)
+        console.log(errorThrown);
     };
 
     return {
         displayLoadingScreen: _displayLoadingScreen,
         hideLoadingScreen: _hideLoadingScreen,
-        loadGame: _loadGame
+        loadGame: _loadGame,
+        setControlling: _setControlling,
+        getControlling: _getControlling
+    };
+})();
+
+BeerPongTracker.mainMenu = (function() {
+    var _init = function () {
+        $(".button--watch-game").click(function() {
+            BeerPongTracker.global.displayLoadingScreen();
+            BeerPongTracker.global.setControlling(false);
+            var gameId = $(this).attr("gameid");
+            location.hash = '#w' + gameId;
+            BeerPongTracker.global.loadGame(gameId);
+        });
+
+        $(".button--create-game").click(function() {
+            $(".screen--1").hide();
+            $(".screen--2").show();
+        });
+    };
+
+    return {
+        init: _init
     };
 })();
 

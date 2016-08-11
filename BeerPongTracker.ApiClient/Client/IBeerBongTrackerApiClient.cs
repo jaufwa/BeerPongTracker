@@ -11,5 +11,7 @@ namespace BeerPongTracker.ApiClient.Client
         StartGameResponse StartGame(StartGameRequest request);
 
         PlayerSearchResponse PlayerSearch(string query);
+
+        AvailableGames GetAvailableGames();
     }
 }

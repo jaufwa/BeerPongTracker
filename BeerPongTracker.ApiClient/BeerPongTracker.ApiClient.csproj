@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\BeerBongTrackerApiClient.cs" />
+    <Compile Include="ContractObjects\AvailableGameData.cs" />
+    <Compile Include="ContractObjects\AvailableGames.cs" />
     <Compile Include="ContractObjects\CupStats.cs" />
     <Compile Include="ContractObjects\CupSwitchRequest.cs" />
     <Compile Include="ContractObjects\CupSwitchResponse.cs" />

@@ -22,9 +22,29 @@ namespace BeerPongTracker.Website.Controllers
 
         public ActionResult Index()
         {
+            var screen1ViewModel = new Screen1ViewModel();
+
+            var availableGameData = new List<WatchGameButtonViewModel>();
+
+            var availableGameDataFromApi = _beerBongTrackerApiClient.GetAvailableGames();
+
+            foreach (var availableGameFromApi in availableGameDataFromApi.AvailableGameDatas)
+            {
+                availableGameData.Add(
+                    new WatchGameButtonViewModel
+                    {
+                        GameId = availableGameFromApi.GameId,
+                        Hint = availableGameFromApi.Hint,
+                        StartDate = availableGameFromApi.StartDate
+                    });
+            }
+
+            screen1ViewModel.AvailableGamesData = availableGameData;
+
             var model = new ScreenViewModel()
             {
-                Screen2ViewModel= new Screen2ViewModel()
+                Screen1ViewModel = screen1ViewModel,
+                Screen2ViewModel = new Screen2ViewModel()
             };
 
             return View(model);
@@ -33,15 +53,16 @@ namespace BeerPongTracker.Website.Controllers
         public ActionResult PlayerNameHelper(string query, int t, int p)
         {
             var searchResults = _beerBongTrackerApiClient.PlayerSearch(query);
-            
+
             var viewModel = new PlayerNameHelperViewModel();
 
             var details = new List<PlayerNameHelperPlayerDetailsViewModel>();
 
-            foreach(var searchResult in searchResults.PlayerSearchResults)
+            foreach (var searchResult in searchResults.PlayerSearchResults)
             {
                 details.Add(
-                    new PlayerNameHelperPlayerDetailsViewModel {
+                    new PlayerNameHelperPlayerDetailsViewModel
+                    {
                         FacebookId = searchResult.FacebookId,
                         PlayerName = searchResult.Name,
                         PlayerId = searchResult.PlayerId

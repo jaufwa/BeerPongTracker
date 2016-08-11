@@ -7,7 +7,22 @@ namespace BeerPongTracker.Website.Models
 {
     public class ScreenViewModel
     {
+        public Screen1ViewModel Screen1ViewModel { get; set; }
         public Screen2ViewModel Screen2ViewModel { get; set; }
+    }
+
+    public class Screen1ViewModel
+    {
+        public IEnumerable<WatchGameButtonViewModel> AvailableGamesData { get; set; }
+    }
+
+    public class WatchGameButtonViewModel
+    {
+        public DateTime StartDate { get; set; }
+
+        public string Hint { get; set; }
+
+        public int GameId { get; set; }
     }
 
     public class Screen2ViewModel

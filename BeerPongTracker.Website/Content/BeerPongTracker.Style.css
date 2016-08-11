@@ -906,18 +906,29 @@ body {
 
 .button--large {
     padding: 15px 104px;
+}
+
+.button--start-game {
     font-size: 43px;
+}
+
+.button--watch-game {
+    font-size: 20px;
+}
+
+.button--create-game {
+    font-size: 60px;
 }
 
 .button--large-center-wrapper {
     position:relative;
-    height: 76px;
 }
 
 .button--large-center-wrapper .button--large {
-    position:absolute;
-    left:50%;
-    margin-left:-173px;
+    margin:auto;
+    display: block;
+    width: 20%;
+    text-align: center;
 }
 
 .team-input__text-wrapper {
@@ -967,4 +978,8 @@ body {
     top: 0;
     left: 0;
     z-index:98;
+}
+
+.button--large-center-wrapper--watch-menu {
+    margin-top: 10px;
 }

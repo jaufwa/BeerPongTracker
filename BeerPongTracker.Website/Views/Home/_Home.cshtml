@@ -1,9 +1,14 @@
 ﻿@model BeerPongTracker.Website.Models.ScreenViewModel
 
-<div class="screen screen--2">
+<div class="screen screen--1">
+    <div class="screen__window">
+        @Html.Partial("_1", Model.Screen1ViewModel)
+    </div>
+</div>
+<div class="screen screen--2" style="display: none;">
     <div class="screen__window">
         @Html.Partial("_2", Model.Screen2ViewModel)
     </div>
 </div>
-<div class="hide screen screen--3">
+<div class="screen screen--3">
 </div>
