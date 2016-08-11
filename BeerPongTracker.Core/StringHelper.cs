@@ -22,5 +22,26 @@ namespace BeerPongTracker.Core
 
             return $"{firstName} {lastIniitial}";
         }
+
+        public static string CombinePlayerNames(IEnumerable<string> names)
+        {
+            var namesAsInitials = new List<string>();
+
+            foreach (var name in names)
+            {
+                var tokens = name.Split(' ');
+
+                var initials = "";
+
+                foreach (var token in tokens)
+                {
+                    initials += token.Substring(0, 1).ToUpper();
+                }
+
+                namesAsInitials.Add(initials);
+            }
+
+            return string.Join(" & ", namesAsInitials);
+        }
     }
 }

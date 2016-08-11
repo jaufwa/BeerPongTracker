@@ -29,7 +29,9 @@
 
         public AvailableGames GetAvailableGames()
         {
-            var apiResult = GetRequest<PlayerSearchResponse>($"Game/PlayerSearch?query={query}");
+            var apiResult = GetRequest<GetAvailableGamesResponse>("Game/GetGames");
+
+            return new AvailableGames {AvailableGameDatas = apiResult.AvailableGames};
         }
 
         public Game CupSwitch(CupSwitchRequest request)

@@ -17,8 +17,8 @@ namespace BeerPongTracker.Website.Controllers
 
         public GameController()
         {
-            //_beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
-            _beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
+            _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            //_beerBongTrackerApiClient = new MockBeerBongTrackerApiClient();
         }
 
         public ActionResult Build(int gameId)

@@ -224,10 +224,36 @@ namespace BeerPongTracker.BusinessLogic.Game
             var parameter = new SqlParameter("@StartDate", DateTime.Now.AddHours(-48));
 
             var dbResults = _beerPongFederationEntities.Database
-                .SqlQuery<AvailableGameResult>("GetAvailableGames @Query", parameter)
+                .SqlQuery<AvailableGameResult>("GetAvailableGames @StartDate", parameter)
                 .ToList();
 
-            return new GetAvailableGamesResponse();
+            var availableGameDatas = new List<AvailableGameData>();
+
+            foreach (var gameId in dbResults.Select(x => x.GameId).Distinct())
+            {
+                var availableGameData = new AvailableGameData { GameId = gameId };
+                availableGameData.StartDate = dbResults.First(x => x.GameId == gameId).DateStarted;
+                availableGameDatas.Add(availableGameData);
+            }
+
+            foreach (var availableGameData in availableGameDatas)
+            {
+                var teamIds = dbResults.Where(x => x.GameId == availableGameData.GameId).Select(x => x.TeamId).Distinct();
+                var teamNames = new List<string>();
+
+                foreach (var teamId in teamIds)
+                {
+                    var playerNames = dbResults.Where(x => x.GameId == availableGameData.GameId && x.TeamId == teamId).Select(x => x.Name);
+                    var teamName = StringHelper.CombinePlayerNames(playerNames);
+                    teamNames.Add(teamName);
+                }
+
+                var gameHintText = string.Join(" vs ", teamNames);
+
+                availableGameData.Hint = gameHintText;
+            }
+
+            return new GetAvailableGamesResponse {AvailableGames = availableGameDatas};
         }
     }
 }
