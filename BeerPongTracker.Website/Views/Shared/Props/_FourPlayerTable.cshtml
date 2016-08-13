@@ -1,7 +1,10 @@
 ﻿@model BeerPongTracker.Website.Models.TableCupCoversViewModel
 
 <div class="entity four-player-table">
-    <img class="four-player-table__table-graphic" src="~/Content/Images/4table.jpg" />
+    @if (Model.Controlling == false)
+    {
+        <img class="four-player-table__table-graphic" src="~/Content/Images/4table.jpg" />
+    }
 </div>
 <div class="cup-cover-container cup-cover-container--four-player four-player-table__team1">
     @Html.Partial("Props/_CupCover", Model.TeamCupCovers[1])

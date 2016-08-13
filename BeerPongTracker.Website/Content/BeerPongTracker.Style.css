@@ -36,6 +36,10 @@ body {
     overflow:hidden;
 }
 
+.no-background {
+    background:none!important;
+}
+
 .row {
     clear: both; 
 }

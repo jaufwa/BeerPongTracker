@@ -63,7 +63,8 @@
 
             var tableCupCoversViewModel = new TableCupCoversViewModel
             {
-                TeamCupCovers = teamCupCovers
+                TeamCupCovers = teamCupCovers,
+                Controlling = controlling
             };
 
             var viewModel = new GameViewModel

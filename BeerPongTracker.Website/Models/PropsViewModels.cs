@@ -35,5 +35,7 @@ namespace BeerPongTracker.Website.Models
     public class TableCupCoversViewModel
     {
         public Dictionary<int, CupCoverViewModel> TeamCupCovers { get; set; }
+
+        public bool Controlling { get; set; }
     }
 }
