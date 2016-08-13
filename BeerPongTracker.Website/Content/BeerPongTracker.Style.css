@@ -122,6 +122,10 @@ body {
     float:right;
 }
 
+.two-player-table {
+    height: 506px;
+}
+
 .three-player-table-container__stats .team-info--left .team-info__name {
     margin-left:0;
 }
@@ -213,13 +217,13 @@ body {
 }
 
 .two-player-table__left {
-    background-image: url('/Content/Images/2table_left_red.png');
+    background-image: url('/Content/Images/table_red_legs_left.png');
     background-size:contain;
-    width: 68px;
+    width: 244px;
     position:absolute;
     left:0;
     background-repeat:no-repeat;
-    margin-left: -27px;
+    margin-left: -67px;
 }
 
 .two-player-table__centre__inner {
@@ -227,30 +231,30 @@ body {
 }
 
 .two-player-table__centre {
-    margin: 0 32px 0 40px;
-    background-image: url('/Content/Images/2table_middle_red.png');
+    margin: 0 191px 0 173px;
+    background-image: url('/Content/Images/table_red_legs_mid.png');
     background-size:contain;
     background-repeat:repeat-x;
 }
 
 .two-player-table__right {
-    background-image: url('/Content/Images/2table_right_red.png');
+    background-image: url('/Content/Images/table_red_legs_right.png');
     background-size:contain;
     background-repeat:no-repeat;
-    width: 57px;
+    width: 232px;
     position:absolute;
     right:0;
     top:0;
-    margin-right: -25px;
+    margin-right: -41px;
 }
 
 .two-player-table__left, .two-player-table__centre, .two-player-table__right {
-    height:440px;
+    height: 572px;
 }
 
 .two-player-table__logo {
     position:absolute;
-    top:50%;
+    top: 40%;
     left:50%;
     margin-top: -97px;
     margin-left: -94px;

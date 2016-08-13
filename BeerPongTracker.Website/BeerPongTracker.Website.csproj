@@ -285,6 +285,9 @@
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\number_of_cups.png" />
     <Content Include="Content\Images\number_of_cups_selector.png" />
+    <Content Include="Content\Images\table_red_legs_left.png" />
+    <Content Include="Content\Images\table_red_legs_mid.png" />
+    <Content Include="Content\Images\table_red_legs_right.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
