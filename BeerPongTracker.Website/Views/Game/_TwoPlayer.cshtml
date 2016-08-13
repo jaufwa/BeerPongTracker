@@ -1,12 +1,15 @@
 ﻿@model BeerPongTracker.Website.Models.GameViewModel
 
 <div class="game row p2stats">
-    <div class="two-player-table-container__stats two-player-table-container__stats--p1">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1].WithAlignment("left"))
-    </div>
-    <div class="two-player-table-container__stats two-player-table-container__stats--p2">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2].WithAlignment("right"))
-    </div>
+    @if (Model.Controlling == false)
+    {
+        <div class="two-player-table-container__stats two-player-table-container__stats--p1">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1].WithAlignment("left"))
+        </div>
+        <div class="two-player-table-container__stats two-player-table-container__stats--p2">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2].WithAlignment("right"))
+        </div>
+    }
 </div>
 <div class="spacer row" style="height:27px">
 </div>

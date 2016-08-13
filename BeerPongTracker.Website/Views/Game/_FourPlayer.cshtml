@@ -2,16 +2,19 @@
 
 <div class="four-player-table-container">
     @Html.Partial("Props/_FourPlayerTable", Model.TableCupCoversViewModel)
-    <div class="four-player-table-container__stats four-player-table-container__stats--p1">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1].WithAlignment("left"))
-    </div>
-    <div class="four-player-table-container__stats four-player-table-container__stats--p2">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2].WithAlignment("left"))
-    </div>
-    <div class="four-player-table-container__stats four-player-table-container__stats--p3">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[3].WithAlignment("right"))
-    </div>
-    <div class="four-player-table-container__stats four-player-table-container__stats--p4">
-        @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[4].WithAlignment("right"))
-    </div>
+    @if (Model.Controlling == false)
+    {
+        <div class="four-player-table-container__stats four-player-table-container__stats--p1">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1].WithAlignment("left"))
+        </div>
+        <div class="four-player-table-container__stats four-player-table-container__stats--p2">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[2].WithAlignment("left"))
+        </div>
+        <div class="four-player-table-container__stats four-player-table-container__stats--p3">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[3].WithAlignment("right"))
+        </div>
+        <div class="four-player-table-container__stats four-player-table-container__stats--p4">
+            @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[4].WithAlignment("right"))
+        </div>
+    }
 </div>

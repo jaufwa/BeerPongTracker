@@ -70,11 +70,18 @@ BeerPongTracker.global = (function () {
     var _loadGame = function (gameId) {
         _gameId = gameId;
 
+        var jsonData = {
+            GameId: gameId,
+            Controlling: BeerPongTracker.global.getControlling()
+        };
+
         $.ajax({
-            method: "GET",
+            contentType: "application/json",
+            method: "POST",
+            data: JSON.stringify(jsonData),
             success: _getGameDataSuccess,
             error: _getGameDataError,
-            url: "/Game/Build?gameId=" + gameId
+            url: "/Game/Build"
         });
     }
 

@@ -20,11 +20,11 @@ namespace BeerPongTracker.Website.Controllers
             _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
         }
 
-        public ActionResult Build(int gameId)
+        public ActionResult Build(BuildGameRequest request)
         {
             var gameViewBuilder = new GameViewBuilder(_beerBongTrackerApiClient);
 
-            var viewHelper = gameViewBuilder.Build(gameId);
+            var viewHelper = gameViewBuilder.Build(request.GameId, request.Controlling);
 
             return PartialView(viewHelper);
         }

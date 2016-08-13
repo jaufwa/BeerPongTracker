@@ -249,6 +249,7 @@
     </Compile>
     <Compile Include="Mocks\MockBeerBongTrackerApiClient.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BuildGameRequest.cs" />
     <Compile Include="Models\GameViewModels.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />

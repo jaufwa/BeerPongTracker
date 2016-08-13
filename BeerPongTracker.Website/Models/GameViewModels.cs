@@ -12,5 +12,7 @@ namespace BeerPongTracker.Website.Models
         public TableCupCoversViewModel TableCupCoversViewModel { get; set; }
 
         public string LastUpdateSignature { get; set; }
+
+        public bool Controlling { get; set; }
     }
 }
