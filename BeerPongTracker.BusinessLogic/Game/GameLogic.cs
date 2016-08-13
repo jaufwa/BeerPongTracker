@@ -132,7 +132,7 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             result.NumberOfTeams = dbPlayerGames.Select(x => x.TeamId).Distinct().Count();
 
-            foreach (var teamId in dbPlayerGames.Select(x => x.TeamId).Distinct())
+            foreach (var teamId in dbPlayerGames.Select(x => x.TeamId).Distinct().ToList())
             {
                 var team = new Team();
 
