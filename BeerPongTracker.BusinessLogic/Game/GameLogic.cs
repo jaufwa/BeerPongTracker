@@ -271,7 +271,7 @@ namespace BeerPongTracker.BusinessLogic.Game
 
         public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
         {
-            var periodEnd = DateTime.Now.AddSeconds(10);
+            var periodEnd = DateTime.Now.AddSeconds(30);
 
             while (DateTime.Now < periodEnd)
             {
@@ -288,7 +288,7 @@ namespace BeerPongTracker.BusinessLogic.Game
                     return new ListenForChangeResult() { LastUpdateSignature = dbLastUpdateSignature, Updated = true };
                 }
 
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
 
             return new ListenForChangeResult() { LastUpdateSignature = request.LastUpdateSignature, Updated = false };
