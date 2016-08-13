@@ -281,6 +281,7 @@
     <Content Include="Content\Images\BpfLogoLight_red.png" />
     <Content Include="Content\Images\cup.png" />
     <Content Include="Content\Images\cup_red.png" />
+    <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\number_of_cups.png" />
     <Content Include="Content\Images\number_of_cups_selector.png" />
     <Content Include="favicon.ico" />
