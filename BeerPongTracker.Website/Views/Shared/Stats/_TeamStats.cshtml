@@ -1,6 +1,6 @@
 ﻿@model BeerPongTracker.Website.Models.TeamStatsViewModel
 
-<div class="entity team-stats team-info team-info--@Model.Alignment">
+<div class="entity team-stats team-stats--team-@(Model.TeamId) team-info team-info--@Model.Alignment">
     <div class="team-info__block team-info__block--1 @(string.IsNullOrEmpty(Model.AvatarViewModel.FacebookId) ? "hide" : "")">
         @Html.Partial("Stats/_Avatar", @Model.AvatarViewModel)
     </div>

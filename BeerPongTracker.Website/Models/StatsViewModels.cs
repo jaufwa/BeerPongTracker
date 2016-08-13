@@ -26,6 +26,8 @@
 
         public string Alignment { get; set; }
 
+        public int TeamId { get; set; }
+
         public TeamStatsViewModel WithAlignment(string alignment)
         {
             Alignment = alignment;

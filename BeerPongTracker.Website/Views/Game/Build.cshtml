@@ -1,4 +1,4 @@
 ﻿@model BeerPongTracker.Website.ViewBuilders.ViewBuilderResult
 
-<span class="game-meta-info" style="display:none;" lus="@Model.ViewModel.LastUpdateSignature"></span>
+<span class="game-meta-info" style="display:none;" lus="@Model.ViewModel.LastUpdateSignature" not="@Model.ViewModel.TeamStatsViewModels.Count()"></span>
 @Html.Partial(Model.ViewPath, Model.ViewModel)

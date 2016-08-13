@@ -50,6 +50,8 @@
     <Compile Include="Cup\ICupLogic.cs" />
     <Compile Include="Game\AvailableGameData.cs" />
     <Compile Include="Game\AvailableGameResult.cs" />
+    <Compile Include="Game\DeclareWinnerRequest.cs" />
+    <Compile Include="Game\DeclareWinnerResponse.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\GetAvailableGamesResponse.cs" />

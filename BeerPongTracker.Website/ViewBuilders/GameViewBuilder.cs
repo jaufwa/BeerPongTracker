@@ -27,6 +27,7 @@
             {
                 var teamStatsViewModel = new TeamStatsViewModel
                 {
+                    TeamId = team.TeamId,
                     AvatarViewModel = new AvatarViewModel
                     {
                         FacebookId = team.FacebookId

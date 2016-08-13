@@ -36,6 +36,16 @@ BeerPongTracker.global = (function () {
 
     var _gameId = 0;
 
+    var _numberOfTeams = 0;
+
+    var _getNumberOfTeams = function () {
+        return _numberOfTeams;
+    };
+
+    var _setNumberOfTeams = function (numberOfTeams) {
+        _numberOfTeams = numberOfTeams;
+    };
+
     var _getGameId = function () {
         return _gameId;
     };
@@ -88,6 +98,7 @@ BeerPongTracker.global = (function () {
     var _getGameDataSuccess = function (result) {
         $(".screen--3").append(result);
         _setLastUpdateSignature($(".game-meta-info").attr("lus"));
+        _setNumberOfTeams($(".game-meta-info").attr("not"));
         if (BeerPongTracker.global.getControlling()) {
             BeerPongTracker.controlling.init();
         } else {
@@ -109,7 +120,9 @@ BeerPongTracker.global = (function () {
         getControlling: _getControlling,
         getGameId: _getGameId,
         getLastUpdateSignature: _getLastUpdateSignature,
-        setLastUpdateSignature: _setLastUpdateSignature
+        setLastUpdateSignature: _setLastUpdateSignature,
+        getNumberOfTeams: _getNumberOfTeams,
+        setNumberOfTeams: _setNumberOfTeams
     };
 })();
 
@@ -247,9 +260,9 @@ BeerPongTracker.cupSelector = (function () {
 
         $(cupSelector).addClass("number-of-cups-selector__selection--selected");
 
-        var numerOfCups = $(cupSelector).attr("cups");
+        var numberOfCups = $(cupSelector).attr("cups");
 
-        $(".number-of-cups-selector__hidden").val(numerOfCups);
+        $(".number-of-cups-selector__hidden").val(numberOfCups);
     };
 
     return {
@@ -288,27 +301,86 @@ BeerPongTracker.controlling = (function () {
                 url: "/Game/CupSwitch"
             });
         });
+
+        $("body").on("click", ".winner-prompt", function () {
+            var winningTeamId = $(this).attr("teamid");
+
+            var jsonData = {
+                WinningTeamId: winningTeamId,
+                GameId: BeerPongTracker.global.getGameId()
+            };
+
+            $.ajax({
+                contentType: "application/json",
+                data: JSON.stringify(jsonData),
+                method: "POST",
+                success: _cupCoverSuccess,
+                error: _cupCoverError,
+                url: "/Game/DeclareWinner"
+            });
+        });
     };
 
     var _cupCoverSuccess = function (result) {
-        $(result.Teams).each(function () {
-            var teamId = this.TeamId;
-            var teamHealthElement = $("#team-" + this.TeamId + "-health");
-            teamHealthElement.css({ width: this.Health + "%" });
+        _checkForWinner(result);
+    }
 
-            if (this.Health < 25) {
-                teamHealthElement.removeClass("team-info__health__container__remaining--green");
-                teamHealthElement.addClass("team-info__health__container__remaining--red");
-            } else {
-                teamHealthElement.removeClass("team-info__health__container__remaining--red");
-                teamHealthElement.addClass("team-info__health__container__remaining--green");
+    var _checkForWinner = function (gameModel) {
+        var deadTeamsCount = 0;
+        $(gameModel.Teams).each(function () {
+            if (this.Health < 1) {
+                deadTeamsCount++;
             }
         });
+        if (deadTeamsCount == (gameModel.Teams.length - 1)) {
+            var winningTeamId = 0;
+            $(gameModel.Teams).each(function () {
+                if (this.Health >= 1) {
+                    winningTeamId = this.TeamId;
+                    return _promptForEndGame(winningTeamId);
+                }
+            });
+        } else {
+            _removeEndGamePrompt();
+        }
     }
+
+    var _promptForEndGame = function (winningTeamId) {
+        var cupCoverElName = "cup-cover--team-" + winningTeamId;
+        var cupCoverEl = $("." + cupCoverElName);
+        var positionStyle = _getCupCoverCentrePoint(BeerPongTracker.global.getNumberOfTeams(), winningTeamId);
+        if ($(".winner-prompt").length == 0) {
+            cupCoverEl.prepend("<div style=\"" + positionStyle + "\" class=\" button--gold winner-prompt\" teamid=\"" + winningTeamId + "\"><span class=\"winner-prompt--text\">DECLARE WINNER?</span></div>");
+        }
+    };
+
+    var _removeEndGamePrompt = function () {
+        if ($(".winner-prompt").length > 0) {
+            $(".winner-prompt").remove();
+        };
+    };
 
     var _cupCoverError = function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
     };
+
+    var _getCupCoverCentrePoint = function(numberOfTeams, teamId) {
+        var cupCoverCentrePointMap = new Array();
+        cupCoverCentrePointMap["2-1"] = "179@130";
+        cupCoverCentrePointMap["2-2"] = "179@-192";
+        cupCoverCentrePointMap["3-1"] = "229@213";
+        cupCoverCentrePointMap["3-2"] = "225@499";
+        cupCoverCentrePointMap["3-3"] = "477@352";
+        cupCoverCentrePointMap["4-1"] = "301@134";
+        cupCoverCentrePointMap["4-2"] = "121@293";
+        cupCoverCentrePointMap["4-3"] = "291@468";
+        cupCoverCentrePointMap["4-4"] = "470@294";
+
+        var topLeft = cupCoverCentrePointMap[numberOfTeams + "-" + teamId];
+        var topLeftArr = topLeft.split("@");
+
+        return "top:" + (topLeftArr[0] - 70) + "px;left:" + (topLeftArr[1] - 70) + "px;"
+    }
 
     return {
         init: _init
@@ -420,7 +492,7 @@ BeerPongTracker.startGameButton = (function () {
         $(".button--start-game").unbind().click(function () {
             BeerPongTracker.global.displayLoadingScreen();
 
-            var numerOfCups = $(".number-of-cups-selector__hidden").val();
+            var numberOfCups = $(".number-of-cups-selector__hidden").val();
 
             var teams = new Array();
 
@@ -451,7 +523,7 @@ BeerPongTracker.startGameButton = (function () {
             }
 
             var jsonData = {
-                NumberOfCups: numerOfCups,
+                NumberOfCups: numberOfCups,
                 Teams: teams
             }
 

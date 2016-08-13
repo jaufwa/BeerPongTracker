@@ -179,6 +179,17 @@ namespace BeerPongTracker.BusinessLogic.Game
             return result;
         }
 
+        public DeclareWinnerResponse DeclareWinner(DeclareWinnerRequest request)
+        {
+            var dbGame = _beerPongFederationEntities.Game.Single(x => x.GameId == request.GameId);
+
+            dbGame.LastUpdateSignature = $"tw-{request.WinningTeamId}-{Guid.NewGuid().ToString().Substring(0, 7)}";
+
+            _beerPongFederationEntities.SaveChanges();
+
+            return new DeclareWinnerResponse();
+        }
+
         public Game CupSwitch(CupSwitchRequest cupSwitchRequest)
         {
             var cupTracker = _beerPongFederationEntities.CupTracker.FirstOrDefault(x =>
@@ -195,7 +206,7 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             var game = _beerPongFederationEntities.Game.Single(x => x.GameId == cupSwitchRequest.GameId);
             game.LastUpdated = DateTime.Now;
-            game.LastUpdateSignature = $"cs-{Guid.NewGuid().ToString()}";
+            game.LastUpdateSignature = $"cs-{Guid.NewGuid().ToString().Substring(0,7)}";
 
             _beerPongFederationEntities.SaveChanges();
 

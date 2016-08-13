@@ -22,6 +22,11 @@
             return GetRequest<Game>($"Game/Game?gameid={gameId}");
         }
 
+        public DeclareWinnerResponse DeclareWinner(DeclareWinnerRequest request)
+        {
+            return PostRequest<DeclareWinnerRequest, DeclareWinnerResponse>("Game/DeclareWinner", request);
+        }
+
         public PlayerSearchResponse PlayerSearch(string query)
         {
             return GetRequest<PlayerSearchResponse>($"Game/PlayerSearch?query={query}");
