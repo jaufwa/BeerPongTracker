@@ -341,10 +341,27 @@ BeerPongTracker.watching = (function () {
     var _listenForChangeSuccess = function (result) {
         if (result.Updated) {
             BeerPongTracker.global.setLastUpdateSignature(result.LastUpdateSignature);
-            _updateBoard();
+            _resolveChangeNotice(result.LastUpdateSignature);
         }
 
         _listenForChange();
+    };
+
+    var _resolveChangeNotice = function (updateSignature) {
+        if (updateSignature.match("^cs-")) {
+            _updateBoard();
+        };
+
+        if (updateSignature.match("^tw-")) {
+            var frags = updateSignature.split("-");
+            var winningTeamId = frags[1];
+
+            _declareWinner(winningTeamId);
+        }
+    };
+
+    var _declareWinner = function (winningTeamId) {
+        alert("Team " + winningTeamId + " has won");
     };
 
     var _updateBoard = function () {

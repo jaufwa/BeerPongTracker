@@ -195,7 +195,7 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             var game = _beerPongFederationEntities.Game.Single(x => x.GameId == cupSwitchRequest.GameId);
             game.LastUpdated = DateTime.Now;
-            game.LastUpdateSignature = Guid.NewGuid().ToString();
+            game.LastUpdateSignature = $"cs-{Guid.NewGuid().ToString()}";
 
             _beerPongFederationEntities.SaveChanges();
 
