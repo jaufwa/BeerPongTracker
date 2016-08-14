@@ -452,10 +452,9 @@ BeerPongTracker.watching = (function () {
 
     var _declareWinnerSuccess = function (result) {
         $(".screen--4").html(result);
-        $(".screen--3").fadeOut(3000);
         $(".screen--3").fadeOut(3000, function () {
             setTimeout(function () {
-                $(".screen--4").fadeIn(3000);
+                $(".screen--4").fadeIn(1000);
                 BeerPongTracker.winScreen.init();
             }, 3000);
         });
@@ -593,8 +592,9 @@ BeerPongTracker.winScreen = (function () {
         setInterval(function () { _flash2() }, 2000);
 
         setTimeout(function () {
-            $(".name-plate-view-wrapper").fadeIn(1000);
-        }, 5000);
+            $(".name-plate-view-wrapper").show();
+            $(".name-plate-view-wrapper").addClass("flipInX animated");
+        }, 7000);
     };
 
     var _flash = function () {

@@ -37,7 +37,8 @@ namespace BeerPongTracker.Website
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/BeerPongTracker.Reset.css",
                  "~/Content/BeerPongTracker.Style.css",
-                 "~/Content/BeerPongTracker.PreLoader.css"));
+                 "~/Content/BeerPongTracker.PreLoader.css",
+                 "~/Content/animate.css"));
         }
     }
 }
