@@ -257,6 +257,9 @@
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\PropsViewModels.cs" />
     <Compile Include="Models\StatsViewModels.cs" />
+    <Compile Include="Models\WinnerNamePlateViewModel.cs" />
+    <Compile Include="Models\WinnerPhotosViewModel.cs" />
+    <Compile Include="Models\WinnerScreenViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -280,6 +283,7 @@
     <Content Include="Content\Images\4table.jpg" />
     <Content Include="Content\Images\BpfLogoLight.png" />
     <Content Include="Content\Images\BpfLogoLight_red.png" />
+    <Content Include="Content\Images\bpflogo_black_large.png" />
     <Content Include="Content\Images\cup.png" />
     <Content Include="Content\Images\cup_red.png" />
     <Content Include="Content\Images\loading.gif" />
@@ -377,6 +381,9 @@
     <Content Include="Views\Home\_PlayerNameHelperPlayerDetails.cshtml" />
     <Content Include="Views\Game\Build.cshtml" />
     <Content Include="Views\Home\_1.cshtml" />
+    <Content Include="Views\Home\_4.cshtml" />
+    <Content Include="Views\Shared\Props\_NamePlate.cshtml" />
+    <Content Include="Views\Shared\Props\_WinnerPhotos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

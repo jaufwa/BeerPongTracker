@@ -556,3 +556,32 @@ BeerPongTracker.startGameButton = (function () {
         init: _init
     };
 })();
+
+BeerPongTracker.winScreen = (function () {
+    var _init = function () {
+        setInterval(function () { _flash() }, 500);
+
+        setTimeout(function () {
+            $(".name-plate-view-wrapper").fadeIn(1000);
+        }, 5000);
+    };
+
+    var _flash = function () {
+        var flashingEl = $(".screen--fixed");
+        if (flashingEl.hasClass("orange-background")) {
+            flashingEl.removeClass("orange-background");
+            flashingEl.addClass("orange2-background");
+        } else {
+            flashingEl.addClass("orange-background");
+            flashingEl.removeClass("orange2-background");
+        }
+    };
+
+    return {
+        init: _init
+    };
+})();
+
+$(document).ready(function () {
+    BeerPongTracker.winScreen.init();
+});

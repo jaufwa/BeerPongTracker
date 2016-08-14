@@ -1,0 +1,14 @@
+﻿@model BeerPongTracker.Website.Models.WinnerPhotosViewModel
+
+<div class="winner-photos">
+    @{
+        var i = 0;
+        foreach (var photo in Model.Photos)
+        {
+            i++;
+            <div class="winner-photo @(i == Model.Photos.Count() ? "winner-photo--last" : "")" style="@(Model.Photos.Count() > 3 && i != Model.Photos.Count() ? "margin-right:40px!important;" : "")">
+                <img class="winner-photo__img" src="http://graph.facebook.com/@photo.FacebookId/picture?type=large" style="@(Model.Photos.Count() > 3 ? "height:280px!important;width:280px!important;" : "")" />
+            </div>
+        }
+    }
+</div>

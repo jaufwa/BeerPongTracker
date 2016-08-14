@@ -87,5 +87,25 @@
 
             return new ViewBuilderResult(viewPath, viewModel);
         }
+
+        public WinnerScreenViewModel BuildWinnerScreenViewModel()
+        {
+            var viewModel = new WinnerScreenViewModel();
+
+            viewModel.NamePlateViewModel = new WinnerNamePlateViewModel();
+            viewModel.NamePlateViewModel.TeamName = "JONNY MILES and CHRIS TUCKER";
+            viewModel.NamePlateViewModel.Plural = true;
+
+            viewModel.WinnerPhotosViewModel = new WinnerPhotosViewModel();
+
+            var photos = new List<WinnerPhotoViewModel>();
+            photos.Add(new WinnerPhotoViewModel() { FacebookId = "548140192" });
+            photos.Add(new WinnerPhotoViewModel() { FacebookId = "666875244" });
+            photos.Add(new WinnerPhotoViewModel() { FacebookId = "666875244" });
+
+            viewModel.WinnerPhotosViewModel.Photos = photos;
+
+            return viewModel;
+        }
     }
 }

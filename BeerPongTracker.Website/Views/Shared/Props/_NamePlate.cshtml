@@ -1,0 +1,23 @@
+﻿@model BeerPongTracker.Website.Models.WinnerNamePlateViewModel
+
+<div class="winner-sign">
+    <div class="winner-sign__name-plate">
+        <div class="winner-sign__name-plate__inner">
+            <div class="winner-sign__name-plate__inner__margin">
+                <span class="winner-sign__name-plate__text winner-sign__name-plate__text--header">
+                    WINNER@(Model.Plural ? "S" : "")
+                </span>
+                <div class="winner-sign__name-plate__text--names-wrapper">
+                    <div class="vertical-align-center-outer">
+                        <div class="vertical-align-center-inner">
+                            <span class="winner-sign__name-plate__text winner-sign__name-plate__text--names" style="@(Model.TeamName.Length > 50 ? "font-size:35px!important;" : "")">
+                                @Model.TeamName
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="winner-sign__bpflogo" src="~/Content/Images/bpflogo_black_large.png" />
+</div>
