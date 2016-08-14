@@ -455,7 +455,7 @@ BeerPongTracker.watching = (function () {
         $(".screen--3").fadeOut(3000);
         $(".screen--3").fadeOut(3000, function () {
             setTimeout(function () {
-                $(".screen--4").show();
+                $(".screen--4").fadeIn(3000);
                 BeerPongTracker.winScreen.init();
             }, 3000);
         });

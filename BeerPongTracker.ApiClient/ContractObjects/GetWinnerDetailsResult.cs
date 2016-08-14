@@ -9,5 +9,7 @@ namespace BeerPongTracker.ApiClient.ContractObjects
     public class GetWinnerDetailsResult
     {
         public IEnumerable<WinnerDetail> WinnerDetails { get; set; }
+
+        public string YouTubeVideoId { get; set; }
     }
 }

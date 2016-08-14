@@ -8,6 +8,8 @@ namespace BeerPongTracker.BusinessLogic.Game
 {
     public class GetWinnerDetailsResult
     {
+        public string YouTubeVideoId { get; set; }
+
         public IEnumerable<WinnerDetail> WinnerDetails { get; set; }
     }
 }

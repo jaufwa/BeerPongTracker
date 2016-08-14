@@ -23,6 +23,7 @@ namespace BeerPongTracker.DataAccess.Model
         public int PlayerId { get; set; }
         public string Name { get; set; }
         public string FacebookId { get; set; }
+        public string YouTubeVideoId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayerGame> PlayerGame { get; set; }

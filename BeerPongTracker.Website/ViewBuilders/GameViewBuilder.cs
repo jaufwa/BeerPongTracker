@@ -105,12 +105,15 @@
 
             foreach (var winner in apiResult.WinnerDetails)
             {
-                photos.Add(new WinnerPhotoViewModel() { FacebookId = winner.FacebookId });
+                if (string.IsNullOrEmpty(winner.FacebookId) == false)
+                {
+                    photos.Add(new WinnerPhotoViewModel() { FacebookId = winner.FacebookId });
+                }
             }
 
             viewModel.WinnerPhotosViewModel.Photos = photos;
 
-            viewModel.YouTubeVideoModel = new YouTubeVideoModel() { VideoId = "ir5W33umq5w" };
+            viewModel.YouTubeVideoModel = new YouTubeVideoModel() { VideoId = apiResult.YouTubeVideoId };
 
             return viewModel;
         }

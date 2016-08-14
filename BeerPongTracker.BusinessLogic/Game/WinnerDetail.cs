@@ -11,5 +11,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         public string Name { get; set; }
 
         public string FacebookId { get; set; }
+
+        public string YouTubeVideoId { get; set; }
     }
 }

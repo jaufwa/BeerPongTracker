@@ -1,5 +1,11 @@
 ﻿@model BeerPongTracker.Website.Models.YouTubeVideoModel
 
-<iframe id="ytplayer" type="text/html" width="640" height="390"
-        src="https://www.youtube.com/embed/@(Model.VideoId)?autoplay=1"
-        frameborder="0"></iframe>
+@{
+    if (string.IsNullOrEmpty(Model.VideoId) == false)
+    {
+        <iframe id="ytplayer" type="text/html" width="640" height="390"
+                src="https://www.youtube.com/embed/@(Model.VideoId)?autoplay=1"
+                frameborder="0"></iframe>
+    }
+}
+

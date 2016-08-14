@@ -314,7 +314,12 @@ namespace BeerPongTracker.BusinessLogic.Game
                 .SqlQuery<WinnerDetail>("GetWinners @GameId, @TeamId", gameIdParam, teamIdParam)
                 .ToList();
 
-            return new GetWinnerDetailsResult() { WinnerDetails = dbResults };
+            var youTubeVideoId = (dbResults.FirstOrDefault(x => x.YouTubeVideoId != null))?.YouTubeVideoId;
+
+            return new GetWinnerDetailsResult() {
+                WinnerDetails = dbResults,
+                YouTubeVideoId = youTubeVideoId
+            };
         }
     }
 }
