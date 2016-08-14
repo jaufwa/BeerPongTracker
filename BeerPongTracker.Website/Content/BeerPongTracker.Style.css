@@ -2285,3 +2285,11 @@ body {
     background:white;
     background:rgba(255,255,255,0.5);
 }
+
+.youtube-wrapper {
+    position:absolute;
+    height:0;
+    width:0;
+    visibility:hidden;
+    overflow:hidden;
+}

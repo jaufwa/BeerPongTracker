@@ -1,6 +1,9 @@
 ﻿@model BeerPongTracker.Website.Models.WinnerScreenViewModel
 
 <div class="screen--fixed screen--fixed--outer orange-background">
+    <div class="youtube-wrapper">
+        @Html.Partial("Media/_YouTubeVideo", Model.YouTubeVideoModel)
+    </div>
     <div class="screen--fixed screen--fixed--inner">
         <div class="name-plate-view-wrapper" style="display:none;">
             @Html.Partial("Props/_NamePlate", Model.NamePlateViewModel)

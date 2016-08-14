@@ -10,5 +10,7 @@ namespace BeerPongTracker.Website.Models
         public WinnerNamePlateViewModel NamePlateViewModel { get; set; }
 
         public WinnerPhotosViewModel WinnerPhotosViewModel { get; set; }
+
+        public YouTubeVideoModel YouTubeVideoModel { get; set; }
     }
 }

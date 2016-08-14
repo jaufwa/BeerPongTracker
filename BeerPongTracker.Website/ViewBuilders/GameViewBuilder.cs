@@ -110,6 +110,8 @@
 
             viewModel.WinnerPhotosViewModel.Photos = photos;
 
+            viewModel.YouTubeVideoModel = new YouTubeVideoModel() { VideoId = "ir5W33umq5w" };
+
             return viewModel;
         }
     }
