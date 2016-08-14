@@ -268,5 +268,10 @@ namespace BeerPongTracker.Website.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

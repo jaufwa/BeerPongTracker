@@ -124,6 +124,10 @@
         <Function Name="GetLastUpdateSignature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="GameId" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetWinners" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="GameId" Type="int" Mode="In" />
+          <Parameter Name="TeamId" Type="int" Mode="In" />
+        </Function>
         <Function Name="PlayerNameSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Query" Type="nvarchar" Mode="In" />
         </Function>
@@ -193,7 +197,11 @@
           <Parameter Name="StartDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="GetLastUpdateSignature" ReturnType="Collection(String)">
+          <Parameter Name="GameId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetWinners" ReturnType="Collection(BeerPongFederationModel.GetWinners_Result)">
             <Parameter Name="GameId" Mode="In" Type="Int32" />
+            <Parameter Name="TeamId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="CupTracker">
@@ -330,6 +338,10 @@
           <Property Type="Int32" Name="TeamId" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
         </ComplexType>
+        <ComplexType Name="GetWinners_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="FacebookId" Nullable="true" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -415,6 +427,14 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetLastUpdateSignature" FunctionName="BeerPongFederationModel.Store.GetLastUpdateSignature" />
+          <FunctionImportMapping FunctionImportName="GetWinners" FunctionName="BeerPongFederationModel.Store.GetWinners">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BeerPongFederationModel.GetWinners_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

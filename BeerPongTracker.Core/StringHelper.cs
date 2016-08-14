@@ -43,5 +43,29 @@ namespace BeerPongTracker.Core
 
             return string.Join(" & ", namesAsInitials);
         }
+
+        public static string CombinePlayerNamesProper(IEnumerable<string> names)
+        {
+            var sb = new StringBuilder();
+
+            var i = 0;
+            foreach(var name in names)
+            {
+                i++;
+
+                if (i == names.Count())
+                {
+                    sb.Append(name);
+                } else if (i == names.Count() - 1)
+                {
+                    sb.Append($"{name} and ");
+                } else
+                {
+                    sb.Append($"{name}, ");
+                }
+            }
+
+            return sb.ToString();
+        }
     }
 }

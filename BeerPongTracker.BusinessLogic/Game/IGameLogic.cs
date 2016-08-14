@@ -17,5 +17,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         ListenForChangeResult ListenForChange(ListenForChangeRequest request);
 
         DeclareWinnerResponse DeclareWinner(DeclareWinnerRequest request);
+
+        GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request);
     }
 }

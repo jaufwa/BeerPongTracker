@@ -17,5 +17,7 @@ namespace BeerPongTracker.ApiClient.Client
         AvailableGames GetAvailableGames();
 
         ListenForChangeResult ListenForChange(ListenForChangeRequest request);
+
+        GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request);
     }
 }

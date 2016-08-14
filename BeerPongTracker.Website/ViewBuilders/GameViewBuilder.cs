@@ -5,7 +5,8 @@
     using BeerPongTracker.ApiClient.Client;
     using BeerPongTracker.ApiClient.ContractObjects;
     using BeerPongTracker.Website.Models;
-
+    using Core;
+    using System.Linq;
     public class GameViewBuilder
     {
         private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;
@@ -88,20 +89,24 @@
             return new ViewBuilderResult(viewPath, viewModel);
         }
 
-        public WinnerScreenViewModel BuildWinnerScreenViewModel()
+        public WinnerScreenViewModel BuildWinnerScreenViewModel(DeclareWinnerRequest request)
         {
+            var apiResult = _beerBongTrackerApiClient.GetWinnerDetails(request);
+
             var viewModel = new WinnerScreenViewModel();
 
             viewModel.NamePlateViewModel = new WinnerNamePlateViewModel();
-            viewModel.NamePlateViewModel.TeamName = "JONNY MILES and CHRIS TUCKER";
-            viewModel.NamePlateViewModel.Plural = true;
+            viewModel.NamePlateViewModel.TeamName = StringHelper.CombinePlayerNamesProper(apiResult.WinnerDetails.Select(x => x.Name).ToList());
+            viewModel.NamePlateViewModel.Plural = apiResult.WinnerDetails.Count() > 1;
 
             viewModel.WinnerPhotosViewModel = new WinnerPhotosViewModel();
 
             var photos = new List<WinnerPhotoViewModel>();
-            photos.Add(new WinnerPhotoViewModel() { FacebookId = "548140192" });
-            photos.Add(new WinnerPhotoViewModel() { FacebookId = "666875244" });
-            photos.Add(new WinnerPhotoViewModel() { FacebookId = "666875244" });
+
+            foreach (var winner in apiResult.WinnerDetails)
+            {
+                photos.Add(new WinnerPhotoViewModel() { FacebookId = winner.FacebookId });
+            }
 
             viewModel.WinnerPhotosViewModel.Photos = photos;
 

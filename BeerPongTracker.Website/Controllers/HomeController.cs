@@ -8,15 +8,19 @@ using System.Web.Mvc;
 
 namespace BeerPongTracker.Website.Controllers
 {
+    using ApiClient.ContractObjects;
     using BeerPongTracker.Website.Mocks;
-
+    using ViewBuilders;
     public class HomeController : Controller
     {
         private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;
 
+        private readonly GameViewBuilder _gameViewBuilder;
+
         public HomeController()
         {
             _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            _gameViewBuilder = new GameViewBuilder(_beerBongTrackerApiClient);
         }
 
         public ActionResult Index()
@@ -78,6 +82,13 @@ namespace BeerPongTracker.Website.Controllers
             viewModel.PlayerId = p;
 
             return PartialView("_PlayerNameHelper", viewModel);
+        }
+
+        public ActionResult GetWinnerDetails(DeclareWinnerRequest request)
+        {
+            var viewModel = _gameViewBuilder.BuildWinnerScreenViewModel(request);
+
+            return PartialView("_4", viewModel);
         }
     }
 }

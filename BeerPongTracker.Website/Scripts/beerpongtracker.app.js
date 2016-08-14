@@ -303,6 +303,8 @@ BeerPongTracker.controlling = (function () {
         });
 
         $("body").on("click", ".winner-prompt", function () {
+            $(".winner-prompt").fadeOut();
+
             var winningTeamId = $(this).attr("teamid");
 
             var jsonData = {
@@ -314,8 +316,8 @@ BeerPongTracker.controlling = (function () {
                 contentType: "application/json",
                 data: JSON.stringify(jsonData),
                 method: "POST",
-                success: _cupCoverSuccess,
-                error: _cupCoverError,
+                success: function () { },
+                error: function () { },
                 url: "/Game/DeclareWinner"
             });
         });
@@ -433,7 +435,34 @@ BeerPongTracker.watching = (function () {
     };
 
     var _declareWinner = function (winningTeamId) {
-        alert("Team " + winningTeamId + " has won");
+        var jsonData = {
+            WinningTeamId: winningTeamId,
+            GameId: BeerPongTracker.global.getGameId()
+        };
+
+        $.ajax({
+            contentType: "application/json",
+            data: JSON.stringify(jsonData),
+            method: "POST",
+            success: _declareWinnerSuccess,
+            error: _declareWinnerError,
+            url: "/Home/GetWinnerDetails"
+        });
+    };
+
+    var _declareWinnerSuccess = function (result) {
+        $(".screen--4").html(result);
+        $(".screen--3").fadeOut(3000);
+        $(".screen--3").fadeOut(3000, function () {
+            setTimeout(function () {
+                $(".screen--4").show();
+                BeerPongTracker.winScreen.init();
+            }, 3000);
+        });
+    };
+
+    var _declareWinnerError = function (xhr, textStatus, errorThrown) {
+        console.log(errorThrown);
     };
 
     var _updateBoard = function () {
@@ -581,7 +610,3 @@ BeerPongTracker.winScreen = (function () {
         init: _init
     };
 })();
-
-$(document).ready(function () {
-    BeerPongTracker.winScreen.init();
-});

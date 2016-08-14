@@ -69,5 +69,12 @@ namespace BeerPongTracker.Api.Controllers
         {
             return _gameLogic.DeclareWinner(request);
         }
+
+        [HttpPost]
+        [Route("GetWinnerDetails")]
+        public GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request)
+        {
+            return _gameLogic.GetWinnerDetails(request);
+        }
     }
 }

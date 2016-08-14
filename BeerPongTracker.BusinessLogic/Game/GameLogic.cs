@@ -304,5 +304,17 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             return new ListenForChangeResult() { LastUpdateSignature = request.LastUpdateSignature, Updated = false };
         }
+
+        public GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request)
+        {
+            var gameIdParam = new SqlParameter("@GameId", request.GameId);
+            var teamIdParam = new SqlParameter("@TeamId", request.WinningTeamId);
+
+            var dbResults = _beerPongFederationEntities.Database
+                .SqlQuery<WinnerDetail>("GetWinners @GameId, @TeamId", gameIdParam, teamIdParam)
+                .ToList();
+
+            return new GetWinnerDetailsResult() { WinnerDetails = dbResults };
+        }
     }
 }

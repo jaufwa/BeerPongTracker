@@ -403,6 +403,10 @@
       <Project>{0dad4292-a903-4b08-bb0a-109399f7d4cc}</Project>
       <Name>BeerPongTracker.ApiClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BeerPongTracker.Core\BeerPongTracker.Core.csproj">
+      <Project>{7f1c3ea6-456c-458c-8c9c-23f5a39f8b5b}</Project>
+      <Name>BeerPongTracker.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

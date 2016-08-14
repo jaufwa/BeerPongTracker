@@ -60,5 +60,18 @@ namespace BeerPongTracker.DataAccess.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetLastUpdateSignature", gameIdParameter);
         }
+    
+        public virtual ObjectResult<GetWinners_Result> GetWinners(Nullable<int> gameId, Nullable<int> teamId)
+        {
+            var gameIdParameter = gameId.HasValue ?
+                new ObjectParameter("GameId", gameId) :
+                new ObjectParameter("GameId", typeof(int));
+    
+            var teamIdParameter = teamId.HasValue ?
+                new ObjectParameter("TeamId", teamId) :
+                new ObjectParameter("TeamId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetWinners_Result>("GetWinners", gameIdParameter, teamIdParameter);
+        }
     }
 }

@@ -78,6 +78,9 @@
     <Compile Include="Model\GetAvailableGames_Result.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\GetWinners_Result.cs">
+      <DependentUpon>BeerPongFederation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Player.cs">
       <DependentUpon>BeerPongFederation.tt</DependentUpon>
     </Compile>
@@ -105,6 +108,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bak\sp4.sql" />
     <Content Include="Bak\sp3.sql" />
     <Content Include="Bak\sp2.sql" />
     <Content Include="Bak\sp1.sql" />

@@ -54,6 +54,7 @@
     <Compile Include="ContractObjects\DeclareWinnerRequest.cs" />
     <Compile Include="ContractObjects\Game.cs" />
     <Compile Include="ContractObjects\GetAvailableGamesResponse.cs" />
+    <Compile Include="ContractObjects\GetWinnerDetailsResult.cs" />
     <Compile Include="ContractObjects\ListenForChangeRequest.cs" />
     <Compile Include="ContractObjects\ListenForChangeResult.cs" />
     <Compile Include="ContractObjects\PlayerSearchResponse.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="ContractObjects\StartGameTeam.cs" />
     <Compile Include="Client\IBeerBongTrackerApiClient.cs" />
     <Compile Include="ContractObjects\Team.cs" />
+    <Compile Include="ContractObjects\WinnerDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

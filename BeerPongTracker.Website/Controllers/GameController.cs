@@ -15,16 +15,17 @@ namespace BeerPongTracker.Website.Controllers
     {
         private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;
 
+        private readonly GameViewBuilder _gameViewBuilder;
+
         public GameController()
         {
             _beerBongTrackerApiClient = new BeerBongTrackerApiClient(ConfigurationManager.AppSettings["ApiUrl"]);
+            _gameViewBuilder = new GameViewBuilder(_beerBongTrackerApiClient);
         }
 
         public ActionResult Build(BuildGameRequest request)
         {
-            var gameViewBuilder = new GameViewBuilder(_beerBongTrackerApiClient);
-
-            var viewHelper = gameViewBuilder.Build(request.GameId, request.Controlling);
+            var viewHelper = _gameViewBuilder.Build(request.GameId, request.Controlling);
 
             return PartialView(viewHelper);
         }
