@@ -588,7 +588,9 @@ BeerPongTracker.startGameButton = (function () {
 
 BeerPongTracker.winScreen = (function () {
     var _init = function () {
-        setInterval(function () { _flash() }, 500);
+        setInterval(function () { _flash() }, 250);
+
+        setInterval(function () { _flash2() }, 2000);
 
         setTimeout(function () {
             $(".name-plate-view-wrapper").fadeIn(1000);
@@ -596,7 +598,7 @@ BeerPongTracker.winScreen = (function () {
     };
 
     var _flash = function () {
-        var flashingEl = $(".screen--fixed");
+        var flashingEl = $(".screen--fixed--outer");
         if (flashingEl.hasClass("orange-background")) {
             flashingEl.removeClass("orange-background");
             flashingEl.addClass("orange2-background");
@@ -604,6 +606,16 @@ BeerPongTracker.winScreen = (function () {
             flashingEl.addClass("orange-background");
             flashingEl.removeClass("orange2-background");
         }
+    };
+
+    var _flash2 = function () {
+        setTimeout(function () {
+            var flashingEl = $(".screen--fixed--inner");
+            flashingEl.addClass("camera-flash");
+            setTimeout(function () {
+                flashingEl.removeClass("camera-flash");
+            }, 100);
+        }, Math.floor(Math.random() * 2000) + 1);
     };
 
     return {

@@ -1,12 +1,12 @@
 ﻿@model BeerPongTracker.Website.Models.WinnerScreenViewModel
 
-
-<div class="screen--fixed orange-background">
-    <div class="name-plate-view-wrapper" style="display:none;">
-        @Html.Partial("Props/_NamePlate", Model.NamePlateViewModel)
+<div class="screen--fixed screen--fixed--outer orange-background">
+    <div class="screen--fixed screen--fixed--inner">
+        <div class="name-plate-view-wrapper" style="display:none;">
+            @Html.Partial("Props/_NamePlate", Model.NamePlateViewModel)
+        </div>
     </div>
 </div>
-
 <div class="winner-photos-view" style="">
     @Html.Partial("Props/_WinnerPhotos", Model.WinnerPhotosViewModel)
 </div>
