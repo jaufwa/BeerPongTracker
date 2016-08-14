@@ -4,8 +4,6 @@
     @Html.Partial("_Home", Model)
 }
 @section Scripts{
-    @Scripts.Render("~/bundles/knockout")
-    @Scripts.Render("~/bundles/app")
     <script type="text/javascript">
             $(document).ready(function () {
                 BeerPongTracker.main.init();
