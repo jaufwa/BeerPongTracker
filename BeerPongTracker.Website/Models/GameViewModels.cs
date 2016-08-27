@@ -14,5 +14,9 @@ namespace BeerPongTracker.Website.Models
         public string LastUpdateSignature { get; set; }
 
         public bool Controlling { get; set; }
+
+        public bool IsPc { get; set; }
+
+        public bool RemoteView => Controlling & !IsPc;
     }
 }

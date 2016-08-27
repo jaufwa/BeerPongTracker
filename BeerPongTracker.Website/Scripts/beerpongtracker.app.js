@@ -34,6 +34,12 @@ BeerPongTracker.main = (function () {
 BeerPongTracker.global = (function () {
     var _controlling = false;
 
+    var _isPc = $(window).width() > 800;
+
+    var _getIsPc = function () {
+        return _isPc;
+    };
+
     var _gameId = 0;
 
     var _numberOfTeams = 0;
@@ -82,7 +88,8 @@ BeerPongTracker.global = (function () {
 
         var jsonData = {
             GameId: gameId,
-            Controlling: BeerPongTracker.global.getControlling()
+            Controlling: BeerPongTracker.global.getControlling(),
+            IsPc: BeerPongTracker.global.getIsPc()
         };
 
         $.ajax({
@@ -118,6 +125,7 @@ BeerPongTracker.global = (function () {
         loadGame: _loadGame,
         setControlling: _setControlling,
         getControlling: _getControlling,
+        getIsPc: _getIsPc,
         getGameId: _getGameId,
         getLastUpdateSignature: _getLastUpdateSignature,
         setLastUpdateSignature: _setLastUpdateSignature,
@@ -307,6 +315,10 @@ BeerPongTracker.controlling = (function () {
 
             var winningTeamId = $(this).attr("teamid");
 
+            if (BeerPongTracker.global.getIsPc) {
+                BeerPongTracker.watching.declareWinner(winningTeamId);
+            }
+
             var jsonData = {
                 WinningTeamId: winningTeamId,
                 GameId: BeerPongTracker.global.getGameId()
@@ -324,6 +336,10 @@ BeerPongTracker.controlling = (function () {
     };
 
     var _cupCoverSuccess = function (result) {
+        if (BeerPongTracker.global.getIsPc)
+        {
+            BeerPongTracker.watching.updateBoard();
+        }
         _checkForWinner(result);
     }
 
@@ -511,7 +527,9 @@ BeerPongTracker.watching = (function () {
     };
 
     return {
-        init: _init
+        init: _init,
+        updateBoard: _updateBoard,
+        declareWinner: _declareWinner
     };
 })();
 

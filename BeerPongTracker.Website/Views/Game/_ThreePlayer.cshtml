@@ -2,7 +2,7 @@
 
 <div class="three-player-table-container">
     @Html.Partial("Props/_ThreePlayerTable", Model.TableCupCoversViewModel)
-    @if (Model.Controlling == false)
+    @if (Model.RemoteView == false)
     {
         <div class="three-player-table-container__stats three-player-table-container__stats--p1">
             @Html.Partial("Stats/_TeamStats", Model.TeamStatsViewModels[1].WithAlignment("left"))

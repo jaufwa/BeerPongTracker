@@ -1,22 +1,22 @@
 ﻿@model BeerPongTracker.Website.Models.TableCupCoversViewModel
 
 <div class="entity-fluid two-player-table">
-    <div class="two-player-table__left @(Model.Controlling ? "no-background" : "")">
+    <div class="two-player-table__left @(Model.RemoteView ? "no-background" : "")">
     </div>
     <div class="cup-cover-container two-player-table__left__cups">
         @Html.Partial("Props/_CupCover", Model.TeamCupCovers[1])
     </div>
-    <div class="two-player-table__centre @(Model.Controlling ? "no-background" : "")">
+    <div class="two-player-table__centre @(Model.RemoteView ? "no-background" : "")">
         <div class="two-player-table__centre__inner">
         </div>
     </div>
-    <div class="two-player-table__right @(Model.Controlling ? "no-background" : "")">
+    <div class="two-player-table__right @(Model.RemoteView ? "no-background" : "")">
     </div>
     <div class="cup-cover-container two-player-table__right__cups">
         @Html.Partial("Props/_CupCover", Model.TeamCupCovers[2])
     </div>
     @{
-        if (Model.Controlling == false)
+        if (Model.RemoteView == false)
         {
             <div class="two-player-table__logo">
                 <img class="two-player-table__logo__image" src="/Content/Images/BpfLogoLight_red.png" />

@@ -16,7 +16,7 @@
             _beerBongTrackerApiClient = beerBongTrackerApiClient;
         }
 
-        public ViewBuilderResult Build(int gameId, bool controlling)
+        public ViewBuilderResult Build(int gameId, bool controlling, bool isPc)
         {
             var gameState = _beerBongTrackerApiClient.GetGame(gameId);
 
@@ -66,7 +66,8 @@
             var tableCupCoversViewModel = new TableCupCoversViewModel
             {
                 TeamCupCovers = teamCupCovers,
-                Controlling = controlling
+                Controlling = controlling,
+                IsPc = isPc
             };
 
             var viewModel = new GameViewModel
@@ -74,7 +75,8 @@
                 TableCupCoversViewModel = tableCupCoversViewModel,
                 TeamStatsViewModels = teamStatsViewModels,
                 LastUpdateSignature = gameState.LastUpdateSignature,
-                Controlling = controlling
+                Controlling = controlling,
+                IsPc = isPc
             };
 
             var viewPathMap = new Dictionary<int, string>()

@@ -10,5 +10,7 @@ namespace BeerPongTracker.Website.Models
         public int GameId { get; set; }
 
         public bool Controlling { get; set; }
+
+        public bool IsPc { get; set; }
     }
 }

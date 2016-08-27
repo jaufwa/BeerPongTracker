@@ -1,7 +1,7 @@
 ﻿@model BeerPongTracker.Website.Models.TableCupCoversViewModel
 
 <div class="entity four-player-table">
-    @if (Model.Controlling == false)
+    @if (Model.RemoteView == false)
     {
         <img class="four-player-table__table-graphic" src="~/Content/Images/4table.jpg" />
     }
