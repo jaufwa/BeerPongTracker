@@ -34,7 +34,7 @@ BeerPongTracker.main = (function () {
 BeerPongTracker.global = (function () {
     var _controlling = false;
 
-    var _isPc = $(window).width() > 800;
+    var _isPc = $(window).width() > 1000;
 
     var _getIsPc = function () {
         return _isPc;
