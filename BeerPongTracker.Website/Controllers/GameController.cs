@@ -8,9 +8,8 @@ namespace BeerPongTracker.Website.Controllers
 
     using BeerPongTracker.ApiClient.Client;
     using BeerPongTracker.Website.ViewBuilders;
-    using Mocks;
     using ApiClient.ContractObjects;
-    using Newtonsoft.Json;
+
     public class GameController : Controller
     {
         private readonly IBeerBongTrackerApiClient _beerBongTrackerApiClient;

@@ -117,6 +117,8 @@
 
             viewModel.YouTubeVideoModel = new YouTubeVideoModel() { VideoId = apiResult.YouTubeVideoId };
 
+            viewModel.Controlling = request.Controlling;
+
             return viewModel;
         }
     }

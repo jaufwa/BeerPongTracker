@@ -9,7 +9,6 @@ using System.Web.Mvc;
 namespace BeerPongTracker.Website.Controllers
 {
     using ApiClient.ContractObjects;
-    using BeerPongTracker.Website.Mocks;
     using ViewBuilders;
     public class HomeController : Controller
     {
@@ -89,6 +88,11 @@ namespace BeerPongTracker.Website.Controllers
             var viewModel = _gameViewBuilder.BuildWinnerScreenViewModel(request);
 
             return PartialView("_4", viewModel);
+        }
+
+        public void RegisterGenericEvent(string sig, int gid)
+        {
+            _beerBongTrackerApiClient.RegisterGenericEvent(sig, gid);
         }
     }
 }

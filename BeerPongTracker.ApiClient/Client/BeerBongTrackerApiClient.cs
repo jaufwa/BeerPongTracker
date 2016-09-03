@@ -37,6 +37,12 @@
             return GetRequest<PlayerSearchResponse>($"Game/PlayerSearch?query={query}");
         }
 
+
+        public void RegisterGenericEvent(string signature, int gameId)
+        {
+            GetRequest<BlankResponse>($"Game/RegisterGenericEvent?sig={signature}&gid={gameId}");
+        }
+
         public AvailableGames GetAvailableGames()
         {
             var apiResult = GetRequest<GetAvailableGamesResponse>("Game/GetGames");

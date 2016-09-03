@@ -13,3 +13,9 @@
 <div class="winner-photos-view" style="">
     @Html.Partial("Props/_WinnerPhotos", Model.WinnerPhotosViewModel)
 </div>
+@if (Model.Controlling)
+{
+    <div class="stop-music-button">
+        <span class="stop-music-button__text">STOP MUSIC</span>
+    </div>
+}

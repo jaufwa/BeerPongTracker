@@ -247,7 +247,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mocks\MockBeerBongTrackerApiClient.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BuildGameRequest.cs" />
     <Compile Include="Models\GameViewModels.cs" />
@@ -382,6 +381,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Mocks\" />
     <Folder Include="Views\Helper\" />
   </ItemGroup>
   <ItemGroup>

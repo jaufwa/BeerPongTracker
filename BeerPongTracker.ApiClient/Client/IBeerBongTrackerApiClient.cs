@@ -19,5 +19,7 @@ namespace BeerPongTracker.ApiClient.Client
         ListenForChangeResult ListenForChange(ListenForChangeRequest request);
 
         GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request);
+
+        void RegisterGenericEvent(string signature, int gameId);
     }
 }

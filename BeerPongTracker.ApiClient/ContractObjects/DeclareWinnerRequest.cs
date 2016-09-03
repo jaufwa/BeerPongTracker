@@ -10,5 +10,7 @@ namespace BeerPongTracker.ApiClient.ContractObjects
         public int WinningTeamId { get; set; }
 
         public int GameId { get; set; }
+
+        public bool Controlling { get; set; }
     }
 }

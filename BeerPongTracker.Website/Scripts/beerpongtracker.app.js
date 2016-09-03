@@ -315,9 +315,7 @@ BeerPongTracker.controlling = (function () {
 
             var winningTeamId = $(this).attr("teamid");
 
-            if (BeerPongTracker.global.getIsPc) {
-                BeerPongTracker.watching.declareWinner(winningTeamId);
-            }
+            BeerPongTracker.watching.declareWinner(winningTeamId);
 
             var jsonData = {
                 WinningTeamId: winningTeamId,
@@ -333,10 +331,29 @@ BeerPongTracker.controlling = (function () {
                 url: "/Game/DeclareWinner"
             });
         });
+
+        $("body").on("click", ".stop-music-button", function () {
+            $(".stop-music-button").fadeOut();
+
+            var gameId = BeerPongTracker.global.getGameId()
+            var signature = "ew-" + $.guid++;
+
+            $.ajax({
+                contentType: "application/json",
+                method: "GET",
+                success: function () {
+                    $(".screen--4").html("");
+                    $(".screen--4").hide();
+                    $(".screen--1").show();
+                },
+                error: function () { },
+                url: "/Home/RegisterGenericEvent?sig=" + signature + "&gid=" + gameId
+            });
+        });
     };
 
     var _cupCoverSuccess = function (result) {
-        if (BeerPongTracker.global.getIsPc)
+        if (BeerPongTracker.global.getIsPc())
         {
             BeerPongTracker.watching.updateBoard();
         }
@@ -442,6 +459,10 @@ BeerPongTracker.watching = (function () {
             _updateBoard();
         };
 
+        if (updateSignature.match("^ew-")) {
+            _endDeclareWinner();
+        };
+
         if (updateSignature.match("^tw-")) {
             var frags = updateSignature.split("-");
             var winningTeamId = frags[1];
@@ -453,7 +474,8 @@ BeerPongTracker.watching = (function () {
     var _declareWinner = function (winningTeamId) {
         var jsonData = {
             WinningTeamId: winningTeamId,
-            GameId: BeerPongTracker.global.getGameId()
+            GameId: BeerPongTracker.global.getGameId(),
+            Controlling: BeerPongTracker.global.getControlling()
         };
 
         $.ajax({
@@ -475,6 +497,12 @@ BeerPongTracker.watching = (function () {
             }, 3000);
         });
     };
+
+    var _endDeclareWinner = function () {
+        $(".screen--4").html("");
+        $(".screen--4").hide();
+        $(".screen--3").show();
+    }
 
     var _declareWinnerError = function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
@@ -529,7 +557,8 @@ BeerPongTracker.watching = (function () {
     return {
         init: _init,
         updateBoard: _updateBoard,
-        declareWinner: _declareWinner
+        declareWinner: _declareWinner,
+        endDeclareWinner: _endDeclareWinner
     };
 })();
 

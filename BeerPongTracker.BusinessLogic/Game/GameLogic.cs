@@ -321,5 +321,14 @@ namespace BeerPongTracker.BusinessLogic.Game
                 YouTubeVideoId = youTubeVideoId
             };
         }
+
+        public void RegisterGenericEvent(string signature, int gameId)
+        {
+            var game = _beerPongFederationEntities.Game.Single(x => x.GameId == gameId);
+            game.LastUpdated = DateTime.Now;
+            game.LastUpdateSignature = signature;
+
+            _beerPongFederationEntities.SaveChanges();
+        }
     }
 }
