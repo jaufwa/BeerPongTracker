@@ -2103,6 +2103,15 @@ body {
     z-index: 99;
 }
 
+.entrance-prompt {
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    height: 160px;
+    position: absolute;
+    z-index: 99;
+}
+
 .button--gold {
     -moz-box-shadow: inset 0px 1px 0px 0px #f9eca0;
     -webkit-box-shadow: inset 0px 1px 0px 0px #f9eca0;
@@ -2130,8 +2139,67 @@ body {
     text-shadow: 0px 1px 0px #ded17c;
 }
 
+.button--green {
+    -moz-box-shadow: inset 0px 1px 0px 0px #f9eca0;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #f9eca0;
+    box-shadow: inset 0px 1px 0px 0px #f9eca0;
+    
+    background: rgba(210,255,82,1);
+    background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+    background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+
+    border: 1px solid black;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ded17c;
+}
+
+.button--red {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffb3b3;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffb3b3;
+    box-shadow: inset 0px 1px 0px 0px #ffb3b3;
+    
+    background: rgba(248,80,50,1);
+    background: -moz-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,1)), color-stop(50%, rgba(241,111,92,1)), color-stop(51%, rgba(246,41,12,1)), color-stop(71%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
+    background: -webkit-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+    background: -o-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+    background: -ms-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+    background: linear-gradient(to bottom, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=0 );
+
+    border: 1px solid black;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ded17c;
+}
+
 
 .winner-prompt--text {
+    font-size: 30px;
+    display: block;
+    margin-top: 33px;
+    line-height: 1.5em;
+}
+
+.entrance-prompt--text {
     font-size: 30px;
     display: block;
     margin-top: 33px;
@@ -2316,4 +2384,29 @@ body {
     background: -ms-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
     background: linear-gradient(to bottom, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0 );
+}
+
+.screen--entrance__name {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 150px;
+}
+
+.screen--entrance__picture {
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.screen--entrance__picture__img {
+    height: 500px;
+    width: 500px;
+    padding: 7px;
+    -webkit-box-shadow: 1px 10px 32px -5px rgba(79,79,79,1);
+    -moz-box-shadow: 1px 10px 32px -5px rgba(79,79,79,1);
+    box-shadow: 1px 10px 32px -5px rgba(79,79,79,1);
+    background: white;
 }

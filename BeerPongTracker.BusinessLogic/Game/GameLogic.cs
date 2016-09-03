@@ -330,5 +330,22 @@ namespace BeerPongTracker.BusinessLogic.Game
 
             _beerPongFederationEntities.SaveChanges();
         }
+
+        public EntranceDetails GetEntranceDetails(string gid, string tid)
+        {
+            var gameId = int.Parse(gid);
+            var teamId = int.Parse(tid);
+
+            var playerId = _beerPongFederationEntities.PlayerGame.First(x => x.GameId == gameId && x.TeamId == teamId).PlayerId;
+
+            var player = _beerPongFederationEntities.Player.First(x => x.PlayerId == playerId);
+
+            return new EntranceDetails()
+            {
+                FacebookId = player.FacebookId,
+                Name = player.Name,
+                YouTubeVideoId = player.YouTubeVideoId
+            };
+        }
     }
 }

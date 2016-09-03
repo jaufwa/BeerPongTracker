@@ -52,6 +52,7 @@
     <Compile Include="Game\AvailableGameResult.cs" />
     <Compile Include="Game\DeclareWinnerRequest.cs" />
     <Compile Include="Game\DeclareWinnerResponse.cs" />
+    <Compile Include="Game\EntranceDetails.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\GetAvailableGamesResponse.cs" />

@@ -90,6 +90,23 @@ namespace BeerPongTracker.Website.Controllers
             return PartialView("_4", viewModel);
         }
 
+        public ActionResult GetEntranceScreen(int gameId, int teamId)
+        {
+            var details = _beerBongTrackerApiClient.GetEntranceDetails(gameId, teamId);
+
+            var viewModel = new EntranceScreenViewModel()
+            {
+                FacebookId = details.FacebookId,
+                Name = details.Name,
+                YouTubeVideoModel = new YouTubeVideoModel()
+                {
+                    VideoId = details.YouTubeVideoId
+                }
+            };
+
+            return PartialView("_Entrance", viewModel);
+        }
+
         public void RegisterGenericEvent(string sig, int gid)
         {
             _beerBongTrackerApiClient.RegisterGenericEvent(sig, gid);

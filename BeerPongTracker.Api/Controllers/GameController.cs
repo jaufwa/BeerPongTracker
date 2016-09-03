@@ -65,6 +65,11 @@ namespace BeerPongTracker.Api.Controllers
             _gameLogic.RegisterGenericEvent(sig, gid);
         }
 
+        public EntranceDetails GetEntranceDetails(string gid, string tid)
+        {
+            return _gameLogic.GetEntranceDetails(gid, tid);
+        }
+
         [Route("ListenForChange")]
         public ListenForChangeResult ListenForChange(ListenForChangeRequest request)
         {

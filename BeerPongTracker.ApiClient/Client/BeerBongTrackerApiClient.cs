@@ -43,6 +43,11 @@
             GetRequest<BlankResponse>($"Game/RegisterGenericEvent?sig={signature}&gid={gameId}");
         }
 
+        public EntranceDetails GetEntranceDetails(int gameId, int teamId)
+        {
+            return GetRequest<EntranceDetails>($"Game/GetEntranceDetails?gid={gameId}&tid={teamId}");
+        }
+
         public AvailableGames GetAvailableGames()
         {
             var apiResult = GetRequest<GetAvailableGamesResponse>("Game/GetGames");

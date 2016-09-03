@@ -53,6 +53,7 @@
     <Compile Include="ContractObjects\CupSwitchResponse.cs" />
     <Compile Include="ContractObjects\DeclareWinnerResponse.cs" />
     <Compile Include="ContractObjects\DeclareWinnerRequest.cs" />
+    <Compile Include="ContractObjects\EntranceDetails.cs" />
     <Compile Include="ContractObjects\Game.cs" />
     <Compile Include="ContractObjects\GetAvailableGamesResponse.cs" />
     <Compile Include="ContractObjects\GetWinnerDetailsResult.cs" />

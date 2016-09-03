@@ -1,4 +1,5 @@
-﻿@model BeerPongTracker.Website.Models.ScreenViewModel
+﻿@using BeerPongTracker.Website.Models;
+@model BeerPongTracker.Website.Models.ScreenViewModel
 
 <div class="screen screen--1">
     <div class="screen__window">
@@ -9,6 +10,8 @@
     <div class="screen__window">
         @Html.Partial("_2", Model.Screen2ViewModel)
     </div>
+</div>
+<div class="screen screen--entrance" style="display: none;">
 </div>
 <div class="screen screen--3">
 </div>

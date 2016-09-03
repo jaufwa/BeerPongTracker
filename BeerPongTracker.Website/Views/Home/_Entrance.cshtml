@@ -1,0 +1,13 @@
+﻿@model BeerPongTracker.Website.Models.EntranceScreenViewModel
+
+<div class="screen--fixed screen--entrance">
+    <div class="youtube-wrapper">
+        @Html.Partial("Media/_YouTubeVideo", Model.YouTubeVideoModel)
+    </div>
+    <div class="screen--entrance__name animated hide">
+        @Model.Name
+    </div>
+    <div class="screen--entrance__picture" style="display:none;">
+        <img class="screen--entrance__picture__img" src="http://graph.facebook.com/@(Model.FacebookId)/picture?type=large" />
+    </div>
+</div>

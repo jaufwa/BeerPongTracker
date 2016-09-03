@@ -74,6 +74,10 @@ BeerPongTracker.global = (function () {
         return _controlling;
     };
 
+    var _getGuid = function () {
+        return Math.floor(Math.random() * 10000000000000001);
+    }
+
     var _displayLoadingScreen = function () {
         $(".screen").hide();
         $("body").append("<div class=\"loading\"><img src=\"/Content/Images/loading.gif\" /></div>");
@@ -130,7 +134,8 @@ BeerPongTracker.global = (function () {
         getLastUpdateSignature: _getLastUpdateSignature,
         setLastUpdateSignature: _setLastUpdateSignature,
         getNumberOfTeams: _getNumberOfTeams,
-        setNumberOfTeams: _setNumberOfTeams
+        setNumberOfTeams: _setNumberOfTeams,
+        getGuid: _getGuid
     };
 })();
 
@@ -336,7 +341,7 @@ BeerPongTracker.controlling = (function () {
             $(".stop-music-button").fadeOut();
 
             var gameId = BeerPongTracker.global.getGameId()
-            var signature = "ew-" + $.guid++;
+            var signature = "ew-" + BeerPongTracker.global.getGuid();
 
             $.ajax({
                 contentType: "application/json",
@@ -349,6 +354,64 @@ BeerPongTracker.controlling = (function () {
                 error: function () { },
                 url: "/Home/RegisterGenericEvent?sig=" + signature + "&gid=" + gameId
             });
+        });
+
+        var timeoutId = 0;
+
+        $('body').mousedown(function () {
+            timeoutId = setTimeout(_toggleContextMenu, 1000);
+        }).bind('mouseup mouseleave', function () {
+            clearTimeout(timeoutId);
+        });
+
+        var _toggleContextMenu = function () {
+            if ($(".entrance-prompt").length > 0) {
+                $(".entrance-prompt").remove();
+                return;
+            }
+
+            var numberOfTeams = BeerPongTracker.global.getNumberOfTeams();
+
+            for (teamId = 1; teamId <= numberOfTeams; teamId++) {
+                var cupCoverElName = "cup-cover--team-" + teamId;
+                var cupCoverEl = $("." + cupCoverElName);
+                var positionStyle = _getCupCoverCentrePoint(BeerPongTracker.global.getNumberOfTeams(), teamId);
+                cupCoverEl.prepend("<div state=\"1\" style=\"" + positionStyle + "\" class=\" button--green entrance-prompt\" teamid=\"" + teamId + "\"><span class=\"entrance-prompt--text\">PLAY ENTRANCE</span></div>");
+            }
+        };
+
+        $("body").on("click", ".entrance-prompt", function () {
+            if ($(this).attr("state") == "1") {
+                $(this).removeClass("button--green");
+                $(this).addClass("button--red");
+                $(this).find(".entrance-prompt--text").html("STOP ENTRANCE");
+                $(this).attr("state", "2");
+                var gameId = BeerPongTracker.global.getGameId()
+                var teamId = $(this).attr("teamid");
+                var signature = "be-" + teamId + "-" + BeerPongTracker.global.getGuid();
+                $.ajax({
+                    contentType: "application/json",
+                    method: "GET",
+                    success: function () {
+                    },
+                    error: function () { },
+                    url: "/Home/RegisterGenericEvent?sig=" + signature + "&gid=" + gameId
+                });
+            }
+            else if ($(this).attr("state") == "2") {
+                $(this).fadeOut();
+                var gameId = BeerPongTracker.global.getGameId()
+                var teamId = $(this).attr("teamid");
+                var signature = "ee-" + teamId + "-" + BeerPongTracker.global.getGuid();
+                $.ajax({
+                    contentType: "application/json",
+                    method: "GET",
+                    success: function () {
+                    },
+                    error: function () { },
+                    url: "/Home/RegisterGenericEvent?sig=" + signature + "&gid=" + gameId
+                });
+            }
         });
     };
 
@@ -469,6 +532,39 @@ BeerPongTracker.watching = (function () {
 
             _declareWinner(winningTeamId);
         }
+
+        if (updateSignature.match("^be-")) {
+            var frags = updateSignature.split("-");
+            var teamId = frags[1];
+
+            _startEntrance(teamId);
+        }
+
+        if (updateSignature.match("^ee-")) {
+            _endEntrance();
+        }
+    };
+
+    var _startEntrance = function (teamId) {
+        var gameId = BeerPongTracker.global.getGameId();
+        $.ajax({
+            contentType: "application/json",
+            method: "GET",
+            success: function (result) {
+                $(".screen--entrance").html(result);
+                BeerPongTracker.entrance.init();
+                $(".screen--3").hide();
+                $(".screen--entrance").show();
+            },
+            error: function () { },
+            url: "/Home/GetEntranceScreen?gameId=" + gameId + "&teamId=" + teamId
+        });
+    };
+
+    var _endEntrance = function () {
+        $(".screen--entrance").html("");
+        $(".screen--entrance").hide();
+        $(".screen--3").show();
     };
 
     var _declareWinner = function (winningTeamId) {
@@ -663,6 +759,293 @@ BeerPongTracker.winScreen = (function () {
                 flashingEl.removeClass("camera-flash");
             }, 100);
         }, Math.floor(Math.random() * 2000) + 1);
+    };
+
+    return {
+        init: _init
+    };
+})();
+
+BeerPongTracker.entrance = (function () {
+    var _switch = 0;
+
+    var _screenEl;
+
+    var _textEl;
+
+    var _imageEl;
+
+    var flashInterval;
+
+    var animationInterval;
+
+    var _init = function () {
+        clearInterval(flashInterval);
+        clearInterval(animationInterval);
+
+        var _flash = function (palette) {
+            flashInterval = setInterval(function () {
+                if (_switch == 0) {
+                    _switch = 1;
+                    $(_screenEl).attr("style", "background:#" + palette.backBase + ";");
+                } else {
+                    _switch = 0;
+                    $(_screenEl).attr("style", "background:#" + palette.backLight + ";");
+                }
+            }, flashRate);
+        };
+
+        var _colorText = function (palette, font) {
+            $(".screen--entrance__name").attr("style", "color:#" + palette.textBase + ";font-family:" + font + ";");
+        }
+
+        var _animation1 = function (palette, textAnimation, imageAnimation, flashRate, font) {
+            var _animation1Switch = 0;
+
+            _flash(palette);
+            _colorText(palette, font);
+
+            $(_textEl).removeClass("hide");
+            $(_textEl).addClass(textAnimation.fadeIn);
+
+            animationInterval = setInterval(function () {
+                if (_animation1Switch == 0) {
+                    _animation1Switch = 1;
+                    $(_textEl).addClass(textAnimation.fadeOut);
+                    $(_imageEl).fadeIn(500);
+                } else {
+                    _animation1Switch = 0;
+                    $(_imageEl).fadeOut(500);
+                    $(_textEl).removeClass(textAnimation.fadeOut);
+                    $(_textEl).addClass(textAnimation.fadeIn);
+                    _animation1Switch = 0;
+                }
+            }, 5000);
+        }
+
+        var palettes = new Array();
+        palettes.push({
+            backBase: "1F5300",
+            backLight: "2E7C00",
+            backDark: "143500",
+            textBase: "29013F",
+            textLight: "3F045F",
+            textDark: "1A0129"
+        });
+        palettes.push({
+            backBase: "5A1BFF",
+            backLight: "C4ADFF",
+            backDark: "200072",
+            textBase: "FF6C00",
+            textLight: "FFCAA4",
+            textDark: "A74700"
+        });
+        palettes.push({
+            backBase: "FFD100",
+            backLight: "FFEEA4",
+            backDark: "A78800",
+            textBase: "0EA5FF",
+            textLight: "A9DFFF",
+            textDark: "00436A"
+        });
+        palettes.push({
+            backBase: "FE0028",
+            backLight: "FFA4B2",
+            backDark: "BE001E",
+            textBase: "FF7400",
+            textLight: "FFCDA4",
+            textDark: "C95B00"
+        });
+        palettes.push({
+            backBase: "7A10FF",
+            backLight: "CAA1FE",
+            backDark: "330074",
+            textBase: "FFE900",
+            textLight: "FFF699",
+            textDark: "AB9D00"
+        });
+        palettes.push({
+            backBase: "00F391",
+            backLight: "FFFFFF",
+            backDark: "005F39",
+            textBase: "FF4C00",
+            textLight: "FFFFFF",
+            textDark: "8C2A00"
+        });
+        palettes.push({
+            backBase: "DECC00",
+            backLight: "FFEB00",
+            backDark: "A99F28",
+            textBase: "2D5560",
+            textLight: "4D7580",
+            textDark: "173C47"
+        });
+        palettes.push({
+            backBase: "FF0023",
+            backLight: "FFA4B1",
+            backDark: "9F0016",
+            textBase: "66079E",
+            textLight: "8303CF",
+            textDark: "521675"
+        });
+        palettes.push({
+            backBase: "1EFF12",
+            backLight: "B4FFB0",
+            backDark: "079400",
+            textBase: "DE1500",
+            textLight: "FF1800",
+            textDark: "B12516"
+        });
+        palettes.push({
+            backBase: "2D0C6E",
+            backLight: "370A89",
+            backDark: "200949",
+            textBase: "A18E01",
+            textLight: "C9B100",
+            textDark: "6B5E04"
+        });
+        palettes.push({
+            backBase: "017C16",
+            backLight: "009A1B",
+            backDark: "035211",
+            textBase: "A10D01",
+            textLight: "C90F00",
+            textDark: "6B0C04"
+        });
+        palettes.push({
+            backBase: "FFBEE1",
+            backLight: "FFFFFF",
+            backDark: "FF78C2",
+            textBase: "57BFAB",
+            textLight: "B3F5E8",
+            textDark: "247968"
+        });
+        palettes.push({
+            backBase: "FFD900",
+            backLight: "FFF1A4",
+            backDark: "A78E00",
+            textBase: "FF000D",
+            textLight: "FFA4A9",
+            textDark: "A40008"
+        });
+        palettes.push({
+            backBase: "3C21FF",
+            backLight: "B8B0FF",
+            backDark: "0E0074",
+            textBase: "FF000D",
+            textLight: "FFA4A9",
+            textDark: "A40008"
+        });
+        palettes.push({
+            backBase: "211C1D",
+            backLight: "B54962",
+            backDark: "6C051D",
+            textBase: "BAC34E",
+            textLight: "717446",
+            textDark: "6C7405"
+        });
+        palettes.push({
+            backBase: "62512A",
+            backLight: "8B6100",
+            backDark: "3A3834",
+            textBase: "311F42",
+            textLight: "32075E",
+            textDark: "252327"
+        });
+        palettes.push({
+            backBase: "FEF893",
+            backLight: "F7F6E4",
+            backDark: "FFF100",
+            textBase: "AFF44A",
+            textLight: "C7FA7E",
+            textDark: "98ED1C"
+        });
+        palettes.push({
+            backBase: "6B0050",
+            backLight: "880066",
+            backDark: "3A002C",
+            textBase: "688A00",
+            textLight: "85B000",
+            textDark: "384A00"
+        });
+        palettes.push({
+            backBase: "186DFF",
+            backLight: "ACCBFF",
+            backDark: "00296F",
+            textBase: "FF7400",
+            textLight: "FFCDA4",
+            textDark: "A74C00"
+        });
+        palettes.push({
+            backBase: "8506A9",
+            backLight: "A54EBE",
+            backDark: "500366",
+            textBase: "D5F800",
+            textLight: "E5FA61",
+            textDark: "819600"
+        });
+
+        var textAnimations = new Array();
+        textAnimations.push({
+            fadeIn: "zoomIn",
+            fadeOut: "zoomOut",
+        });
+        textAnimations.push({
+            fadeIn: "slideInLeft",
+            fadeOut: "slideOutRight",
+        });
+        textAnimations.push({
+            fadeIn: "rotateIn",
+            fadeOut: "rotateOut",
+        });
+        textAnimations.push({
+            fadeIn: "bounceIn",
+            fadeOut: "bounceOut",
+        });
+        textAnimations.push({
+            fadeIn: "flipInY",
+            fadeOut: "flipOutY",
+        });
+        textAnimations.push({
+            fadeIn: "lightSpeedIn",
+            fadeOut: "lightSpeedOut",
+        });
+        textAnimations.push({
+            fadeIn: "rollIn",
+            fadeOut: "rollOut",
+        });
+        textAnimations.push({
+            fadeIn: "fadeInDown",
+            fadeOut: "fadeOutDown",
+        });
+        textAnimations.push({
+            fadeIn: "bounceInLeft",
+            fadeOut: "bounceOutRight",
+        });
+        textAnimations.push({
+            fadeIn: "zoomInUp",
+            fadeOut: "zoomOutDown",
+        });
+
+        var fonts = new Array("Baloo Chettan", "Amatic SC", "Pacifico", "Patua One", "Bangers", "Black Ops One", "Monoton", "Audiowide", "Special Elite", "Bungee Inline", "Bubblegum Sans", "Fontdiner Swanky", "Corben", "Cinzel Decorative", "Bowlby One SC", "Expletus Sans", "Rammetto One", "Faster One", "Henny Penny", "Irish Grover");
+
+        var palette = palettes[(1 + Math.floor(Math.random() * palettes.length)) - 1];
+
+        var textAnimation = textAnimations[(1 + Math.floor(Math.random() * textAnimations.length)) - 1];
+
+        var imageAnimation = textAnimations[(1 + Math.floor(Math.random() * textAnimations.length)) - 1];
+
+        var font = fonts[(1 + Math.floor(Math.random() * fonts.length)) - 1];
+
+        var flashRate = (2 + (1 + Math.floor(Math.random() * 5))) * 70;
+
+        _screenEl = $(".screen--entrance");
+
+        _textEl = $(".screen--entrance__name");
+
+        _imageEl = $(".screen--entrance__picture");
+
+        _animation1(palette, textAnimation, imageAnimation, flashRate, font);
     };
 
     return {

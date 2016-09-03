@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="user-scalable = yes">
     <title>BPF: Beer Pong Federation</title>
+    @{ 
+        var fonts = new[] { "Baloo+Chettan", "Amatic+SC", "Pacifico", "Patua+One", "Bangers", "Black+Ops+One", "Monoton", "Audiowide", "Special+Elite", "Bungee+Inline", "Bubblegum+Sans", "Fontdiner+Swanky", "Corben", "Cinzel+Decorative", "Bowlby+One+SC", "Expletus+Sans", "Rammetto+One", "Faster+One", "Henny+Penny", "Irish+Grover" }.ToList();
+    }
+    @foreach (var font in fonts)
+    {
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=@font">
+    }
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")

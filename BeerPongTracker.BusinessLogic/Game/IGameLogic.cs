@@ -21,5 +21,7 @@ namespace BeerPongTracker.BusinessLogic.Game
         GetWinnerDetailsResult GetWinnerDetails(DeclareWinnerRequest request);
 
         void RegisterGenericEvent(string signature, int gameId);
+
+        EntranceDetails GetEntranceDetails(string gid, string tid);
     }
 }

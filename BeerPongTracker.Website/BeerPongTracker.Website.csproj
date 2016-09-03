@@ -249,6 +249,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BuildGameRequest.cs" />
+    <Compile Include="Models\EntranceScreenViewModel.cs" />
     <Compile Include="Models\GameViewModels.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -377,6 +378,7 @@
     <Content Include="Views\Shared\Props\_NamePlate.cshtml" />
     <Content Include="Views\Shared\Props\_WinnerPhotos.cshtml" />
     <Content Include="Views\Shared\Media\_YouTubeVideo.cshtml" />
+    <Content Include="Views\Home\_Entrance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
