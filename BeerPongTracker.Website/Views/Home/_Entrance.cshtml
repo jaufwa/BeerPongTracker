@@ -8,6 +8,9 @@
         @Model.Name
     </div>
     <div class="screen--entrance__picture" style="display:none;">
-        <img class="screen--entrance__picture__img" src="http://graph.facebook.com/@(Model.FacebookId)/picture?type=large" />
+        @if (string.IsNullOrEmpty(Model.FacebookId) == false)
+        {
+            <img class="screen--entrance__picture__img" src="http://graph.facebook.com/@(Model.FacebookId)/picture?type=large" />
+        }
     </div>
 </div>

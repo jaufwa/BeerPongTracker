@@ -87,6 +87,11 @@ namespace BeerPongTracker.Website.Controllers
         {
             var viewModel = _gameViewBuilder.BuildWinnerScreenViewModel(request);
 
+            if (string.IsNullOrEmpty(viewModel.YouTubeVideoModel.VideoId))
+            {
+                viewModel.YouTubeVideoModel.VideoId = ConfigurationManager.AppSettings["DefaultMusic"];
+            }
+
             return PartialView("_4", viewModel);
         }
 
@@ -103,6 +108,11 @@ namespace BeerPongTracker.Website.Controllers
                     VideoId = details.YouTubeVideoId
                 }
             };
+
+            if (string.IsNullOrEmpty(viewModel.YouTubeVideoModel.VideoId))
+            {
+                viewModel.YouTubeVideoModel.VideoId = ConfigurationManager.AppSettings["DefaultMusic"];
+            }
 
             return PartialView("_Entrance", viewModel);
         }
