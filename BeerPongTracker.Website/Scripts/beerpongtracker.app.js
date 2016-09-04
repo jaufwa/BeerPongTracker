@@ -358,7 +358,7 @@ BeerPongTracker.controlling = (function () {
 
         var timeoutId = 0;
 
-        $('body').mousedown(function () {
+        $('.context-menu-button').mousedown(function () {
             timeoutId = setTimeout(_toggleContextMenu, 1000);
         }).bind('mouseup mouseleave', function () {
             clearTimeout(timeoutId);

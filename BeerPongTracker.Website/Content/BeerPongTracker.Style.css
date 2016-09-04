@@ -2410,3 +2410,18 @@ body {
     box-shadow: 1px 10px 32px -5px rgba(79,79,79,1);
     background: white;
 }
+
+.context-menu-button.context-menu-button--three-player {
+    height: 70px;
+    width: 70px;
+    top: 330px;
+    position: absolute;
+    left: 360px;
+}
+.context-menu-button.context-menu-button--four-player {
+    height: 70px;
+    width: 70px;
+    top: 293px;
+    position: absolute;
+    left: 297px;
+}
