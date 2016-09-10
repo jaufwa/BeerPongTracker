@@ -13,6 +13,7 @@
 <div class="winner-photos-view" style="">
     @Html.Partial("Props/_WinnerPhotos", Model.WinnerPhotosViewModel)
 </div>
+<canvas id="confetti" width="1" height="1"></canvas>
 @if (Model.Controlling)
 {
     <div class="stop-music-button">

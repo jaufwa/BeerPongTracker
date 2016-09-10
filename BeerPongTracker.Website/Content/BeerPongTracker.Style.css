@@ -2143,7 +2143,6 @@ body {
     -moz-box-shadow: inset 0px 1px 0px 0px #f9eca0;
     -webkit-box-shadow: inset 0px 1px 0px 0px #f9eca0;
     box-shadow: inset 0px 1px 0px 0px #f9eca0;
-    
     background: rgba(210,255,82,1);
     background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
@@ -2152,7 +2151,6 @@ body {
     background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
     background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
-
     border: 1px solid black;
     display: inline-block;
     cursor: pointer;
@@ -2169,7 +2167,6 @@ body {
     -moz-box-shadow: inset 0px 1px 0px 0px #ffb3b3;
     -webkit-box-shadow: inset 0px 1px 0px 0px #ffb3b3;
     box-shadow: inset 0px 1px 0px 0px #ffb3b3;
-    
     background: rgba(248,80,50,1);
     background: -moz-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,1)), color-stop(50%, rgba(241,111,92,1)), color-stop(51%, rgba(246,41,12,1)), color-stop(71%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
@@ -2178,7 +2175,6 @@ body {
     background: -ms-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
     background: linear-gradient(to bottom, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=0 );
-
     border: 1px solid black;
     display: inline-block;
     cursor: pointer;
@@ -2350,32 +2346,31 @@ body {
 }
 
 .camera-flash {
-    background:white;
-    background:rgba(255,255,255,0.5);
+    background: white;
+    background: rgba(255,255,255,0.5);
 }
 
 .youtube-wrapper {
-    position:absolute;
-    height:0;
-    width:0;
-    visibility:hidden;
-    overflow:hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    overflow: hidden;
 }
 
 .stop-music-button {
-    position:absolute;
-    top:100px;
+    position: absolute;
+    top: 100px;
     left: 70px;
-    width:200px;
-    height:200px;
-    color:white;
-    font-size:50px;
-    box-sizing:border-box;
-    padding:20px;
+    width: 200px;
+    height: 200px;
+    color: white;
+    font-size: 50px;
+    box-sizing: border-box;
+    padding: 20px;
     padding-top: 40px;
     text-align: center;
-    line-height:1.3em;
-
+    line-height: 1.3em;
     background: rgba(169,3,41,1);
     background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgba(109,0,25,1)));
@@ -2418,10 +2413,19 @@ body {
     position: absolute;
     left: 360px;
 }
+
 .context-menu-button.context-menu-button--four-player {
     height: 70px;
     width: 70px;
     top: 293px;
     position: absolute;
     left: 297px;
+}
+
+#confetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
 }
