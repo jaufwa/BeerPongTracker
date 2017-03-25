@@ -290,6 +290,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\beerpongtracker.app.dialofdoom.js" />
     <Content Include="Scripts\beerpongtracker.app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -327,6 +328,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\wheelofdestiny.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
@@ -379,6 +381,7 @@
     <Content Include="Views\Shared\Props\_WinnerPhotos.cshtml" />
     <Content Include="Views\Shared\Media\_YouTubeVideo.cshtml" />
     <Content Include="Views\Home\_Entrance.cshtml" />
+    <Content Include="Views\Home\_DialOfDoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2429,3 +2429,34 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.dial-of-doom-names {
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.dial-of-doom-entry {
+    width:100%;
+    font-size:200%;
+}
+
+#dialOfDoomContainer {
+    height: 760px;
+    width: 760px;
+    position: absolute;
+    left: 50%;
+    margin-left: -380px;
+    top: -5px;
+    overflow: hidden;
+}
+
+.body--dojo {
+    height:100%;
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}

@@ -121,5 +121,10 @@ namespace BeerPongTracker.Website.Controllers
         {
             _beerBongTrackerApiClient.RegisterGenericEvent(sig, gid);
         }
+
+        public ActionResult DialOfDoom()
+        {
+            return PartialView("_DialOfDoom");
+        }
     }
 }
